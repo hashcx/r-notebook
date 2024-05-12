@@ -5,5 +5,33 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "src/quarto.html",
+    "href": "src/quarto.html",
+    "title": "R Notebook",
+    "section": "",
+    "text": "VSCode/RStudio -&gt; Render button\nTerminal -&gt; quarto preview\nTerminal -&gt; quarto preview help"
+  },
+  {
+    "objectID": "src/quarto.html#render-review",
+    "href": "src/quarto.html#render-review",
+    "title": "R Notebook",
+    "section": "",
+    "text": "VSCode/RStudio -&gt; Render button\nTerminal -&gt; quarto preview\nTerminal -&gt; quarto preview help"
+  },
+  {
+    "objectID": "src/quarto.html#render-wo-review",
+    "href": "src/quarto.html#render-wo-review",
+    "title": "R Notebook",
+    "section": "Render w/o Review",
+    "text": "Render w/o Review\n\nTerminal -&gt; quarto render\nTerminal -&gt; quarto render help"
+  },
+  {
+    "objectID": "src/quarto.html#references",
+    "href": "src/quarto.html#references",
+    "title": "R Notebook",
+    "section": "References",
+    "text": "References\n\nQuarto Reference"
   }
 ]

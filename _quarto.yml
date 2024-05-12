@@ -9,7 +9,7 @@ website:
     left:
       - href: src/index.qmd
         text: Home
-      - about.qmd
+      - src/about.qmd
 
 format:
   html:
