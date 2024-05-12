@@ -1,8 +1,5 @@
 project:
   type: website
-  render: 
-    - about.qmd
-    - index.qmd
 
 website:
   title: "R Notebook"
