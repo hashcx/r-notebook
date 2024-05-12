@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "src/about.html",
-    "href": "src/about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
-  },
-  {
     "objectID": "src/quarto.html",
     "href": "src/quarto.html",
     "title": "R Notebook",
