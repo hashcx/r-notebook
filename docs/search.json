@@ -26,5 +26,12 @@
     "title": "R Notebook",
     "section": "References",
     "text": "References\n\nQuarto Reference"
+  },
+  {
+    "objectID": "src/about.html",
+    "href": "src/about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
   }
 ]
