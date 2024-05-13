@@ -4,8 +4,9 @@ project:
   
 
 website:
-  title: "R Notebook"
+  title: "Notebooks"
   navbar:
+    title: true
     background: primary
     search: true
     left:
