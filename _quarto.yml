@@ -5,17 +5,17 @@ project:
 
 website:
   title: "Notebooks"
-  navbar:
-    background: primary
-    search: true
-    left:
-      - href: src/index.qmd
-        text: Home
-      - href: src/about.qmd
-        text: About
-    tools:
-      - icon: twitter
-        href: https://twitter.com
+  # navbar:
+  #   background: primary
+  #   search: true
+  #   left:
+  #     - href: src/index.qmd
+  #       text: Home
+  #     - href: src/about.qmd
+  #       text: About
+  #   tools:
+  #     - icon: twitter
+  #       href: https://twitter.com
   sidebar: 
     contents: auto
 
