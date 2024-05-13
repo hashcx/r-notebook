@@ -18,15 +18,7 @@ website:
       - icon: twitter
         href: https://twitter.com
   sidebar: 
-    style: docked
-    search: true
-    contents: 
-      - section: "R"
-      - contents:
-        - src/r-basics.qmd
-      - section: "Python"
-      - contents:
-        - src/index.qmd
+    contents: auto
 
 format:
   html:
