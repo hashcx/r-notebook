@@ -1,20 +1,7 @@
 ---
 title: "R Basics"
-eval: FALSE
+eval: true
 ---
-
-## Table of Content
-
--   [Sources](#souces)
--   [General Information](#general-info)
--   [Data Types](#dt)
--   [Data Structure](#ds)
--   [Basics](#basics)
--   [Files, Data Frames, & Plots](#data-frame)
--   [Data Manipulation using `dplyr` and `tidyr`](#data-man)
--   [Visualization Using `ggplot2`](#viz)
-
-<a name="souces" />
 
 ## Sources
 
@@ -27,14 +14,14 @@ eval: FALSE
 -   [Intro to ggplot](https://rawcdn.githack.com/allisonhorst/data-vis/fc107e063f50ef8695b0a75ed73d74720aca2c65/data_vis_np.html) by [Allison Horst](https://github.com/allisonhorst)
 -   [R for Data Science book by Garrett Grolemund and Hadley Wickham](https://r4ds.had.co.nz/)
 
-<a name="general-info" />
+
 
 ## General Information
 
 -   Creating a project instead of a file comes with the advantage of saving the workspace settings
 -   `Ctrl+Enter` to run the line of code
 
-<a name="dt" />
+
 
 ## Data Types
 
@@ -54,7 +41,7 @@ class(x)	# give the data type of x
 -   numeric + logical = numeric
 -   numeric + character + logical = character
 
-<a name="ds" />
+
 
 ## Data Structure
 
@@ -70,22 +57,22 @@ str(x)		# give the structure type of x
 length(x)	# length of structure
 ```
 
-<a name="basics" />
 
-## Basics {#basics}
+
+## Basics Operations
 
 Assignment
 
 ```{r}
-x <- 3		# assing 3 to x
-(x <- 3)	# assing 3 to x & print the result to console
+x <- 3		# assign 3 to x
+(x <- 3)	# assign 3 to x & print the result to console
 ```
 
 Getting Help
 
-```{r}
+```{r eval=FALSE}
 args(round)	# bring the interface
-?round		# bring the help file
+?round		  # bring the help file
 ```
 
 Dealing with Structure
@@ -93,8 +80,9 @@ Dealing with Structure
 ```{r}
 # concatenate set of values to create vector
 weight_g <- c(50, 60, 3, 9)
+animals <- c("dog", "bat", "cat")
 
-# utalizing logical values to pull specific values
+# utilizing logical values to pull specific values
 weight_g[weight_g < 10 & weight_g > 60 | weight_g == 50]
 
 # pull dog & cat records
@@ -105,7 +93,7 @@ animals[animals == "dog" | animals == "cat"]
 Statistics
 
 ```{r}
-# signaling missing daa using NA
+# signaling missing data using NA
 heights <- c(2, 3, NA, 4)
 
 # get mean while ignoring missing data
@@ -115,33 +103,49 @@ mean(heights, na.rm = TRUE)
 ?mean
 ```
 
-<a name="data-frame" />
+
 
 ## Files, Data Frames, & Plots
 
-Loading file from repository and saving it locally on disk. It is always a good idea to structure your workspace. See [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745) paper for more information.
+The `here` package makes it easy to point to file starting from the project main directory.
+```{r}
+library(here)
+```
+
+
+Loading file from repository and saving it locally on disk. It is always a good idea to structure the workspace--for more information, see [Best Practices for Scientific Computing paper](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745).
 
 ```{r}
-download.file(url = “https://ndownloader.figshare.com/files/2292169”, 
-	destfile = “data/portal_data_joined.csv”)
+download.file(url = "https://ndownloader.figshare.com/files/2292169", 
+	destfile = here("data", "portal_data_joined.csv"))
 ```
 
 Load file to R as data frame
 
 ```{r}
-surveys <- read.csv("data/portal_data_joined.csv")
+surveys <- read.csv(here("data", "portal_data_joined.csv"))
 ```
 
 Inspecting data frame
 
 ```{r}
 class(surveys)	# data type
-str(surveys)	# structure
-dim(surveys)	# dimension
+```
+
+```{r}
+str(surveys)	  # structure
+```
+
+```{r}
+dim(surveys)	  # dimensions
 nrow(surveys)
 ncol(surveys)
+```
+
+```{r}
 summary(surveys)
 ```
+
 
 Show first/last few objects/records/rows
 
@@ -150,14 +154,13 @@ head(surveys)
 tail(surveys)
 ```
 
-Retreive specific element/row/column
+Retrieve specific element/row/column
 
 ```{r}
 surveys[1,1]	# element[1,1]
 surveys[1, ]	# row 1
 surveys[ ,1]	# column 1
-surveys$sex	# column by name
-
+surveys$sex	  # column by name
 ```
 
 Dealing with factor (categorical) columns. R convert columns that contain characters to factors by default. Factors are treated as integer vectors. By default, R sorts levels in alphabetical order.
@@ -165,42 +168,47 @@ Dealing with factor (categorical) columns. R convert columns that contain charac
 ```{r}
 levels(surveys$sex)
 nlevels(surveys$sex)
+```
+Reorder factors (to get better plots)
 
-# reorder factors (to get better plots)
+```{r}
 surveys$sex_ordered <- factor(surveys$sex, level=c("F", "M", ""))
 str(surveys$sex_ordered)
 levels(surveys$sex_ordered)
 nlevels(surveys$sex_ordered)
 ```
 
-Ploting Histogram
+
+Plotting Histogram
 
 ```{r}
-plot(surveys$sex)
-plos(surveys$sex_ordered)
-
-# enhance the plot
-levels(surveys$sex_ordered)[1] <- "Female"
-levels(surveys$sex_ordered)[2] <- "Male"
-plos(surveys$sex_ordered)
+# plot(surveys$sex)  # not possible
+plot(surveys$sex_ordered)
 ```
 
-<a name="data-man" />
+Enhance the plot
 
-## Data Manipulation using `dplyr` and `tidyr`
+```{r}
+levels(surveys$sex_ordered)[1] <- "Female"
+levels(surveys$sex_ordered)[2] <- "Male"
+plot(surveys$sex_ordered)
+```
+
+
+## Data Manipulation
 
 -   `tdlyr`
     -   makes manipulation of data easier
     -   built to work with data frames directly
-    -   can direclty work with data stored in an external database which give the advantage of onlying brining what we need to the memoery to work on without having to bring the whole DB
+    -   can directly work with data stored in an external database which give the advantage of only bringing what we need to the memory to work on without having to bring the whole database
 -   `tidyr`
-    -   allows to swiftly convert b/w different data formats for plotting & analysis in order to accomodate the different requirements by different functions
+    -   allows to swiftly convert b/w different data formats for plotting & analysis in order to accommodate the different requirements by different functions
         -   sometime we want one row per measurement
-        -   othertimes we want the data aggregated like when ploting
+        -   other times we want the data aggregated like when plotting
 
 Before using `tdlyr` and `tidyr`:
 
--   Install `tidyverse` package: umberella-package that install several packages (tidyr, dplyr, ggplot2 tibble, magrittr, etc.)
+-   Install `tidyverse` package: umbrella-package that install several packages (tidyr, dplyr, ggplot2 tibble, magrittr, etc.)
 -   Load the package each session
 
 Load the package
@@ -212,31 +220,39 @@ library("tidyverse")
 Load & inspect data
 
 ```{r}
-# notice the '-' instead of '.' of basic R
-surveys <- read_csv("data/portal_data_joined.csv")
+# notice the '_' instead of '.' of basic R
+surveys <- read_csv(here("data", "portal_data_joined.csv"))
 
 str(surveys)	# structure: tbl_df (tibble)
-view(surveys)	# preview
+# view(surveys)	# preview in the viewer window, avoid when rendering
+```
 
-# select columns
+select certain columns
+```{r}
 select(surveys, plot_id, species_id, weight)
+```
 
-# select all columns except ...
+
+select all columns except ...
+```{r}
 select(surveys, -sex)
+```
 
-# choose rows based on criteria
+
+Select rows based on criteria
+```{r}
 filter(surveys, year == 1995)
 ```
 
-Piping: Sending the results of one function to another
 
+Piping: Sending the results of one function to another
 ```{r}
 # in multiple steps
-survey_less5 <- filter(surveys, weigth < 5)
+survey_less5 <- filter(surveys, weight < 5)
 survey_sml <- select(survey_less5, species_id, sex, weight)
 
 # in one long step
-survey_sml <- select(filter(surveys, weigth < 5), species_id, sex, weight)
+survey_sml <- select(filter(surveys, weight < 5), species_id, sex, weight)
 
 # using pipe %>% of magritter package.  Use Ctrl + Shift + M to add
 survey_sml <- surveys %>%
@@ -244,14 +260,16 @@ survey_sml <- surveys %>%
 	select(species_id, sex, weight)
 ```
 
-Summary of groups of 1+ coluumn
 
+Summary of groups of 1+ column
 ```{r}
 # one factor
 surveys %>%
 	group_by(sex) %>%
 	summarise(mean_weight = mean(weight, na.rm = TRUE))
-	
+```
+
+```{r}
 # two factors
 surveys %>%
 	group_by(sex, species) %>%
@@ -260,33 +278,44 @@ surveys %>%
 surveys %>%
 	group_by(species, sex) %>%
 	summarise(mean_weight = mean(weight, na.rm = TRUE))
+```
 
+```{r}
 # to avoid using na.rm = FALSE each statistis
 surveys %>%
-	filter(!is.na(weight) %>%
+	filter(!is.na(weight)) %>%
 	group_by(species, sex) %>%
 	summarise(mean_weight = mean(weight), sd_weight = sd(weight), sd_count = n())
+```
 
+
+```{r}
 # arrange by mean weight
 surveys %>%
-	filter(!is.na(weight) %>%
+	filter(!is.na(weight)) %>%
 	group_by(species, sex) %>%
 	summarise(mean_weight = mean(weight), sd_weight = sd(weight), sd_count = n()) %>%
 	arrange(mean_weight)
+```
 
+```{r}
 # in descending order
 surveys %>%
-	filter(!is.na(weight) %>%
+	filter(!is.na(weight)) %>%
 	group_by(species, sex) %>%
 	summarise(mean_weight = mean(weight), sd_weight = sd(weight), sd_count = n()) %>%
 	arrange(desc(mean_weight))
+```
 
+```{r}
 # by count
-	filter(!is.na(weight) %>%
+surveys %>%
+	filter(!is.na(weight)) %>%
 	group_by(species, sex) %>%
 	summarise(mean_weight = mean(weight), sd_weight = sd(weight), sd_count = n()) %>%
-	arrange(count)
+	arrange(sd_count)
 ```
+
 
 Count of a categorical column
 
@@ -300,17 +329,21 @@ Reshaping with gather & spreed
 ```{r}
 # prepare the needed data first
 surveys_gw <- surveys %>%
-	filter(!na.rm(weight)) %>%
+	filter(!is.na(weight)) %>%
 	group_by(genus, plot_id) %>%
 	summarize(mean_weight = mean(weight))
+```
 
+```{r}
 # creating a 2D table where each dimension represent a category
-# the cell will represent a statistis
+# the cell will represent a statistics
 surveys_spread <- surveys_gw %>%
 	spread(key = genus, value = mean_weight)
 str(surveys_spread)
 head(surveys_spread)
+```
 
+```{r}
 # bring spread back
 surveys_gw <- surveys_spread %>%
 	gather(key = genus, value = mean_weight, -plot_id)
@@ -318,35 +351,41 @@ str(surveys_gw)
 head(surveys_gw)
 ```
 
+
 Filtering
 
 ```{r}
 # Remove missing data
 survey_complete <- surveys %>%
   filter(!is.na(weight), !is.na(hindfoot_length), !is.na(sex))
+```
 
+```{r}
 # Filter those that has sample greater than 50
 species_counts <- survey_complete %>%
   count(species_id) %>%
   filter(n >= 50)
+```
 
+```{r eval=FALSE}
 # filter only those in the indicated category
 surveys_com <- surveys %>%
 	filter(species_id %in% )
 ```
 
+
+
 Saving to disk
 
-```{r}
+```{r eval=FALSE}
 write_cvs()
 ```
 
-<a name="viz" />
 
-## Visualization Using `ggplot2`
+## Visualization
 
 -   Help in making complex plots from data frames in simple steps
--   ggplot graphhics are built step by step by adding new elements; this makes it flexible as well as customizable
+-   ggplot graphics are built step by step by adding new elements; this makes it flexible as well as customization
 
 Step 1: Bind the plot to specific data frame
 
@@ -394,12 +433,12 @@ surveys_plot <- ggplot(data = survey_complete,
 surveys_plot + geom_boxplot()
 
 # show data
-survey_plot + geom_boxplot(alpah = 0.5) + 
+surveys_plot + geom_boxplot(alpah = 0.5) + 
 	geom_jitter(alpha = 0.1, color = "tomato")
 
 # bring boxplot layer in front
-survey_plot + geom_jitter(alpah = 0.1, color = "tomato")
-	+ geom_boxplot(alpha = 0.7)
+surveys_plot + geom_jitter(alpah = 0.1, color = "tomato") +
+	geom_boxplot(alpha = 0.7)
 ```
 
 Time series data
@@ -412,16 +451,16 @@ yearly_count <- survey_complete %>%
 surveys_plot <- ggplot(data = yearly_count, 
 	mapping = aes(x = year, y = n))
 
-survey_plot + geom_line()
+surveys_plot + geom_line()
 
 # make it more meaningful by breaking it by category
-survey_plot + geom_line(aes(group = species_id))
+surveys_plot + geom_line(aes(group = species_id))
 
 # make it more colorful
-survey_plot + geom_line(aes(color = species_id))
+surveys_plot + geom_line(aes(color = species_id))
 
 # split into multiple plots
-survey_plot + geom_line() + facet_wrap(~ species_id)
+surveys_plot + geom_line() + facet_wrap(~ species_id)
 
 # split the line in each plot by sex
 yearly_sex_counts <- survey_complete %>%
@@ -430,12 +469,12 @@ yearly_sex_counts <- survey_complete %>%
 surveys_plot <- ggplot(data = yearly_sex_counts, 
 	mapping = aes(x = year, y = n))
 
-surveys_plot + geom_line(aes(color = sex))
-	+ facet_wrap(~ species_id)
+surveys_plot + geom_line(aes(color = sex)) +
+	facet_wrap(~ species_id)
 
 # remove background
-surveys_plot + geom_line(aes(color = sex))
-	+ facet_wrap(~ species_id)
-	+ theme_bw()
-	+ theme(panel.grid = element_blank())
+surveys_plot + geom_line(aes(color = sex)) +
+	facet_wrap(~ species_id) +
+	theme_bw() +
+	theme(panel.grid = element_blank())
 ```
