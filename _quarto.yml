@@ -14,6 +14,9 @@ website:
         text: Home
       - href: src/about.qmd
         text: About
+    tools:
+      - icon: twitter
+        href: https://twitter.com
 
 format:
   html:
