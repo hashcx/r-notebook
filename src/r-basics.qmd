@@ -3,25 +3,18 @@ title: "R Basics"
 eval: true
 ---
 
-## Sources
-
--   OU Software Carpentry Workshop (check other workshops [here](https://libraries.ou.edu/content/software-and-data-carpentry))
-    -   [Main Tutorial](https://oulib-swc.github.io/2019-05-15-ou-swc/)
-    -   [Data Carpentry with R](https://datacarpentry.org/R-ecology-lesson/index.html)
-    -   [Software Carpentry with R](https://swcarpentry.github.io/r-novice-gapminder/)
-    -   [Etherpad](https://pad.carpentries.org/2019-05-15-ou-swc)
-    -   [Google Doc](https://docs.google.com/document/d/1aJq_X1uhaNkUj7qdZEzOcpc2Pky7eZPy76yqs0UkfrQ/edit)
--   [Intro to ggplot](https://rawcdn.githack.com/allisonhorst/data-vis/fc107e063f50ef8695b0a75ed73d74720aca2c65/data_vis_np.html) by [Allison Horst](https://github.com/allisonhorst)
--   [R for Data Science book by Garrett Grolemund and Hadley Wickham](https://r4ds.had.co.nz/)
-
-
-
-## General Information
+## General Notes
 
 -   Creating a project instead of a file comes with the advantage of saving the workspace settings
--   `Ctrl+Enter` to run the line of code
+-   `Ctrl+Enter`: run line on which cursor is standing
+-   `ctr+alt+i`: insert new code chunk
+-   `ctr+shift+c`: comment/un-comment
 
+It is always good idea to start by clearing the workspace
 
+```{r}
+rm(list=ls())
+```
 
 ## Data Types
 
@@ -41,8 +34,6 @@ class(x)	# give the data type of x
 -   numeric + logical = numeric
 -   numeric + character + logical = character
 
-
-
 ## Data Structure
 
 -   **vector**: hold single type of data
@@ -57,8 +48,6 @@ str(x)		# give the structure type of x
 length(x)	# length of structure
 ```
 
-
-
 ## Basics Operations
 
 Assignment
@@ -71,8 +60,8 @@ x <- 3		# assign 3 to x
 Getting Help
 
 ```{r eval=FALSE}
-args(round)	# bring the interface
-?round		  # bring the help file
+args(round)	# print the argument list of function
+?round		  # show documentation of function in Help window
 ```
 
 Dealing with Structure
@@ -100,18 +89,16 @@ heights <- c(2, 3, NA, 4)
 mean(heights, na.rm = TRUE)
 
 # how to use mean
-?mean
+# ?mean
 ```
-
-
 
 ## Files, Data Frames, & Plots
 
 The `here` package makes it easy to point to file starting from the project main directory.
+
 ```{r}
 library(here)
 ```
-
 
 Loading file from repository and saving it locally on disk. It is always a good idea to structure the workspace--for more information, see [Best Practices for Scientific Computing paper](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745).
 
@@ -146,7 +133,6 @@ ncol(surveys)
 summary(surveys)
 ```
 
-
 Show first/last few objects/records/rows
 
 ```{r}
@@ -159,8 +145,8 @@ Retrieve specific element/row/column
 ```{r}
 surveys[1,1]	# element[1,1]
 surveys[1, ]	# row 1
-surveys[ ,1]	# column 1
-surveys$sex	  # column by name
+head(surveys[ ,1])	# column 1
+head(surveys$sex)	  # column by name
 ```
 
 Dealing with factor (categorical) columns. R convert columns that contain characters to factors by default. Factors are treated as integer vectors. By default, R sorts levels in alphabetical order.
@@ -169,6 +155,7 @@ Dealing with factor (categorical) columns. R convert columns that contain charac
 levels(surveys$sex)
 nlevels(surveys$sex)
 ```
+
 Reorder factors (to get better plots)
 
 ```{r}
@@ -177,7 +164,6 @@ str(surveys$sex_ordered)
 levels(surveys$sex_ordered)
 nlevels(surveys$sex_ordered)
 ```
-
 
 Plotting Histogram
 
@@ -193,7 +179,6 @@ levels(surveys$sex_ordered)[1] <- "Female"
 levels(surveys$sex_ordered)[2] <- "Male"
 plot(surveys$sex_ordered)
 ```
-
 
 ## Data Manipulation
 
@@ -228,24 +213,25 @@ str(surveys)	# structure: tbl_df (tibble)
 ```
 
 select certain columns
+
 ```{r}
 select(surveys, plot_id, species_id, weight)
 ```
 
-
 select all columns except ...
+
 ```{r}
 select(surveys, -sex)
 ```
 
-
 Select rows based on criteria
+
 ```{r}
 filter(surveys, year == 1995)
 ```
 
-
 Piping: Sending the results of one function to another
+
 ```{r}
 # in multiple steps
 survey_less5 <- filter(surveys, weight < 5)
@@ -260,8 +246,8 @@ survey_sml <- surveys %>%
 	select(species_id, sex, weight)
 ```
 
-
 Summary of groups of 1+ column
+
 ```{r}
 # one factor
 surveys %>%
@@ -287,7 +273,6 @@ surveys %>%
 	group_by(species, sex) %>%
 	summarise(mean_weight = mean(weight), sd_weight = sd(weight), sd_count = n())
 ```
-
 
 ```{r}
 # arrange by mean weight
@@ -315,7 +300,6 @@ surveys %>%
 	summarise(mean_weight = mean(weight), sd_weight = sd(weight), sd_count = n()) %>%
 	arrange(sd_count)
 ```
-
 
 Count of a categorical column
 
@@ -351,7 +335,6 @@ str(surveys_gw)
 head(surveys_gw)
 ```
 
-
 Filtering
 
 ```{r}
@@ -373,14 +356,11 @@ surveys_com <- surveys %>%
 	filter(species_id %in% )
 ```
 
-
-
 Saving to disk
 
 ```{r eval=FALSE}
 write_cvs()
 ```
-
 
 ## Visualization
 
@@ -478,3 +458,14 @@ surveys_plot + geom_line(aes(color = sex)) +
 	theme_bw() +
 	theme(panel.grid = element_blank())
 ```
+
+## References
+
+-   OU Software Carpentry Workshop (check other workshops [here](https://libraries.ou.edu/content/software-and-data-carpentry))
+    -   [Main Tutorial](https://oulib-swc.github.io/2019-05-15-ou-swc/)
+    -   [Data Carpentry with R](https://datacarpentry.org/R-ecology-lesson/index.html)
+    -   [Software Carpentry with R](https://swcarpentry.github.io/r-novice-gapminder/)
+    -   [Etherpad](https://pad.carpentries.org/2019-05-15-ou-swc)
+    -   [Google Doc](https://docs.google.com/document/d/1aJq_X1uhaNkUj7qdZEzOcpc2Pky7eZPy76yqs0UkfrQ/edit)
+-   [Intro to ggplot](https://rawcdn.githack.com/allisonhorst/data-vis/fc107e063f50ef8695b0a75ed73d74720aca2c65/data_vis_np.html) by [Allison Horst](https://github.com/allisonhorst)
+-   [R for Data Science book by Garrett Grolemund and Hadley Wickham](https://r4ds.had.co.nz/)
