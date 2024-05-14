@@ -10,7 +10,9 @@ eval: true
 -   `Ctrl+Alt+I`: insert new code chunk
 -   `Ctrl+Shift+C`: comment/un-comment
 
-It is always good idea to start by clearing the workspace
+## Clear Workspace
+
+Start by cleaning the workspace environment of the project to avoid mixing up variables created in other files.
 
 ```{r}
 rm(list=ls())
@@ -267,7 +269,7 @@ surveys %>%
 ```
 
 ```{r}
-# to avoid using na.rm = FALSE each statistis
+# to avoid using na.rm = FALSE each statistics
 surveys %>%
 	filter(!is.na(weight)) %>%
 	group_by(species, sex) %>%
