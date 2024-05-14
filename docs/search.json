@@ -58,7 +58,7 @@
     "href": "src/r-basics.html",
     "title": "R Basics",
     "section": "",
-    "text": "Creating a project instead of a file comes with the advantage of saving the workspace settings\nCtrl+Enter: run line on which cursor is standing\nctr+alt+i: insert new code chunk\nctr+shift+c: comment/un-comment\n\nIt is always good idea to start by clearing the workspace\n\nrm(list=ls())",
+    "text": "Creating a project instead of a file comes with the advantage of saving the workspace settings\nCtrl+Enter: run line on which cursor is standing\nCtrl+Alt+I: insert new code chunk\nCtrl+Shift+C: comment/un-comment\n\nIt is always good idea to start by clearing the workspace\n\nrm(list=ls())",
     "crumbs": [
       "Index",
       "R Basics"
@@ -212,7 +212,7 @@
     "href": "src/r-basics.html#general-notes",
     "title": "R Basics",
     "section": "",
-    "text": "Creating a project instead of a file comes with the advantage of saving the workspace settings\nCtrl+Enter: run line on which cursor is standing\nctr+alt+i: insert new code chunk\nctr+shift+c: comment/un-comment\n\nIt is always good idea to start by clearing the workspace\n\nrm(list=ls())",
+    "text": "Creating a project instead of a file comes with the advantage of saving the workspace settings\nCtrl+Enter: run line on which cursor is standing\nCtrl+Alt+I: insert new code chunk\nCtrl+Shift+C: comment/un-comment\n\nIt is always good idea to start by clearing the workspace\n\nrm(list=ls())",
     "crumbs": [
       "Index",
       "R Basics"
