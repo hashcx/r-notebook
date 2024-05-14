@@ -3,6 +3,7 @@ title: "R Basics"
 eval: true
 ---
 
+
 ## General Notes
 
 -   Creating a project instead of a file comes with the advantage of saving the workspace settings
@@ -12,9 +13,11 @@ eval: true
 
 It is always good idea to start by clearing the workspace
 
+
 ```{r}
 rm(list=ls())
 ```
+
 
 ## Data Types
 
@@ -24,9 +27,11 @@ rm(list=ls())
 -   raw
 -   imaginary numbers
 
+
 ```{r eval=FALSE}
 class(x)	# give the data type of x
 ```
+
 
 ### Mixing Data Types
 
@@ -43,28 +48,35 @@ class(x)	# give the data type of x
 -   **tibbles**: data frames, but slightly tweaked to work better in the tidyverse
 -   **factor**
 
+
 ```{r eval=FALSE}
 str(x)		# give the structure type of x
 length(x)	# length of structure
 ```
 
+
 ## Basics Operations
 
 Assignment
+
 
 ```{r}
 x <- 3		# assign 3 to x
 (x <- 3)	# assign 3 to x & print the result to console
 ```
 
+
 Getting Help
+
 
 ```{r eval=FALSE}
 args(round)	# print the argument list of function
 ?round		  # show documentation of function in Help window
 ```
 
+
 Dealing with Structure
+
 
 ```{r}
 # concatenate set of values to create vector
@@ -79,7 +91,9 @@ animals[animals %in% c("dog", "cat")]
 animals[animals == "dog" | animals == "cat"]
 ```
 
+
 Statistics
+
 
 ```{r}
 # signaling missing data using NA
@@ -92,28 +106,36 @@ mean(heights, na.rm = TRUE)
 # ?mean
 ```
 
+
 ## Files, Data Frames, & Plots
 
 The `here` package makes it easy to point to file starting from the project main directory.
+
 
 ```{r}
 library(here)
 ```
 
+
 Loading file from repository and saving it locally on disk. It is always a good idea to structure the workspace--for more information, see [Best Practices for Scientific Computing paper](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745).
+
 
 ```{r}
 download.file(url = "https://ndownloader.figshare.com/files/2292169", 
 	destfile = here("data", "portal_data_joined.csv"))
 ```
 
+
 Load file to R as data frame
+
 
 ```{r}
 surveys <- read.csv(here("data", "portal_data_joined.csv"))
 ```
 
+
 Inspecting data frame
+
 
 ```{r}
 class(surveys)	# data type
@@ -133,14 +155,18 @@ ncol(surveys)
 summary(surveys)
 ```
 
+
 Show first/last few objects/records/rows
+
 
 ```{r}
 head(surveys)
 tail(surveys)
 ```
 
+
 Retrieve specific element/row/column
+
 
 ```{r}
 surveys[1,1]	# element[1,1]
@@ -149,14 +175,18 @@ head(surveys[ ,1])	# column 1
 head(surveys$sex)	  # column by name
 ```
 
+
 Dealing with factor (categorical) columns. R convert columns that contain characters to factors by default. Factors are treated as integer vectors. By default, R sorts levels in alphabetical order.
+
 
 ```{r}
 levels(surveys$sex)
 nlevels(surveys$sex)
 ```
 
+
 Reorder factors (to get better plots)
+
 
 ```{r}
 surveys$sex_ordered <- factor(surveys$sex, level=c("F", "M", ""))
@@ -165,20 +195,25 @@ levels(surveys$sex_ordered)
 nlevels(surveys$sex_ordered)
 ```
 
+
 Plotting Histogram
+
 
 ```{r}
 # plot(surveys$sex)  # not possible
 plot(surveys$sex_ordered)
 ```
 
+
 Enhance the plot
+
 
 ```{r}
 levels(surveys$sex_ordered)[1] <- "Female"
 levels(surveys$sex_ordered)[2] <- "Male"
 plot(surveys$sex_ordered)
 ```
+
 
 ## Data Manipulation
 
@@ -198,11 +233,14 @@ Before using `tdlyr` and `tidyr`:
 
 Load the package
 
+
 ```{r}
 library("tidyverse")
 ```
 
+
 Load & inspect data
+
 
 ```{r}
 # notice the '_' instead of '.' of basic R
@@ -212,25 +250,33 @@ str(surveys)	# structure: tbl_df (tibble)
 # view(surveys)	# preview in the viewer window, avoid when rendering
 ```
 
+
 select certain columns
+
 
 ```{r}
 select(surveys, plot_id, species_id, weight)
 ```
 
+
 select all columns except ...
+
 
 ```{r}
 select(surveys, -sex)
 ```
 
+
 Select rows based on criteria
+
 
 ```{r}
 filter(surveys, year == 1995)
 ```
 
+
 Piping: Sending the results of one function to another
+
 
 ```{r}
 # in multiple steps
@@ -246,7 +292,9 @@ survey_sml <- surveys %>%
 	select(species_id, sex, weight)
 ```
 
+
 Summary of groups of 1+ column
+
 
 ```{r}
 # one factor
@@ -301,14 +349,18 @@ surveys %>%
 	arrange(sd_count)
 ```
 
+
 Count of a categorical column
+
 
 ```{r}
 surveys %>%
 	count(sex)
 ```
 
+
 Reshaping with gather & spreed
+
 
 ```{r}
 # prepare the needed data first
@@ -335,7 +387,9 @@ str(surveys_gw)
 head(surveys_gw)
 ```
 
+
 Filtering
+
 
 ```{r}
 # Remove missing data
@@ -356,11 +410,14 @@ surveys_com <- surveys %>%
 	filter(species_id %in% )
 ```
 
+
 Saving to disk
+
 
 ```{r eval=FALSE}
 write_cvs()
 ```
+
 
 ## Visualization
 
@@ -368,6 +425,7 @@ write_cvs()
 -   ggplot graphics are built step by step by adding new elements; this makes it flexible as well as customization
 
 Step 1: Bind the plot to specific data frame
+
 
 ```{r}
 surveys_plot <- ggplot(data = survey_complete, 
@@ -379,6 +437,7 @@ surveys_plot <- ggplot(data = survey_complete,
 	color=species_id)
 ```
 
+
 Step 2: Select the type of the plot
 
 -   scatter plot, dot plots, etc. \> geom_point()
@@ -386,6 +445,7 @@ Step 2: Select the type of the plot
 -   trend lines, time series, etc. \> geom_line()
 
 Scatter plot
+
 
 ```{r}
 surveys_plot + geom_point()
@@ -404,7 +464,9 @@ surveys_plot + geom_point(alpha = 0.1, aes(color = species_id))
 surveys_plot + geom_jitter(alpha = 0.1)
 ```
 
+
 Boxplot
+
 
 ```{r}
 surveys_plot <- ggplot(data = survey_complete, 
@@ -421,7 +483,9 @@ surveys_plot + geom_jitter(alpha = 0.1, color = "tomato") +
 	geom_boxplot(alpha = 0.7)
 ```
 
+
 Time series data
+
 
 ```{r}
 # create appropriate dataset
@@ -459,6 +523,7 @@ surveys_plot + geom_line(aes(color = sex)) +
 	theme(panel.grid = element_blank())
 ```
 
+
 ## References
 
 -   OU Software Carpentry Workshop (check other workshops [here](https://libraries.ou.edu/content/software-and-data-carpentry))
@@ -470,3 +535,4 @@ surveys_plot + geom_line(aes(color = sex)) +
 -   [Intro to ggplot](https://rawcdn.githack.com/allisonhorst/data-vis/fc107e063f50ef8695b0a75ed73d74720aca2c65/data_vis_np.html) by [Allison Horst](https://github.com/allisonhorst)
 -   [R for Data Science book by Garrett Grolemund and Hadley Wickham](https://r4ds.had.co.nz/)
 -   [Best Practices for Scientific Computing paper](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
+
