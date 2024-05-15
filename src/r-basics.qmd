@@ -36,13 +36,13 @@ class(x)	# give the data type of x
 -   numeric + logical = numeric
 -   numeric + character + logical = character
 
-## Data Structure
+## Data Structures
 
 -   **vector**: hold single type of data
 -   **matrix**: 2D vector
--   **list**: generic vector, each of its element can be anything (character list of lists)
+-   **list**: generic vector, each of its element can be any thing (character list of lists)
 -   **data frame**: table where columns represent vectors
--   **tibbles**: data frames, but slightly tweaked to work better in the tidyverse
+-   **tibbles**: data frames, but slightly tweaked to work better with `tidyverse` package
 -   **factor**
 
 ```{r eval=FALSE}

@@ -179,11 +179,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#general-notes" id="toc-general-notes" class="nav-link active" data-scroll-target="#general-notes">General Notes</a></li>
+  <li><a href="#clear-workspace" id="toc-clear-workspace" class="nav-link" data-scroll-target="#clear-workspace">Clear Workspace</a></li>
   <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types">Data Types</a>
   <ul class="collapse">
   <li><a href="#mixing-data-types" id="toc-mixing-data-types" class="nav-link" data-scroll-target="#mixing-data-types">Mixing Data Types</a></li>
   </ul></li>
-  <li><a href="#data-structure" id="toc-data-structure" class="nav-link" data-scroll-target="#data-structure">Data Structure</a></li>
+  <li><a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures">Data Structures</a></li>
   <li><a href="#basics-operations" id="toc-basics-operations" class="nav-link" data-scroll-target="#basics-operations">Basics Operations</a></li>
   <li><a href="#files-data-frames-plots" id="toc-files-data-frames-plots" class="nav-link" data-scroll-target="#files-data-frames-plots">Files, Data Frames, &amp; Plots</a></li>
   <li><a href="#data-manipulation" id="toc-data-manipulation" class="nav-link" data-scroll-target="#data-manipulation">Data Manipulation</a></li>
@@ -222,7 +223,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>Ctrl+Alt+I</code>: insert new code chunk</li>
 <li><code>Ctrl+Shift+C</code>: comment/un-comment</li>
 </ul>
-<p>It is always good idea to start by clearing the workspace</p>
+</section>
+<section id="clear-workspace" class="level2">
+<h2 class="anchored" data-anchor-id="clear-workspace">Clear Workspace</h2>
+<p>Start by cleaning the workspace environment of the project to avoid mixing up variables created in other files.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -248,14 +252,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="data-structure" class="level2">
-<h2 class="anchored" data-anchor-id="data-structure">Data Structure</h2>
+<section id="data-structures" class="level2">
+<h2 class="anchored" data-anchor-id="data-structures">Data Structures</h2>
 <ul>
 <li><strong>vector</strong>: hold single type of data</li>
 <li><strong>matrix</strong>: 2D vector</li>
-<li><strong>list</strong>: generic vector, each of its element can be anything (character list of lists)</li>
+<li><strong>list</strong>: generic vector, each of its element can be any thing (character list of lists)</li>
 <li><strong>data frame</strong>: table where columns represent vectors</li>
-<li><strong>tibbles</strong>: data frames, but slightly tweaked to work better in the tidyverse</li>
+<li><strong>tibbles</strong>: data frames, but slightly tweaked to work better with <code>tidyverse</code> package</li>
 <li><strong>factor</strong></li>
 </ul>
 <div class="cell">
@@ -319,7 +323,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>here() starts at C:/Users/Amin Alhashim/Documents/GitHub/alhashimphd/r-notebook</code></pre>
+<pre><code>here() starts at C:/Users/Amin Alhashim/Documents/GitHub/alhashimphd/notebooks</code></pre>
 </div>
 </div>
 <p>Loading file from repository and saving it locally on disk. It is always a good idea to structure the workspace–for more information, see <a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745">Best Practices for Scientific Computing paper</a>.</p>
@@ -744,7 +748,7 @@ argument.</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to avoid using na.rm = FALSE each statistis</span></span>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to avoid using na.rm = FALSE each statistics</span></span>
 <span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>surveys <span class="sc">%&gt;%</span></span>
 <span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(weight)) <span class="sc">%&gt;%</span></span>
 <span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(species, sex) <span class="sc">%&gt;%</span></span>
