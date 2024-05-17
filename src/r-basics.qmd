@@ -94,11 +94,11 @@ mean(heights, na.rm = TRUE)
 # ?mean
 ```
 
-## Files, Data Frames, & Plots
+## Exploratory Operations
 
-The `here` package makes it easy to point to file starting from the project main directory.
+The `here` package makes it easy to point to files starting from the project main directory.
 
-```{r}
+```{r }
 library(here)
 ```
 
@@ -142,7 +142,7 @@ head(surveys)
 tail(surveys)
 ```
 
-Retrieve specific element/row/column
+### Retrieve specific element/row/column
 
 ```{r}
 surveys[1,1]	# element[1,1]
@@ -151,7 +151,9 @@ head(surveys[ ,1])	# column 1
 head(surveys$sex)	  # column by name
 ```
 
-Dealing with factor (categorical) columns. R convert columns that contain characters to factors by default. Factors are treated as integer vectors. By default, R sorts levels in alphabetical order.
+### Dealing with factor (categorical) columns
+
+R convert columns that contain characters to factors by default. Factors are treated as integer vectors. By default, R sorts levels in alphabetical order.
 
 ```{r}
 levels(surveys$sex)
@@ -167,7 +169,9 @@ levels(surveys$sex_ordered)
 nlevels(surveys$sex_ordered)
 ```
 
-Plotting Histogram
+### Basic Plotting
+
+Histogram
 
 ```{r}
 # plot(surveys$sex)  # not possible
@@ -198,7 +202,7 @@ Before using `tdlyr` and `tidyr`:
 -   Install `tidyverse` package: umbrella-package that install several packages (tidyr, dplyr, ggplot2 tibble, magrittr, etc.)
 -   Load the package each session
 
-Load the package
+Load packages
 
 ```{r}
 library("tidyverse")
@@ -214,13 +218,15 @@ str(surveys)	# structure: tbl_df (tibble)
 # view(surveys)	# preview in the viewer window, avoid when rendering
 ```
 
-select certain columns
+### Selection
+
+Select certain columns
 
 ```{r}
 select(surveys, plot_id, species_id, weight)
 ```
 
-select all columns except ...
+Select all columns except ...
 
 ```{r}
 select(surveys, -sex)
@@ -232,7 +238,9 @@ Select rows based on criteria
 filter(surveys, year == 1995)
 ```
 
-Piping: Sending the results of one function to another
+### Piping
+
+Sending the results of one function to another
 
 ```{r}
 # in multiple steps
@@ -248,17 +256,21 @@ survey_sml <- surveys %>%
 	select(species_id, sex, weight)
 ```
 
-Summary of groups of 1+ column
+### Summary
+
+Summary of groups (1+ columns)
+
+one factor
 
 ```{r}
-# one factor
 surveys %>%
 	group_by(sex) %>%
 	summarise(mean_weight = mean(weight, na.rm = TRUE))
 ```
 
+two factors
+
 ```{r}
-# two factors
 surveys %>%
 	group_by(sex, species) %>%
 	summarise(mean_weight = mean(weight, na.rm = TRUE))
@@ -268,16 +280,19 @@ surveys %>%
 	summarise(mean_weight = mean(weight, na.rm = TRUE))
 ```
 
+to avoid using `na.rm = FALSE` each statistics
+
 ```{r}
-# to avoid using na.rm = FALSE each statistics
 surveys %>%
 	filter(!is.na(weight)) %>%
 	group_by(species, sex) %>%
 	summarise(mean_weight = mean(weight), sd_weight = sd(weight), sd_count = n())
 ```
 
+
+arrange by mean weight
+
 ```{r}
-# arrange by mean weight
 surveys %>%
 	filter(!is.na(weight)) %>%
 	group_by(species, sex) %>%
@@ -285,8 +300,9 @@ surveys %>%
 	arrange(mean_weight)
 ```
 
+in descending order
+
 ```{r}
-# in descending order
 surveys %>%
 	filter(!is.na(weight)) %>%
 	group_by(species, sex) %>%
@@ -294,14 +310,17 @@ surveys %>%
 	arrange(desc(mean_weight))
 ```
 
+by count
+
 ```{r}
-# by count
 surveys %>%
 	filter(!is.na(weight)) %>%
 	group_by(species, sex) %>%
 	summarise(mean_weight = mean(weight), sd_weight = sd(weight), sd_count = n()) %>%
 	arrange(sd_count)
 ```
+
+### Count
 
 Count of a categorical column
 
@@ -310,55 +329,62 @@ surveys %>%
 	count(sex)
 ```
 
-Reshaping with gather & spreed
+### Reshaping 
+
+Using gather & spreed
+
+prepare the needed data first
 
 ```{r}
-# prepare the needed data first
 surveys_gw <- surveys %>%
 	filter(!is.na(weight)) %>%
 	group_by(genus, plot_id) %>%
 	summarize(mean_weight = mean(weight))
 ```
 
+creating a 2D table where each dimension represent a category the cell will represent a statistics
+
 ```{r}
-# creating a 2D table where each dimension represent a category
-# the cell will represent a statistics
 surveys_spread <- surveys_gw %>%
 	spread(key = genus, value = mean_weight)
 str(surveys_spread)
 head(surveys_spread)
 ```
 
+bring spread back
+
 ```{r}
-# bring spread back
 surveys_gw <- surveys_spread %>%
 	gather(key = genus, value = mean_weight, -plot_id)
 str(surveys_gw)
 head(surveys_gw)
 ```
 
-Filtering
+### Filtering
+
+Remove missing data
 
 ```{r}
-# Remove missing data
 survey_complete <- surveys %>%
   filter(!is.na(weight), !is.na(hindfoot_length), !is.na(sex))
 ```
 
+Filter those that has sample greater than 50
+
 ```{r}
-# Filter those that has sample greater than 50
 species_counts <- survey_complete %>%
   count(species_id) %>%
   filter(n >= 50)
 ```
 
-```{r eval=FALSE}
-# filter only those in the indicated category
+filter only those in the indicated category
+
+```{r}
 surveys_com <- surveys %>%
-	filter(species_id %in% )
+	filter(species_id %in% c("albigula", "eremicus"))
 ```
 
-Saving to disk
+### Saving to disk
 
 ```{r eval=FALSE}
 write_cvs()
@@ -387,7 +413,7 @@ Step 2: Select the type of the plot
 -   boxplots \> geom_boxplot()
 -   trend lines, time series, etc. \> geom_line()
 
-Scatter plot
+### Scatter plot
 
 ```{r}
 surveys_plot + geom_point()
@@ -406,7 +432,7 @@ surveys_plot + geom_point(alpha = 0.1, aes(color = species_id))
 surveys_plot + geom_jitter(alpha = 0.1)
 ```
 
-Boxplot
+### Boxplot
 
 ```{r}
 surveys_plot <- ggplot(data = survey_complete, 
@@ -423,7 +449,7 @@ surveys_plot + geom_jitter(alpha = 0.1, color = "tomato") +
 	geom_boxplot(alpha = 0.7)
 ```
 
-Time series data
+### Time series data
 
 ```{r}
 # create appropriate dataset
