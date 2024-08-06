@@ -120,6 +120,22 @@
 
 \KOMAoption{captions}{tableheading}
 \makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
 \@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
 \makeatother
 \makeatletter
@@ -1655,6 +1671,10 @@ i Do you need to adjust the group aesthetic?
 
 \section{Keyboard Shortcuts}\label{keyboard-shortcuts}
 
+Below is a set of helpful keyboard shortcut. The full list can be
+reached by clicking Tools -\textgreater{} Keyboard Shortcut Help
+(\texttt{Alt-Shift-K}) -\textgreater{} See All Shortcuts
+
 \begin{itemize}
 \tightlist
 \item
@@ -1683,17 +1703,37 @@ file per chapter of the book.
 
 \chapter{Data visualization}\label{data-visualization}
 
-Clear the workspace to avoid any problems
+\section{Introduction}\label{introduction}
+
+This page introduces the plot creation vocabulary step by step
+
+\section{Clear Workspace}\label{clear-workspace}
+
+Always start by clearing the workspace. This ensure objects created in
+other files are not used used here.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rm}\NormalTok{(}\AttributeTok{list =} \FunctionTok{ls}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Packages}\label{sec-packages}
+
+\subsection{List}\label{list}
 
 List all the packages that will be used in this script.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{packages }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"palmerpenguins"}\NormalTok{, }\StringTok{\textquotesingle{}ggthemes\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}ggplot2\textquotesingle{}}\NormalTok{)}
+\NormalTok{packages }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"palmerpenguins"}\NormalTok{, }\StringTok{\textquotesingle{}ggthemes\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}ggplot2\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}dplyr\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}printr\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}here\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}knitr\textquotesingle{}}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-Any missing package will be installed automatically
+\subsection{Install Missing}\label{install-missing}
+
+Any missing package will be installed automatically. This ensure
+smoother execution when run by others.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1702,14 +1742,52 @@ Any missing package will be installed automatically
 \end{Highlighting}
 \end{Shaded}
 
+\subsection{Load}\label{load}
+
 Load all packages
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Do NOT modify}
-\FunctionTok{lapply}\NormalTok{(packages, require, }\AttributeTok{character.only =} \ConstantTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\begin{verbatim}
+Loading required package: dplyr
+\end{verbatim}
+
+\begin{verbatim}
+
+Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+The following objects are masked from 'package:stats':
+
+    filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{verbatim}
+Loading required package: printr
+\end{verbatim}
+
+\begin{verbatim}
+Registered S3 method overwritten by 'printr':
+  method                from     
+  knit_print.data.frame rmarkdown
+\end{verbatim}
+
+\begin{verbatim}
+Loading required package: here
+\end{verbatim}
+
+\begin{verbatim}
+here() starts at C:/Users/Amin Alhashim/Documents/GitHub/hashcx/notebooks
+\end{verbatim}
+
+\begin{verbatim}
+Loading required package: knitr
+\end{verbatim}
 
 \begin{verbatim}
 [[1]]
@@ -1720,14 +1798,28 @@ Load all packages
 
 [[3]]
 [1] TRUE
+
+[[4]]
+[1] TRUE
+
+[[5]]
+[1] TRUE
+
+[[6]]
+[1] TRUE
+
+[[7]]
+[1] TRUE
 \end{verbatim}
 
-\section{Steps of plot creation}\label{steps-of-plot-creation}
+\section{Plot Creation Process}\label{plot-creation-process}
 
-We will work on the \texttt{penguins} dataset from the
-\texttt{palmerpenguins} package. Although the package can be loaded
-using the command below, it listed and automatically loaded using the
-above chunks.
+\subsection{Load Dataset}\label{load-dataset}
+
+The \texttt{penguins} dataset from the \texttt{palmerpenguins} package
+will be used for plotting. Typically, the package is loaded using the
+\texttt{library} function as shown in the code chunk below. However, a
+better approach is the one outlined in Section~\ref{sec-packages}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1735,11 +1827,109 @@ above chunks.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{\texorpdfstring{Load \texttt{ggplot2}
-Package}{Load ggplot2 Package}}\label{load-ggplot2-package}
+Explore the dataset
 
-Load the \texttt{ggplot2} package using the \texttt{library}
-function--it was listed and automatically loaded using the above chunks.
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{help}\NormalTok{(penguins)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Size measurements for adult foraging penguins near Palmer Station,
+Antarctica
+
+Description:
+
+     Includes measurements for penguin species, island in Palmer
+     Archipelago, size (flipper length, body mass, bill dimensions),
+     and sex. This is a subset of 'penguins_raw'.
+
+Usage:
+
+     penguins
+     
+Format:
+
+     A tibble with 344 rows and 8 variables:
+
+     species a factor denoting penguin species (Adélie, Chinstrap and
+          Gentoo)
+
+     island a factor denoting island in Palmer Archipelago, Antarctica
+          (Biscoe, Dream or Torgersen)
+
+     bill_length_mm a number denoting bill length (millimeters)
+
+     bill_depth_mm a number denoting bill depth (millimeters)
+
+     flipper_length_mm an integer denoting flipper length (millimeters)
+
+     body_mass_g an integer denoting body mass (grams)
+
+     sex a factor denoting penguin sex (female, male)
+
+     year an integer denoting the study year (2007, 2008, or 2009)
+
+Source:
+
+     Adélie penguins: Palmer Station Antarctica LTER and K. Gorman.
+     2020. Structural size measurements and isotopic signatures of
+     foraging among adult male and female Adélie penguins (Pygoscelis
+     adeliae) nesting along the Palmer Archipelago near Palmer Station,
+     2007-2009 ver 5. Environmental Data Initiative. doi:
+     10.6073/pasta/98b16d7d563f265cb52372c8ca99e60f (URL:
+     https://doi.org/10.6073/pasta/98b16d7d563f265cb52372c8ca99e60f)
+
+     Gentoo penguins: Palmer Station Antarctica LTER and K. Gorman.
+     2020. Structural size measurements and isotopic signatures of
+     foraging among adult male and female Gentoo penguin (Pygoscelis
+     papua) nesting along the Palmer Archipelago near Palmer Station,
+     2007-2009 ver 5. Environmental Data Initiative. doi:
+     10.6073/pasta/7fca67fb28d56ee2ffa3d9370ebda689 (URL:
+     https://doi.org/10.6073/pasta/7fca67fb28d56ee2ffa3d9370ebda689)
+
+     Chinstrap penguins: Palmer Station Antarctica LTER and K. Gorman.
+     2020. Structural size measurements and isotopic signatures of
+     foraging among adult male and female Chinstrap penguin (Pygoscelis
+     antarcticus) nesting along the Palmer Archipelago near Palmer
+     Station, 2007-2009 ver 6. Environmental Data Initiative. doi:
+     10.6073/pasta/c14dfcfada8ea13a17536e73eb6fbe9e (URL:
+     https://doi.org/10.6073/pasta/c14dfcfada8ea13a17536e73eb6fbe9e)
+
+     Originally published in: Gorman KB, Williams TD, Fraser WR (2014)
+     Ecological Sexual Dimorphism and Environmental Variability within
+     a Community of Antarctic Penguins (Genus Pygoscelis). PLoS ONE
+     9(3): e90081. doi:10.1371/journal.pone.0090081
+\end{verbatim}
+
+Explore the dataset differently
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dplyr}\SpecialCharTok{::}\FunctionTok{glimpse}\NormalTok{(penguins)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Rows: 344
+Columns: 8
+$ species           <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel~
+$ island            <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgerse~
+$ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, ~
+$ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, ~
+$ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186~
+$ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, ~
+$ sex               <fct> male, female, female, NA, female, male, female, male~
+$ year              <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007~
+\end{verbatim}
+
+\subsection{Load Plotting Package}\label{load-plotting-package}
+
+The \texttt{ggplot2} package will be used for plotting. The package is
+typically loaded using the \texttt{library} function as shown in the
+code chunk below. However, a better approach is the one outlined in
+Section~\ref{sec-packages}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1759,7 +1949,7 @@ the \texttt{ggplot()} function.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-4-1.pdf}
+\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-6-1.pdf}
 
 \subsection{Link Dataset}\label{link-dataset}
 
@@ -1772,9 +1962,9 @@ Link the dataset with the instantiated \texttt{ggplot} object using the
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-5-1.pdf}
+\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-7-1.pdf}
 
-\subsection{Map 2 Variables}\label{map-2-variables}
+\subsection{Map Two Variables}\label{map-two-variables}
 
 Specify which of the variables in the dataset will be used as the plot
 aesthetics (visual properties) using the \texttt{mapping} argument done
@@ -1787,9 +1977,9 @@ via the \texttt{aes()} function.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-6-1.pdf}
+\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-8-1.pdf}
 
-\subsection{Show Data}\label{show-data}
+\subsection{Display Data}\label{display-data}
 
 Specify how the data (observations) will be represented geometrically on
 the plot, eg, bars, points, or line. The functions starting with
@@ -1809,9 +1999,9 @@ Warning: Removed 2 rows containing missing values or values outside the scale ra
 (`geom_point()`).
 \end{verbatim}
 
-\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-7-1.pdf}
+\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-9-1.pdf}
 
-\subsection{Map 1 More Variables}\label{map-1-more-variables}
+\subsection{Map Third Variables}\label{map-third-variables}
 
 Other variables in the dataset can be linked to plot aesthetics (visual
 properties) using the \texttt{mapping} argument done via the
@@ -1832,10 +2022,9 @@ Warning: Removed 2 rows containing missing values or values outside the scale ra
 (`geom_point()`).
 \end{verbatim}
 
-\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-8-1.pdf}
+\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-10-1.pdf}
 
-\subsection{Show Data Again
-Differently}\label{show-data-again-differently}
+\subsection{Display Three Trendlines}\label{display-three-trendlines}
 
 More geometric representations for the data can be specified using the
 functions starting with \texttt{geom\_} which will add layer of the
@@ -1866,15 +2055,14 @@ Warning: Removed 2 rows containing missing values or values outside the scale ra
 (`geom_point()`).
 \end{verbatim}
 
-\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-9-1.pdf}
+\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-11-1.pdf}
 
-\subsection{Globally \& Locally Mapped
-Variables}\label{globally-locally-mapped-variables}
+\subsection{Display One Trendline}\label{display-one-trendline}
 
 The aesthetic mapping defined in the \texttt{ggplot()} function is
 \emph{global} meaning that all the \texttt{geom\_()} functions inherit
 it. However, the aesthetic mapping defined in the \texttt{geom\_()}
-functions are local, ie, not shared with other \texttt{gemo\_()}
+functions are \emph{local}, ie, not shared with other \texttt{gemo\_()}
 functions.
 
 \begin{Shaded}
@@ -1900,10 +2088,9 @@ Warning: Removed 2 rows containing missing values or values outside the scale ra
 (`geom_point()`).
 \end{verbatim}
 
-\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-10-1.pdf}
+\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-12-1.pdf}
 
-\subsection{Map Same Variable Multiple
-Ways}\label{map-same-variable-multiple-ways}
+\subsection{Map One Variable Twice}\label{map-one-variable-twice}
 
 We can link the same variable to multiple plot aesthetics (visual
 properties) using the \texttt{mapping} parameter done via the
@@ -1932,9 +2119,9 @@ Warning: Removed 2 rows containing missing values or values outside the scale ra
 (`geom_point()`).
 \end{verbatim}
 
-\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-11-1.pdf}
+\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-13-1.pdf}
 
-\subsection{More Accessible}\label{more-accessible}
+\subsection{Fix Labels}\label{fix-labels}
 
 The \texttt{labs()} function can be used to make the plot more
 accessible. The function will add new layer to the plot and the
@@ -1987,7 +2174,7 @@ Warning: Removed 2 rows containing missing values or values outside the scale ra
 (`geom_point()`).
 \end{verbatim}
 
-\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-12-1.pdf}
+\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-14-1.pdf}
 
 Other types of texts can be added using other functions. The other types
 of texts are:
@@ -2004,7 +2191,7 @@ of texts are:
   annotation for interesting or important data, if exist
 \end{itemize}
 
-\subsection{Color-blind Safe}\label{color-blind-safe}
+\subsection{Ensure Color-blind Safe}\label{ensure-color-blind-safe}
 
 Make the plot more color-blind safe by using the
 \texttt{scale\_color\_colorblind()} function from the \texttt{ggthemes}
@@ -2042,9 +2229,9 @@ Warning: Removed 2 rows containing missing values or values outside the scale ra
 (`geom_point()`).
 \end{verbatim}
 
-\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-13-1.pdf}
+\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-15-1.pdf}
 
-\subsection{Implicit Call}\label{implicit-call}
+\subsection{Can Call Implicitly}\label{can-call-implicitly}
 
 The first one or two arguments of functions are so important that
 scientists should know them by heart. Hence, to save some typing, the
@@ -2084,14 +2271,14 @@ Warning: Removed 2 rows containing missing values or values outside the scale ra
 (`geom_point()`).
 \end{verbatim}
 
-\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-14-1.pdf}
+\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-16-1.pdf}
 
-\subsection{Pipe Operator}\label{pipe-operator}
+\subsection{Use Pipe Operator}\label{use-pipe-operator}
 
 The pipe operator \texttt{\textbackslash{}\textgreater{}} (shortcut:
 \texttt{Ctrl+M}) can be used to make the code tidy. The above code can
 be re-written as follow--notice the dataset was pulled before the call
-to the \texttt{ggplot} function.
+to the \texttt{ggplot()} function.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2125,7 +2312,154 @@ Warning: Removed 2 rows containing missing values or values outside the scale ra
 (`geom_point()`).
 \end{verbatim}
 
-\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-15-1.pdf}
+\includegraphics{src/r-for-data-science/01-data-viz_files/figure-pdf/unnamed-chunk-17-1.pdf}
+
+\section{Visualizing Distribution}\label{visualizing-distribution}
+
+\subsection{Categorical Variables}\label{categorical-variables}
+
+Plot options to visualize how a categorical variable is distributed:
+
+\begin{itemize}
+\tightlist
+\item
+  bar chart, if the counts are not computed, using \texttt{gemo\_bar()}
+  function
+\item
+  column chart, if the counts are computed, \texttt{gemo\_col()}
+  function
+\end{itemize}
+
+\subsection{Numerical Variables}\label{numerical-variables}
+
+Plot options to visualize how a numerical (discrete or continuous)
+variable is distributed:
+
+\begin{itemize}
+\tightlist
+\item
+  histogram, using \texttt{geom\_histogram()} function
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colback=white, left=2mm, titlerule=0mm, breakable, opacityback=0, leftrule=.75mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, coltitle=black, arc=.35mm, bottomrule=.15mm, toprule=.15mm, opacitybacktitle=0.6, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Histogram Bin Width}]
+
+The bin width of the histogram is in the unit of the variable mapped to
+the plot \texttt{x} (or \texttt{y}) aesthetic (visual property)
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  density plot, using \texttt{geom\_density()} function
+\item
+  boxplot, using \texttt{geom\_boplot()} function
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colback=white, left=2mm, titlerule=0mm, breakable, opacityback=0, leftrule=.75mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, coltitle=black, arc=.35mm, bottomrule=.15mm, toprule=.15mm, opacitybacktitle=0.6, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Boxplot Components}]
+
+As described beautifully in
+\href{https://r4ds.hadley.nz/data-visualize\#visualizing-relationships}{R4DS},
+a boxplot consists of:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  A box that describes the range of the middle half of the data, a
+  distance known as the interquartile range (IQR), stretching from the
+  25th percentile of the distribution to the 75th percentile.
+\item
+  A line in the middle of the box displaying the median, ie, the 50th
+  percentile, of the distribution.
+\item
+  The box and the line give sense of the spread of the distribution and
+  whether or not the distribution is symmetric about the median or
+  skewed to one side
+\item
+  Visual points that display the observations that fall more than 1.5
+  time the IQR from either edge of the box. These outlying points (hence
+  called outliers) are unusual so are plotted individually
+\item
+  A whisker that extend from each end of the box and goes to the
+  farthest non-outlier point in the distribution
+\end{enumerate}
+
+Below is the diagram from
+\href{https://r4ds.hadley.nz/data-visualize\#visualizing-relationships}{R4DS}
+showing the above components and how the boxpot is created.
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics{src/r-for-data-science/../../images/EDA-boxplot.png}
+
+}
+
+\caption{\label{fig-boxplot}Boxplot Components (taken from
+\href{https://r4ds.hadley.nz/data-visualize\#visualizing-relationships}{R4DS})}
+
+\end{figure}%
+
+\end{tcolorbox}
+
+\section{Visualizing Relationships}\label{visualizing-relationships}
+
+\subsection{One Categorical + One
+Numerical}\label{one-categorical-one-numerical}
+
+For each category of the categorical variable, We can use any of the
+plot options mentioned above for the numerical variables
+
+\subsection{Two Categoricals}\label{two-categoricals}
+
+Each category of one of the categorical variables will be placed on the
+x-axis (or the y-axis) by mapping it to the plot \texttt{x} (or
+\texttt{y}) aesthetic (visual property) of the \texttt{geom\_bar()} and
+the distribution of the categories of the other categorical variables by
+mapping it to the plot \texttt{fill} aesthetic (visual property). The
+second variable can be shown as:
+
+\begin{itemize}
+\tightlist
+\item
+  pure counts (stacked bar chart), or
+\item
+  percentages (percent stack bar chart) by setting the \texttt{position}
+  attribute of the \texttt{geom\_bar()} to \texttt{fill}.
+\end{itemize}
+
+\subsection{Two Numerical}\label{two-numerical}
+
+Plot options to show the relationship between two numerical variables
+are:
+
+\begin{itemize}
+\tightlist
+\item
+  Scatter plot using the \texttt{geom\_point()} function
+\item
+  trend line using \texttt{geom\_smooth()} function
+\item
+  line graph using \texttt{geom\_line()} function if one of the
+  variables is monotonic, eg, time or date.
+\end{itemize}
+
+\subsection{Three or More Variables}\label{three-or-more-variables}
+
+To visualize 3+ variables, We can either
+
+\begin{itemize}
+\tightlist
+\item
+  map variables to other aesthetics of the plot, eg, \emph{color},
+  \emph{size}, and \emph{shape}
+\item
+  split plot into facets, subplots that each display one subset of the
+  data, based on a categorical variable using \texttt{facet\_wrap()}
+  function where its first argument is a formula created using
+  \texttt{\textasciitilde{}} followed by a (categorical) variable name.
+\end{itemize}
 
 \part{Practice}
 
@@ -2134,7 +2468,7 @@ that I am learning.
 
 \chapter{Topic Modeling in R}\label{topic-modeling-in-r}
 
-\section{Introduction}\label{introduction}
+\section{Introduction}\label{introduction-1}
 
 An attempt to understand Sherlock Holmes short stories found in
 Adventures of Sherlock Holmes book by Arthur Conan Doyle. After
