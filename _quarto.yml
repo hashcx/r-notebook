@@ -1,10 +1,10 @@
 project:
-  type: website
+  type: book
   output-dir: docs
   
 
-website:
-  title: "Notebooks"
+book:
+  title: "Workspace"
   # navbar:
   #   background: primary
   #   search: true
@@ -16,14 +16,39 @@ website:
   #   tools:
   #     - icon: twitter
   #       href: https://twitter.com
-  sidebar: 
-    contents: auto
+  reader-mode: true
+  repo-url: https://github.com/hashcx/workspace/
+  downloads: [pdf]
+  
+  chapters: 
+    - index.qmd
+    
+    - part: src/notebooks/_notebooks.qmd
+      chapters: 
+        - src/notebooks/r.qmd
+        - src/notebooks/quarto.qmd
+        - src/notebooks/rstudio.qmd
+    
+    - part: src/r-for-data-science/_r-for-data-science.qmd
+      chapters: 
+      - src/r-for-data-science/01-data-viz.qmd
+    
+    - part: src/practice/_practice.qmd
+      chapters: 
+        - src/practice/topic-modeling-r.qmd
 
 format:
   html:
+    code-copy: true
     theme: cosmo
     css: sty/styles.css
+    code-link: true
     toc: true
+  pdf:
+    documentclass: scrreprt
+    keep-tex: true
 
-editor: visual
+execute:
+  cache: true
+  freeze: auto
 

@@ -1,0 +1,17 @@
+---
+title: "RStudio"
+eval: true
+---
+
+## Keyboard Shortcuts
+
+Below is a set of helpful keyboard shortcut.  The full list can be reached by clicking Tools -> Keyboard Shortcut Help (`Alt-Shift-K`) -> See All Shortcuts
+
+- `Ctrl+Enter`: run line on which cursor is standing
+- `Ctrl+Alt+I`: insert new code chunk
+- `Ctrl+Shift+C`: comment/un-comment
+- `Alt-⬆️`: move line up
+- `Alt-⬇️️`: move line down
+- `Ctrl+D`: delete line
+- `Ctrl+Shift+A`: format code
+- `Ctrl+M`: add pipe `|>` operator

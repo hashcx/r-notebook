@@ -1,0 +1,18 @@
+---
+title: "Quarto"
+---
+
+## Render & Review
+
+1.  VSCode/RStudio -\> *Render* button
+2.  Terminal -\> `quarto preview`
+3.  Terminal -\> `quarto preview help`
+
+## Render w/o Review
+
+1.  Terminal -\> `quarto render`
+2.  Terminal -\> `quarto render help`
+
+## References
+
+-   [Quarto Reference](https://quarto.org/docs/reference/)
