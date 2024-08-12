@@ -261,8 +261,10 @@ I am learning.
   \end{enumerate}
 \end{itemize}
 
-Clear the objects in its workspace environment to avoid mixing up
-objects created in other files
+\section{Clear Workspace}\label{clear-workspace}
+
+Always start by clearing the workspace. This ensure objects created in
+other files are not used used here.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -270,15 +272,22 @@ objects created in other files
 \end{Highlighting}
 \end{Shaded}
 
+\section{Packages}\label{sec-packages}
+
+\subsection{List}\label{list}
+
 List all the packages that will be used in this script.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{packages }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"here"}\NormalTok{)}
+\NormalTok{packages }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"here"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-Any missing package will be installed automatically
+\subsection{Install Missing}\label{install-missing}
+
+Any missing package will be installed automatically. This ensure
+smoother execution when run by others.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -286,6 +295,8 @@ Any missing package will be installed automatically
 \FunctionTok{install.packages}\NormalTok{(}\FunctionTok{setdiff}\NormalTok{(packages, }\FunctionTok{rownames}\NormalTok{(}\FunctionTok{installed.packages}\NormalTok{())))}
 \end{Highlighting}
 \end{Shaded}
+
+\subsection{Load}\label{load}
 
 Load all packages
 
@@ -321,7 +332,7 @@ To know the datatype of an object, run the command:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{class}\NormalTok{(x)    }\CommentTok{\# give the data type of x}
+\FunctionTok{class}\NormalTok{(x) }\CommentTok{\# give the data type of x}
 \end{Highlighting}
 \end{Shaded}
 
@@ -343,6 +354,21 @@ To know the datatype of an object, run the command:
 \tightlist
 \item
   \textbf{vector}: hold single type of data
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, breakable, toprule=.15mm, titlerule=0mm, coltitle=black, colback=white, arc=.35mm, opacityback=0, left=2mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Creating Vector}, bottomrule=.15mm, bottomtitle=1mm, rightrule=.15mm, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame]
+
+The \texttt{c()} function (\textbf{c}ombine multiple elements) can be
+used to create vectors in R.
+
+\begin{verbatim}
+x <- c(1, 2, 3, 4)
+\end{verbatim}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
 \item
   \textbf{matrix}: 2D vector
 \item
@@ -355,7 +381,40 @@ To know the datatype of an object, run the command:
   \textbf{data frame}: table where columns represent vectors
 \item
   \textbf{tibbles}: data frames, but slightly tweaked to work better
-  with \texttt{tidyverse} package
+  with \texttt{tidyverse}--when printing tibbles, only the first few
+  columns that fit into the screen will be shown
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, breakable, toprule=.15mm, titlerule=0mm, coltitle=black, colback=white, arc=.35mm, opacityback=0, left=2mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Printing tibble All Columns}, bottomrule=.15mm, bottomtitle=1mm, rightrule=.15mm, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame]
+
+To force the \texttt{print()} function to print all the columns of a
+\texttt{tibble}, set the \texttt{width} parameter to \texttt{Inf} as
+follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(ds, }\AttributeTok{width =} \ConstantTok{Inf}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
+
+To construct small tibble by hand, use the \texttt{tribble} function as
+follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{tribble}\NormalTok{(}
+  \SpecialCharTok{\textasciitilde{}}\NormalTok{var1, }\SpecialCharTok{\textasciitilde{}}\NormalTok{var2, }\SpecialCharTok{\textasciitilde{}}\NormalTok{var3}
+  \StringTok{"A"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{,}
+  \StringTok{"B"}\NormalTok{, }\DecValTok{2}\NormalTok{, }\ConstantTok{FALSE}\NormalTok{,}
+  \StringTok{"C"}\NormalTok{, }\DecValTok{3}\NormalTok{, }\ConstantTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
 \item
   \textbf{factor}
 \end{itemize}
@@ -377,8 +436,8 @@ To know the data structure and length of the object, run the command:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{str}\NormalTok{(x)      }\CommentTok{\# give the structure type of x}
-\FunctionTok{length}\NormalTok{(x)   }\CommentTok{\# length of structure}
+\FunctionTok{str}\NormalTok{(x) }\CommentTok{\# give the structure type of x}
+\FunctionTok{length}\NormalTok{(x) }\CommentTok{\# length of structure}
 \end{Highlighting}
 \end{Shaded}
 
@@ -388,8 +447,8 @@ Assignment
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{3}      \CommentTok{\# assign 3 to x}
-\NormalTok{(x }\OtherTok{\textless{}{-}} \DecValTok{3}\NormalTok{)    }\CommentTok{\# assign 3 to x \& print the result to console}
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{3} \CommentTok{\# assign 3 to x (x gets 3)}
+\NormalTok{(x }\OtherTok{\textless{}{-}} \DecValTok{3}\NormalTok{) }\CommentTok{\# assign 3 to x (x gets 3) \& print the result to console}
 \end{Highlighting}
 \end{Shaded}
 
@@ -402,7 +461,7 @@ Getting Help
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{args}\NormalTok{(round) }\CommentTok{\# print the argument list of function}
-\NormalTok{?round        }\CommentTok{\# show documentation of function in Help window}
+\NormalTok{?round }\CommentTok{\# show documentation of function in Help window}
 \end{Highlighting}
 \end{Shaded}
 
@@ -485,8 +544,10 @@ Practices for Scientific Computing paper}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{download.file}\NormalTok{(}\AttributeTok{url =} \StringTok{"https://ndownloader.figshare.com/files/2292169"}\NormalTok{, }
-    \AttributeTok{destfile =} \FunctionTok{here}\NormalTok{(}\StringTok{"data"}\NormalTok{, }\StringTok{"portal\_data\_joined.csv"}\NormalTok{))}
+\FunctionTok{download.file}\NormalTok{(}
+  \AttributeTok{url =} \StringTok{"https://ndownloader.figshare.com/files/2292169"}\NormalTok{,}
+  \AttributeTok{destfile =} \FunctionTok{here}\NormalTok{(}\StringTok{"data"}\NormalTok{, }\StringTok{"portal\_data\_joined.csv"}\NormalTok{)}
+\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -502,7 +563,7 @@ Inspecting data frame
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{class}\NormalTok{(surveys)  }\CommentTok{\# data type}
+\FunctionTok{class}\NormalTok{(surveys) }\CommentTok{\# data type}
 \end{Highlighting}
 \end{Shaded}
 
@@ -512,7 +573,7 @@ Inspecting data frame
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{str}\NormalTok{(surveys)      }\CommentTok{\# structure}
+\FunctionTok{str}\NormalTok{(surveys) }\CommentTok{\# structure}
 \end{Highlighting}
 \end{Shaded}
 
@@ -535,7 +596,7 @@ Inspecting data frame
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{dim}\NormalTok{(surveys)      }\CommentTok{\# dimensions}
+\FunctionTok{dim}\NormalTok{(surveys) }\CommentTok{\# dimensions}
 \end{Highlighting}
 \end{Shaded}
 
@@ -649,7 +710,7 @@ element/row/column}\label{retrieve-specific-elementrowcolumn}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{surveys[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{]    }\CommentTok{\# element[1,1]}
+\NormalTok{surveys[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{] }\CommentTok{\# element[1,1]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -659,7 +720,7 @@ element/row/column}\label{retrieve-specific-elementrowcolumn}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{surveys[}\DecValTok{1}\NormalTok{, ]    }\CommentTok{\# row 1}
+\NormalTok{surveys[}\DecValTok{1}\NormalTok{, ] }\CommentTok{\# row 1}
 \end{Highlighting}
 \end{Shaded}
 
@@ -672,7 +733,7 @@ element/row/column}\label{retrieve-specific-elementrowcolumn}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{head}\NormalTok{(surveys[ ,}\DecValTok{1}\NormalTok{])  }\CommentTok{\# column 1}
+\FunctionTok{head}\NormalTok{(surveys[, }\DecValTok{1}\NormalTok{]) }\CommentTok{\# column 1}
 \end{Highlighting}
 \end{Shaded}
 
@@ -682,7 +743,7 @@ element/row/column}\label{retrieve-specific-elementrowcolumn}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{head}\NormalTok{(surveys}\SpecialCharTok{$}\NormalTok{sex)     }\CommentTok{\# column by name}
+\FunctionTok{head}\NormalTok{(surveys}\SpecialCharTok{$}\NormalTok{sex) }\CommentTok{\# column by name}
 \end{Highlighting}
 \end{Shaded}
 
@@ -721,7 +782,7 @@ Reorder factors (to get better plots)
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{surveys}\SpecialCharTok{$}\NormalTok{sex\_ordered }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(surveys}\SpecialCharTok{$}\NormalTok{sex, }\AttributeTok{level=}\FunctionTok{c}\NormalTok{(}\StringTok{"F"}\NormalTok{, }\StringTok{"M"}\NormalTok{, }\StringTok{""}\NormalTok{))}
+\NormalTok{surveys}\SpecialCharTok{$}\NormalTok{sex\_ordered }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(surveys}\SpecialCharTok{$}\NormalTok{sex, }\AttributeTok{level =} \FunctionTok{c}\NormalTok{(}\StringTok{"F"}\NormalTok{, }\StringTok{"M"}\NormalTok{, }\StringTok{""}\NormalTok{))}
 \FunctionTok{str}\NormalTok{(surveys}\SpecialCharTok{$}\NormalTok{sex\_ordered)}
 \end{Highlighting}
 \end{Shaded}
@@ -761,7 +822,7 @@ Histogram
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-20-1.pdf}
+\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-22-1.pdf}
 
 Enhance the plot
 
@@ -773,7 +834,7 @@ Enhance the plot
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-21-1.pdf}
+\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-23-1.pdf}
 
 \section{Data Manipulation}\label{data-manipulation}
 
@@ -832,19 +893,6 @@ Load packages
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
--- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
-v dplyr     1.1.4     v readr     2.1.5
-v forcats   1.0.0     v stringr   1.5.1
-v ggplot2   3.5.1     v tibble    3.2.1
-v lubridate 1.9.3     v tidyr     1.3.1
-v purrr     1.0.2     
--- Conflicts ------------------------------------------ tidyverse_conflicts() --
-x dplyr::filter() masks stats::filter()
-x dplyr::lag()    masks stats::lag()
-i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-\end{verbatim}
-
 Load \& inspect data
 
 \begin{Shaded}
@@ -867,7 +915,7 @@ i Specify the column types or set `show_col_types = FALSE` to quiet this message
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{str}\NormalTok{(surveys)    }\CommentTok{\# structure: tbl\_df (tibble)}
+\FunctionTok{str}\NormalTok{(surveys) }\CommentTok{\# structure: tbl\_df (tibble)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1005,8 +1053,8 @@ Sending the results of one function to another
 
 \CommentTok{\# using pipe \%\textgreater{}\% of magritter package.  Use Ctrl + Shift + M to add}
 \NormalTok{survey\_sml }\OtherTok{\textless{}{-}}\NormalTok{ surveys }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{filter}\NormalTok{(weight }\SpecialCharTok{\textless{}} \DecValTok{5}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{select}\NormalTok{(species\_id, sex, weight)}
+  \FunctionTok{filter}\NormalTok{(weight }\SpecialCharTok{\textless{}} \DecValTok{5}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(species\_id, sex, weight)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1019,8 +1067,8 @@ one factor
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{surveys }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{group\_by}\NormalTok{(sex) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_weight =} \FunctionTok{mean}\NormalTok{(weight, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+  \FunctionTok{group\_by}\NormalTok{(sex) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_weight =} \FunctionTok{mean}\NormalTok{(weight, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1038,8 +1086,8 @@ two factors
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{surveys }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{group\_by}\NormalTok{(sex, species) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_weight =} \FunctionTok{mean}\NormalTok{(weight, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+  \FunctionTok{group\_by}\NormalTok{(sex, species) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_weight =} \FunctionTok{mean}\NormalTok{(weight, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1069,8 +1117,8 @@ argument.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{surveys }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{group\_by}\NormalTok{(species, sex) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_weight =} \FunctionTok{mean}\NormalTok{(weight, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+  \FunctionTok{group\_by}\NormalTok{(species, sex) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_weight =} \FunctionTok{mean}\NormalTok{(weight, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1102,9 +1150,9 @@ to avoid using \texttt{na.rm\ =\ FALSE} each statistics
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{surveys }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(weight)) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{group\_by}\NormalTok{(species, sex) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_weight =} \FunctionTok{mean}\NormalTok{(weight), }\AttributeTok{sd\_weight =} \FunctionTok{sd}\NormalTok{(weight), }\AttributeTok{sd\_count =} \FunctionTok{n}\NormalTok{())}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(weight)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(species, sex) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_weight =} \FunctionTok{mean}\NormalTok{(weight), }\AttributeTok{sd\_weight =} \FunctionTok{sd}\NormalTok{(weight), }\AttributeTok{sd\_count =} \FunctionTok{n}\NormalTok{())}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1136,10 +1184,10 @@ arrange by mean weight
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{surveys }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(weight)) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{group\_by}\NormalTok{(species, sex) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_weight =} \FunctionTok{mean}\NormalTok{(weight), }\AttributeTok{sd\_weight =} \FunctionTok{sd}\NormalTok{(weight), }\AttributeTok{sd\_count =} \FunctionTok{n}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{arrange}\NormalTok{(mean\_weight)}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(weight)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(species, sex) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_weight =} \FunctionTok{mean}\NormalTok{(weight), }\AttributeTok{sd\_weight =} \FunctionTok{sd}\NormalTok{(weight), }\AttributeTok{sd\_count =} \FunctionTok{n}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(mean\_weight)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1171,10 +1219,10 @@ in descending order
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{surveys }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(weight)) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{group\_by}\NormalTok{(species, sex) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_weight =} \FunctionTok{mean}\NormalTok{(weight), }\AttributeTok{sd\_weight =} \FunctionTok{sd}\NormalTok{(weight), }\AttributeTok{sd\_count =} \FunctionTok{n}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(mean\_weight))}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(weight)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(species, sex) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_weight =} \FunctionTok{mean}\NormalTok{(weight), }\AttributeTok{sd\_weight =} \FunctionTok{sd}\NormalTok{(weight), }\AttributeTok{sd\_count =} \FunctionTok{n}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(mean\_weight))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1206,10 +1254,10 @@ by count
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{surveys }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(weight)) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{group\_by}\NormalTok{(species, sex) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_weight =} \FunctionTok{mean}\NormalTok{(weight), }\AttributeTok{sd\_weight =} \FunctionTok{sd}\NormalTok{(weight), }\AttributeTok{sd\_count =} \FunctionTok{n}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{arrange}\NormalTok{(sd\_count)}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(weight)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(species, sex) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_weight =} \FunctionTok{mean}\NormalTok{(weight), }\AttributeTok{sd\_weight =} \FunctionTok{sd}\NormalTok{(weight), }\AttributeTok{sd\_count =} \FunctionTok{n}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(sd\_count)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1243,7 +1291,7 @@ Count of a categorical column
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{surveys }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{count}\NormalTok{(sex)}
+  \FunctionTok{count}\NormalTok{(sex)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1265,9 +1313,9 @@ prepare the needed data first
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{surveys\_gw }\OtherTok{\textless{}{-}}\NormalTok{ surveys }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(weight)) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{group\_by}\NormalTok{(genus, plot\_id) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{summarize}\NormalTok{(}\AttributeTok{mean\_weight =} \FunctionTok{mean}\NormalTok{(weight))}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(weight)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(genus, plot\_id) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{mean\_weight =} \FunctionTok{mean}\NormalTok{(weight))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1282,7 +1330,7 @@ will represent a statistics
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{surveys\_spread }\OtherTok{\textless{}{-}}\NormalTok{ surveys\_gw }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{spread}\NormalTok{(}\AttributeTok{key =}\NormalTok{ genus, }\AttributeTok{value =}\NormalTok{ mean\_weight)}
+  \FunctionTok{spread}\NormalTok{(}\AttributeTok{key =}\NormalTok{ genus, }\AttributeTok{value =}\NormalTok{ mean\_weight)}
 \FunctionTok{str}\NormalTok{(surveys\_spread)}
 \end{Highlighting}
 \end{Shaded}
@@ -1326,7 +1374,7 @@ bring spread back
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{surveys\_gw }\OtherTok{\textless{}{-}}\NormalTok{ surveys\_spread }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{gather}\NormalTok{(}\AttributeTok{key =}\NormalTok{ genus, }\AttributeTok{value =}\NormalTok{ mean\_weight, }\SpecialCharTok{{-}}\NormalTok{plot\_id)}
+  \FunctionTok{gather}\NormalTok{(}\AttributeTok{key =}\NormalTok{ genus, }\AttributeTok{value =}\NormalTok{ mean\_weight, }\SpecialCharTok{{-}}\NormalTok{plot\_id)}
 \FunctionTok{str}\NormalTok{(surveys\_gw)}
 \end{Highlighting}
 \end{Shaded}
@@ -1382,7 +1430,7 @@ filter only those in the indicated category
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{surveys\_com }\OtherTok{\textless{}{-}}\NormalTok{ surveys }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{filter}\NormalTok{(species\_id }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"albigula"}\NormalTok{, }\StringTok{"eremicus"}\NormalTok{))}
+  \FunctionTok{filter}\NormalTok{(species\_id }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"albigula"}\NormalTok{, }\StringTok{"eremicus"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1409,13 +1457,17 @@ Step 1: Bind the plot to specific data frame
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{surveys\_plot }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ survey\_complete, }
-    \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ weight, }\AttributeTok{y =}\NormalTok{ hindfoot\_length))}
+\NormalTok{surveys\_plot }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}
+  \AttributeTok{data =}\NormalTok{ survey\_complete,}
+  \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ weight, }\AttributeTok{y =}\NormalTok{ hindfoot\_length)}
+\NormalTok{)}
 
 \CommentTok{\# Color for each group}
-\NormalTok{surveys\_plot }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ survey\_complete, }
-    \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ weight, }\AttributeTok{y =}\NormalTok{ hindfoot\_length),}
-    \AttributeTok{color=}\NormalTok{species\_id)}
+\NormalTok{surveys\_plot }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}
+  \AttributeTok{data =}\NormalTok{ survey\_complete,}
+  \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ weight, }\AttributeTok{y =}\NormalTok{ hindfoot\_length),}
+  \AttributeTok{color =}\NormalTok{ species\_id}
+\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1439,7 +1491,7 @@ Step 2: Select the type of the plot
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-43-1.pdf}
+\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-45-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1448,7 +1500,7 @@ Step 2: Select the type of the plot
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-43-2.pdf}
+\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-45-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1457,7 +1509,7 @@ Step 2: Select the type of the plot
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-43-3.pdf}
+\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-45-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1466,7 +1518,7 @@ Step 2: Select the type of the plot
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-43-4.pdf}
+\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-45-4.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1476,40 +1528,42 @@ Step 2: Select the type of the plot
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-43-5.pdf}
+\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-45-5.pdf}
 
 \subsection{Boxplot}\label{boxplot}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{surveys\_plot }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ survey\_complete, }
-    \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ species\_id, }\AttributeTok{y =}\NormalTok{ weight))}
+\NormalTok{surveys\_plot }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}
+  \AttributeTok{data =}\NormalTok{ survey\_complete,}
+  \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ species\_id, }\AttributeTok{y =}\NormalTok{ weight)}
+\NormalTok{)}
 
 \NormalTok{surveys\_plot }\SpecialCharTok{+} \FunctionTok{geom\_boxplot}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-44-1.pdf}
+\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-46-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# show data}
-\NormalTok{surveys\_plot }\SpecialCharTok{+} \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+} 
-    \FunctionTok{geom\_jitter}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.1}\NormalTok{, }\AttributeTok{color =} \StringTok{"tomato"}\NormalTok{)}
+\NormalTok{surveys\_plot }\SpecialCharTok{+} \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_jitter}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.1}\NormalTok{, }\AttributeTok{color =} \StringTok{"tomato"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-44-2.pdf}
+\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-46-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# bring boxplot layer in front}
 \NormalTok{surveys\_plot }\SpecialCharTok{+} \FunctionTok{geom\_jitter}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.1}\NormalTok{, }\AttributeTok{color =} \StringTok{"tomato"}\NormalTok{) }\SpecialCharTok{+}
-    \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.7}\NormalTok{)}
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.7}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-44-3.pdf}
+\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-46-3.pdf}
 
 \subsection{Time series data}\label{time-series-data}
 
@@ -1517,16 +1571,18 @@ Step 2: Select the type of the plot
 \begin{Highlighting}[]
 \CommentTok{\# create appropriate dataset}
 \NormalTok{yearly\_count }\OtherTok{\textless{}{-}}\NormalTok{ survey\_complete }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{count}\NormalTok{(year, species\_id)}
+  \FunctionTok{count}\NormalTok{(year, species\_id)}
 
-\NormalTok{surveys\_plot }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ yearly\_count, }
-    \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ year, }\AttributeTok{y =}\NormalTok{ n))}
+\NormalTok{surveys\_plot }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}
+  \AttributeTok{data =}\NormalTok{ yearly\_count,}
+  \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ year, }\AttributeTok{y =}\NormalTok{ n)}
+\NormalTok{)}
 
 \NormalTok{surveys\_plot }\SpecialCharTok{+} \FunctionTok{geom\_line}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-45-1.pdf}
+\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-47-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1535,7 +1591,7 @@ Step 2: Select the type of the plot
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-45-2.pdf}
+\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-47-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1544,12 +1600,12 @@ Step 2: Select the type of the plot
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-45-3.pdf}
+\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-47-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# split into multiple plots}
-\NormalTok{surveys\_plot }\SpecialCharTok{+} \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ species\_id)}
+\NormalTok{surveys\_plot }\SpecialCharTok{+} \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{species\_id)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1558,19 +1614,21 @@ Step 2: Select the type of the plot
 i Do you need to adjust the group aesthetic?
 \end{verbatim}
 
-\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-45-4.pdf}
+\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-47-4.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# split the line in each plot by sex}
 \NormalTok{yearly\_sex\_counts }\OtherTok{\textless{}{-}}\NormalTok{ survey\_complete }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{count}\NormalTok{(year, species\_id, sex)}
+  \FunctionTok{count}\NormalTok{(year, species\_id, sex)}
 
-\NormalTok{surveys\_plot }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ yearly\_sex\_counts, }
-    \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ year, }\AttributeTok{y =}\NormalTok{ n))}
+\NormalTok{surveys\_plot }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}
+  \AttributeTok{data =}\NormalTok{ yearly\_sex\_counts,}
+  \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ year, }\AttributeTok{y =}\NormalTok{ n)}
+\NormalTok{)}
 
 \NormalTok{surveys\_plot }\SpecialCharTok{+} \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ sex)) }\SpecialCharTok{+}
-    \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ species\_id)}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{species\_id)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1579,15 +1637,15 @@ i Do you need to adjust the group aesthetic?
 i Do you need to adjust the group aesthetic?
 \end{verbatim}
 
-\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-45-5.pdf}
+\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-47-5.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# remove background}
 \NormalTok{surveys\_plot }\SpecialCharTok{+} \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ sex)) }\SpecialCharTok{+}
-    \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ species\_id) }\SpecialCharTok{+}
-    \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
-    \FunctionTok{theme}\NormalTok{(}\AttributeTok{panel.grid =} \FunctionTok{element\_blank}\NormalTok{())}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{species\_id) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{panel.grid =} \FunctionTok{element\_blank}\NormalTok{())}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1596,7 +1654,7 @@ i Do you need to adjust the group aesthetic?
 i Do you need to adjust the group aesthetic?
 \end{verbatim}
 
-\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-45-6.pdf}
+\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-47-6.pdf}
 
 \section{References}\label{references}
 
@@ -1673,12 +1731,12 @@ i Do you need to adjust the group aesthetic?
 
 Below is a set of helpful keyboard shortcut. The full list can be
 reached by clicking Tools -\textgreater{} Keyboard Shortcut Help
-(\texttt{Alt-Shift-K}) -\textgreater{} See All Shortcuts
+(\texttt{Alt+Shift+K}) -\textgreater{} See All Shortcuts
 
 \begin{itemize}
 \tightlist
 \item
-  \texttt{Ctrl+Enter}: run line on which cursor is standing
+  \texttt{Ctrl+Enter}: run line of code on which cursor is standing
 \item
   \texttt{Ctrl+Alt+I}: insert new code chunk
 \item
@@ -1692,7 +1750,26 @@ reached by clicking Tools -\textgreater{} Keyboard Shortcut Help
 \item
   \texttt{Ctrl+Shift+A}: format code
 \item
-  \texttt{Ctrl+M}: add pipe \texttt{\textbar{}\textgreater{}} operator
+  \texttt{Ctrl+M}: add pipe \texttt{\textbar{}\textgreater{}}
+  operator--to change from \texttt{\%\textgreater{}\%}, go to Tools
+  -\textgreater{} Global Options\ldots{} -\textgreater{} Code section
+  -\textgreater{} Editing tab -\textgreater{} check Use native pipe
+  operator, \texttt{\textbar{}\textgreater{}} (requires R 4.1+)
+\item
+  \texttt{Ctrl++}: increase font size of all windows
+\item
+  \texttt{Ctrl+-}: decrease font size of all windows
+\item
+  \texttt{Alt+-} : insert assignment \texttt{\textless{}-}. Notice:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    the inserted assignment it is surrounded by spaces
+  \item
+    the action happen when the cursor is inside an R chunk or R script
+    file
+  \end{itemize}
 \end{itemize}
 
 \part{R for Data Science (2e)}
@@ -1701,13 +1778,13 @@ This section contains replications for the examples used in the
 \href{https://r4ds.hadley.nz/}{R for Data Science (2e) book}, one Quarto
 file per chapter of the book.
 
-\chapter{Data visualization}\label{data-visualization}
+\chapter{Data Visualization}\label{data-visualization}
 
 \section{Introduction}\label{introduction}
 
 This page introduces the plot creation vocabulary step by step
 
-\section{Clear Workspace}\label{clear-workspace}
+\section{Clear Workspace}\label{clear-workspace-1}
 
 Always start by clearing the workspace. This ensure objects created in
 other files are not used used here.
@@ -1720,17 +1797,17 @@ other files are not used used here.
 
 \section{Packages}\label{sec-packages}
 
-\subsection{List}\label{list}
+\subsection{List}\label{list-1}
 
 List all the packages that will be used in this script.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{packages }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"palmerpenguins"}\NormalTok{, }\StringTok{\textquotesingle{}ggthemes\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}ggplot2\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}dplyr\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}printr\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}here\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}knitr\textquotesingle{}}\NormalTok{)}
+\NormalTok{packages }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"palmerpenguins"}\NormalTok{, }\StringTok{\textquotesingle{}ggthemes\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}ggplot2\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}dplyr\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}here\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}knitr\textquotesingle{}}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Install Missing}\label{install-missing}
+\subsection{Install Missing}\label{install-missing-1}
 
 Any missing package will be installed automatically. This ensure
 smoother execution when run by others.
@@ -1742,7 +1819,7 @@ smoother execution when run by others.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Load}\label{load}
+\subsection{Load}\label{load-1}
 
 Load all packages
 
@@ -2341,7 +2418,7 @@ variable is distributed:
   histogram, using \texttt{geom\_histogram()} function
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colback=white, left=2mm, titlerule=0mm, breakable, opacityback=0, leftrule=.75mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, coltitle=black, arc=.35mm, bottomrule=.15mm, toprule=.15mm, opacitybacktitle=0.6, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Histogram Bin Width}]
+\begin{tcolorbox}[enhanced jigsaw, breakable, toprule=.15mm, titlerule=0mm, coltitle=black, colback=white, arc=.35mm, opacityback=0, left=2mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Histogram Bin Width}, bottomrule=.15mm, bottomtitle=1mm, rightrule=.15mm, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame]
 
 The bin width of the histogram is in the unit of the variable mapped to
 the plot \texttt{x} (or \texttt{y}) aesthetic (visual property)
@@ -2356,7 +2433,7 @@ the plot \texttt{x} (or \texttt{y}) aesthetic (visual property)
   boxplot, using \texttt{geom\_boplot()} function
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colback=white, left=2mm, titlerule=0mm, breakable, opacityback=0, leftrule=.75mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, coltitle=black, arc=.35mm, bottomrule=.15mm, toprule=.15mm, opacitybacktitle=0.6, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Boxplot Components}]
+\begin{tcolorbox}[enhanced jigsaw, breakable, toprule=.15mm, titlerule=0mm, coltitle=black, colback=white, arc=.35mm, opacityback=0, left=2mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Boxplot Components}, bottomrule=.15mm, bottomtitle=1mm, rightrule=.15mm, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame]
 
 As described beautifully in
 \href{https://r4ds.hadley.nz/data-visualize\#visualizing-relationships}{R4DS},
@@ -2461,6 +2538,1246 @@ To visualize 3+ variables, We can either
   \texttt{\textasciitilde{}} followed by a (categorical) variable name.
 \end{itemize}
 
+\chapter{Workflow: Basics}\label{workflow-basics}
+
+\section{Introduction}\label{introduction-1}
+
+This page covers basic concepts when working with R. I took note for
+those that were new to me or found useful to remind myself with.
+
+\section{Clear Workspace}\label{clear-workspace-2}
+
+Always start by clearing the workspace. This ensure objects created in
+other files are not used used here.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rm}\NormalTok{(}\AttributeTok{list =} \FunctionTok{ls}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Packages}\label{sec-packages}
+
+\subsection{List}\label{list-2}
+
+List all the packages that will be used in this script.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{packages }\OtherTok{=} \FunctionTok{c}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Install Missing}\label{install-missing-2}
+
+Any missing package will be installed automatically. This ensure
+smoother execution when run by others.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Do NOT modify}
+\FunctionTok{install.packages}\NormalTok{(}\FunctionTok{setdiff}\NormalTok{(packages, }\FunctionTok{rownames}\NormalTok{(}\FunctionTok{installed.packages}\NormalTok{())))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Load}\label{load-2}
+
+Load all packages
+
+\begin{verbatim}
+list()
+\end{verbatim}
+
+\section{Comments}\label{comments}
+
+Use comments to explain the \emph{why} of your code, eg, you changed the
+default value of a parameter of a function from say \texttt{.2} to
+\texttt{.9}, why?
+
+\section{Nameing Objects Rules}\label{nameing-objects-rules}
+
+\begin{itemize}
+\tightlist
+\item
+  Allowed characters when naming objects
+
+  \begin{itemize}
+  \tightlist
+  \item
+    letters
+  \item
+    numbers
+  \item
+    \texttt{\_}
+  \item
+    \texttt{.}
+  \end{itemize}
+\item
+  All names must start with a letter
+\item
+  R is case-sensitive, ie, \texttt{var}, \texttt{Var}, and \texttt{VAR}
+  are different names
+\end{itemize}
+
+\chapter{Data Transformation}\label{data-transformation}
+
+\section{Introduction}\label{introduction-2}
+
+This page introduces the \texttt{dplyr} package used to transform data
+such as creating new variables, editing existing variables, filtering
+out observations, and creating summaries.
+
+\section{Clear Workspace}\label{clear-workspace-3}
+
+Always start by clearing the workspace. This ensure objects created in
+other files are not used used here.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rm}\NormalTok{(}\AttributeTok{list =} \FunctionTok{ls}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Packages}\label{sec-packages}
+
+\subsection{List}\label{list-3}
+
+List all the packages that will be used in this script.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{packages }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"nycflights13"}\NormalTok{, }\StringTok{"ggplot2"}\NormalTok{, }\StringTok{"dplyr"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Install Missing}\label{install-missing-3}
+
+Any missing package will be installed automatically. This ensure
+smoother execution when run by others.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Do NOT modify}
+\FunctionTok{install.packages}\NormalTok{(}\FunctionTok{setdiff}\NormalTok{(packages, }\FunctionTok{rownames}\NormalTok{(}\FunctionTok{installed.packages}\NormalTok{())))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Load}\label{load-3}
+
+Load all packages
+
+\begin{verbatim}
+Loading required package: nycflights13
+\end{verbatim}
+
+\begin{verbatim}
+Loading required package: ggplot2
+\end{verbatim}
+
+\begin{verbatim}
+Loading required package: dplyr
+\end{verbatim}
+
+\begin{verbatim}
+
+Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+The following objects are masked from 'package:stats':
+
+    filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{verbatim}
+[[1]]
+[1] TRUE
+
+[[2]]
+[1] TRUE
+
+[[3]]
+[1] TRUE
+\end{verbatim}
+
+\section{\texorpdfstring{\texttt{dplyr} Functions
+(Verbs)}{dplyr Functions (Verbs)}}\label{dplyr-functions-verbs}
+
+\subsection{Four Groups}\label{four-groups}
+
+\texttt{dplyr} functions (verbs) can be grouped into functions that work
+on:
+
+\begin{itemize}
+\tightlist
+\item
+  rows, eg, \texttt{filter()}, \texttt{arrange()}, \texttt{distinct()},
+  \texttt{count()}
+\item
+  columns, eg, \texttt{mutate()}, \texttt{select()}, \texttt{rename()},
+  \texttt{relocate()}
+\item
+  groups, eg, \texttt{summarize()}, \texttt{slice\_max},
+  \texttt{group\_by}, \texttt{ungroup()}, \texttt{.by}
+\item
+  tables
+\end{itemize}
+
+\subsection{Common Characteristics}\label{common-characteristics}
+
+All the functions have the followings in common:
+
+\begin{itemize}
+\tightlist
+\item
+  their first argument is always a data frame
+\item
+  their subsequent arguments typically describe which columns to operate
+  on using variable names \emph{without quotes}
+\item
+  they always output a new data frame, they don't modify the passed one
+\end{itemize}
+
+\subsection{\texorpdfstring{Pipe \texttt{\textbar{}\textgreater{}}
+Operator}{Pipe \textbar\textgreater{} Operator}}\label{pipe-operator}
+
+\begin{itemize}
+\tightlist
+\item
+  The pipe \texttt{\textbar{}\textgreater{}} operator takes what on its
+  left and pass it to the function on its right so that
+  \texttt{x\ \textbar{}\textgreater{}\ f(y)} (pronounced as \texttt{x}
+  \emph{then} \texttt{f(y)}) is equivalent to \texttt{f(x,\ y)} and
+  \texttt{x\ \textbar{}\textgreater{}\ f(y)\ \textbar{}\textgreater{}\ g(z)}
+  (pronounced as \texttt{x} then \texttt{f(y)} then \texttt{g(z)}) is
+  equivalent to \texttt{g(f(x,\ y),\ z)}
+\item
+  The \texttt{base} R pipe operator \texttt{\textbar{}\textgreater{}}
+  was introduced in R 4.1.0 in 2021 while the tidyverse
+  \texttt{magrittr} pipe operator \texttt{\%\textgreater{}\%} was
+  introduced in 2014. Using \texttt{\textbar{}\textgreater{}} instead of
+  \texttt{\%\textgreater{}\%} makes our code run when we don't use
+  tidyverse
+\end{itemize}
+
+\subsection{Row Functions}\label{row-functions}
+
+\begin{itemize}
+\tightlist
+\item
+  The following \texttt{filter()} statements are equivalent:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{filter(ds,\ var\ ==\ 1\ or\ var\ ==\ 2)}
+  \item
+    \texttt{filter(ds,\ var\ ==\ 1\ \textbar{}\ var\ ==\ 2)}
+  \item
+    \texttt{filter(ds,\ var\ \%in\%\ c(1,2))}
+  \end{itemize}
+\item
+  The following \texttt{filter()} statements are equivalent:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{filter(ds,\ var\ ==\ 1\ and\ var\ ==\ 2)}
+  \item
+    \texttt{filter(ds,\ var\ ==\ 1,\ var\ ==\ 2)}
+  \end{itemize}
+\item
+  The following \texttt{arrange()} statements order data differently
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{arrange(ds,\ var)} ascendant order
+  \item
+    \texttt{arrange(ds,\ desc(var))} decedent order
+  \end{itemize}
+\item
+  The following \texttt{distinct()} statements return different data
+  frames
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{distinct(ds,\ var1,\ var2)} only keep columns \texttt{var1}
+    and \texttt{var2}
+  \item
+    \texttt{distinct(ds,\ var1,\ var2,\ .keep\_all\ =\ TRUE)} keep all
+    the columns--find the \emph{first} observation where \texttt{var1}
+    and \texttt{var2} are distinct and discard the rest
+  \end{itemize}
+\item
+  The following \texttt{count()} statements order the results
+  differently
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{count(ds,\ var1,\ var2)} arrange results in order they are
+    encountered
+  \item
+    \texttt{count(ds,\ var1,\ var2,\ sort\ =\ TRUE)} arrange results in
+    descending order of number of occurrence
+  \end{itemize}
+\end{itemize}
+
+\subsection{Column Functions}\label{column-functions}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{mutate()}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Instead of adding the newly created variable to the right hand side
+    of the data frame, we can instruct \texttt{mutate()} to adding
+    before a variable using the \texttt{.before} attribute or after a
+    variable using the \texttt{.after} attribute
+  \item
+    To only keep the variables involved in the creation of the new
+    variables, we can instruct \texttt{mutate()} to do so by setting the
+    \texttt{.keep\ =\ "used"} attribute
+  \end{itemize}
+\item
+  \texttt{select()}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    select range of variables: \texttt{select(ds,\ var\_x:var\_y)}
+  \item
+    select all variables except certain range:
+    \texttt{select(ds,\ !var\_x:var\_y)}
+  \item
+    select character variables only:
+    \texttt{select(ds,\ where(is.character))}
+  \item
+    select variables whose name start with something:
+    \texttt{select(ds,\ start\_with("m"))}
+  \item
+    select variables whose name end with something:
+    \texttt{select(ds,\ end\_with("m"))}
+  \item
+    select variables whose name contain something:
+    \texttt{select(ds,\ contains("m"))}
+  \item
+    select variables whose name follow some range:
+    \texttt{select(ds,\ num\_range("x",\ 1:3))}
+  \item
+    select and rename variable:
+    \texttt{select(ds,\ var1\_new\ =\ var1,\ var2\_new\ =\ var2)}
+  \end{itemize}
+\item
+  \texttt{rename()}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    to rename many columns, it is better to use
+    \texttt{janitor::clean\_names()} function
+  \end{itemize}
+\item
+  \texttt{relocate()}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    By default, bring columns to left hand side of the data frame
+  \item
+    \texttt{relocate(ds,\ var1,\ .after\ =\ var2)} puts \texttt{var1}
+    after \texttt{var2}
+  \item
+    \texttt{relocate(ds,\ var1,\ .before\ =\ var2)} puts \texttt{var1}
+    before \texttt{var2}
+  \end{itemize}
+\end{itemize}
+
+\subsection{Groups Functions}\label{groups-functions}
+
+\begin{itemize}
+\item
+  \texttt{group\_by()}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    divides the data into groups so that subsequent operations work on
+    these groups
+  \item
+    it added a \emph{class} to the dataset to indicate the grouping
+  \end{itemize}
+\item
+  \texttt{summarize()} or \texttt{summarise()}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    To prevent summary statistics functions, eg, \texttt{mean()} to give
+    \texttt{NA} due to some groups has \texttt{NA} (missing) values, set
+    their argument: \texttt{na.rm\ =\ TRUE}
+  \item
+    The summary statistics function \texttt{n()} gives the number of
+    observations in the group
+  \item
+    Each summary peels off the last group. To prevent this behavior,
+    change the default value \texttt{drop\_last} of the \texttt{.groups}
+    argument of the summary statistic function to either \texttt{keep}
+    to keep all groups or \texttt{drop} to drop all groups
+  \end{itemize}
+\item
+\begin{verbatim}
+`slice_` functions
+\end{verbatim}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The functions are: \texttt{slice\_head()}, \texttt{slice\_tail()},
+    \texttt{slice\_min()}, \texttt{slice\_max()}, and
+    \texttt{slice\_sample()}
+  \item
+    To slice a number of rows from each group, use the \texttt{n}
+    arguments, eg, \texttt{n\ =\ 1}
+  \item
+    To slice percentage of rows from each group, use the \texttt{prop}
+    argument, eg, \texttt{prop\ =\ .1} (10\%)
+  \item
+    To prevent ties from showing, use \texttt{with\_ties\ =\ FALSE}
+    argument
+  \end{itemize}
+\item
+\begin{verbatim}
+`.by` argument
+\end{verbatim}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    New addition to dplyr 1.1.0 (more information at
+    \href{https://www.tidyverse.org/blog/2023/02/dplyr-1-1-0-per-operation-grouping/}{dplyr
+    1.1.0 blog post})
+  \item
+    Per-operation grouping--can be used all verbs. The advantage is that
+    we don't need to use the \texttt{.groups} argument to suppress the
+    warning message raised by \texttt{summarize()} when grouping by
+    multiple variables and we don't need to use \texttt{ungroup()} when
+    done with our summary.
+  \end{itemize}
+\end{itemize}
+
+\chapter{Workflow: Code Style}\label{workflow-code-style}
+
+\section{Introduction}\label{introduction-3}
+
+This page covers code style concepts when working with R. I took note
+for those that were new to me or found useful to remind myself with.
+
+\begin{tcolorbox}[enhanced jigsaw, breakable, toprule=.15mm, titlerule=0mm, coltitle=black, colback=white, arc=.35mm, opacityback=0, left=2mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Code Style \& Punctuation}, bottomrule=.15mm, bottomtitle=1mm, rightrule=.15mm, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame]
+
+Code style is like punctuation, when used correctly,
+itmakecodereadeasily.
+
+\end{tcolorbox}
+
+\section{Clear Workspace}\label{clear-workspace-4}
+
+Always start by clearing the workspace. This ensure objects created in
+other files are not used used here.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rm}\NormalTok{(}\AttributeTok{list =} \FunctionTok{ls}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Packages}\label{sec-packages}
+
+\subsection{List}\label{list-4}
+
+List all the packages that will be used in this script.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{packages }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"styler"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Install Missing}\label{install-missing-4}
+
+Any missing package will be installed automatically. This ensure
+smoother execution when run by others.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Do NOT modify}
+\FunctionTok{install.packages}\NormalTok{(}\FunctionTok{setdiff}\NormalTok{(packages, }\FunctionTok{rownames}\NormalTok{(}\FunctionTok{installed.packages}\NormalTok{())))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Load}\label{load-4}
+
+Load all packages
+
+\begin{verbatim}
+Loading required package: styler
+\end{verbatim}
+
+\begin{verbatim}
+[[1]]
+[1] TRUE
+\end{verbatim}
+
+\section{Styling Overview}\label{styling-overview}
+
+\subsection{Consistency}\label{consistency}
+
+Although there are styling guidelines (see below for example) that one
+can follow, it is important that a programmer pick one and stick with it
+to make easy for other including future self to read your work.
+
+\subsection{Guidelines}\label{guidelines}
+
+There is not official styling guideline for R. However, there are
+different styling guidelines that one can adopt, below are some of those
+found by search R styling guidelines
+(\href{https://www.google.com/search?q=r+styling+guidlines&oq=r+styling+guidlines}{html}):
+
+\begin{itemize}
+\tightlist
+\item
+  tidyverse Style Guide (\href{https://style.tidyverse.org/}{html}) by
+  Hadley Wickham. \textbf{This is the adopted guidelines in these
+  notes.}
+\item
+  R Style Guide
+  (\href{https://google.github.io/styleguide/Rguide.html}{html}) by
+  Google
+\item
+  R Coding Conventions
+  (\href{https://docs.google.com/document/d/1esDVxyWvH8AsX-VJa-8oqWaHLs4stGlIbk8kLc5VlII/preview}{html})
+  by Henrik Bengtsson, Assoc Professor, Dept of Statistics, University
+  of California, Berkeley
+\item
+  Coding Style
+  (\href{https://contributions.bioconductor.org/r-code.html\#r-code}{html})
+  by Bioconductor project (\href{https://bioconductor.org/}{website})
+\item
+  R Style Guide (\href{https://jef.works/R-style-guide/}{html}) by Jean
+  Fan (\href{https://github.com/JEFworks}{GitHub}), Assistant Professor,
+  Center for Computational Biology, Department of Biomedical
+  Engineering, Johns Hopkins University
+\end{itemize}
+
+\subsection{Automatic}\label{automatic}
+
+There are package that can be used to automatically style existing code.
+Below are some of those:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{styler} package (\href{https://styler.r-lib.org/}{website}) by
+  Lorenz Walthert (\href{https://lorenzwalthert.com/}{website}). After
+  installing the package, launch RStudio's command palette using the
+  keyboard shortcut \texttt{Ctrl+Shift+P}, type \texttt{styler}, and
+  select from the available commands
+\end{itemize}
+
+\section{Styling Specifics}\label{styling-specifics}
+
+\subsection{Names}\label{names}
+
+\begin{itemize}
+\tightlist
+\item
+  Use meaningful names
+\item
+  snake\_case is used to separate\_multi\_word\_variables
+\item
+  variables with certain theme should start with the same common
+  word/letter to make use of the auto-complete functionality
+\end{itemize}
+
+\subsection{Spaces}\label{spaces}
+
+\begin{itemize}
+\tightlist
+\item
+  Except \texttt{\^{}}, put spaces on both sides of mathematical
+  operators
+\item
+  Put spaces on both sides of the assignment operator,
+  \texttt{\textless{}-}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Strive for}
+\NormalTok{z }\OtherTok{\textless{}{-}}\NormalTok{ (a }\SpecialCharTok{+}\NormalTok{ b)}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{/}\NormalTok{ d}
+
+\CommentTok{\# Avoid}
+\NormalTok{z}\OtherTok{\textless{}{-}}\NormalTok{( a }\SpecialCharTok{+}\NormalTok{ b ) }\SpecialCharTok{\^{}} \DecValTok{2}\SpecialCharTok{/}\NormalTok{d}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Don't put spaces inside or outside parentheses for regular function
+  calls
+\item
+  Always put a space after a comma
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Strive for}
+\FunctionTok{mean}\NormalTok{(x, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+
+\CommentTok{\# Avoid}
+\FunctionTok{mean}\NormalTok{ (x ,}\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  It is okay to use extra space so align things.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{flights }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{speed      =}\NormalTok{ distance }\SpecialCharTok{/}\NormalTok{ air\_time,}
+    \AttributeTok{dep\_hour   =}\NormalTok{ dep\_time }\SpecialCharTok{\%/\%} \DecValTok{100}\NormalTok{,}
+    \AttributeTok{dep\_minute =}\NormalTok{ dep\_time }\SpecialCharTok{\%\%}  \DecValTok{100}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{\texorpdfstring{Pipes
+\texttt{\textbar{}\textgreater{}}}{Pipes \textbar\textgreater{}}}\label{pipes}
+
+The roles for pipes are nicely summarized in
+\href{https://r4ds.hadley.nz/workflow-style\#sec-pipes}{R4DS}. Most of
+them are copied below.
+
+\begin{itemize}
+\tightlist
+\item
+  Put a space before it
+\item
+  It should typically the last thing on a line. This make it easy to
+
+  \begin{itemize}
+  \tightlist
+  \item
+    add new steps
+  \item
+    rearrange existing steps
+  \item
+    modify elements within a step
+  \item
+    quickly skip the verbs on the left-hand side
+  \end{itemize}
+\item
+  After the first step of the pipeline, indent each line by two spaces
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Strive for }
+\NormalTok{flights }\SpecialCharTok{|\textgreater{}}  
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(arr\_delay), }\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(tailnum)) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{count}\NormalTok{(dest)}
+
+\CommentTok{\# Avoid}
+\NormalTok{flights}\SpecialCharTok{|\textgreater{}}\FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(arr\_delay), }\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(tailnum))}\SpecialCharTok{|\textgreater{}}\FunctionTok{count}\NormalTok{(dest)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  If piping to a function without named arguments and its arguments fit
+  on one line,
+
+  \begin{itemize}
+  \tightlist
+  \item
+    put all of them on one line.
+  \end{itemize}
+\item
+  If piping to a function with named arguments OR the function has not
+  named arguments but the arguments do not fit on line,
+
+  \begin{itemize}
+  \tightlist
+  \item
+    put each argument on new line indented by two spaces
+  \item
+    make sure the \texttt{)} is on its own line and un-indented to match
+    the horizontal position of the function name
+  \end{itemize}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Strive for}
+\NormalTok{flights }\SpecialCharTok{|\textgreater{}}  
+  \FunctionTok{group\_by}\NormalTok{(tailnum) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{summarize}\NormalTok{(}
+    \AttributeTok{delay =} \FunctionTok{mean}\NormalTok{(arr\_delay, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{n =} \FunctionTok{n}\NormalTok{()}
+\NormalTok{  )}
+
+\CommentTok{\# Avoid}
+\NormalTok{flights }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{group\_by}\NormalTok{(}
+\NormalTok{    tailnum}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{delay =} \FunctionTok{mean}\NormalTok{(arr\_delay, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }\AttributeTok{n =} \FunctionTok{n}\NormalTok{())}
+
+\CommentTok{\# Avoid}
+\NormalTok{flights}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{group\_by}\NormalTok{(tailnum) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{summarize}\NormalTok{(}
+             \AttributeTok{delay =} \FunctionTok{mean}\NormalTok{(arr\_delay, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }
+             \AttributeTok{n =} \FunctionTok{n}\NormalTok{()}
+\NormalTok{           )}
+
+\CommentTok{\# Avoid}
+\NormalTok{flights}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{group\_by}\NormalTok{(tailnum) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{summarize}\NormalTok{(}
+  \AttributeTok{delay =} \FunctionTok{mean}\NormalTok{(arr\_delay, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }
+  \AttributeTok{n =} \FunctionTok{n}\NormalTok{()}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tcolorbox}[enhanced jigsaw, breakable, toprule=.15mm, titlerule=0mm, coltitle=black, colback=white, arc=.35mm, opacityback=0, left=2mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Long Pipeline}, bottomrule=.15mm, bottomtitle=1mm, rightrule=.15mm, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame]
+
+Break long pipelines (tasks) to meaningful pipelines (sub-tasks) and
+save the intermediate steps. This will make the code more readable and
+easy to check and debug.
+
+\end{tcolorbox}
+
+\subsection{\texorpdfstring{\texttt{ggplot2}}{ggplot2}}\label{ggplot2}
+
+The same rules from pipe can be applied to \texttt{ggplot2}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{flights }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{group\_by}\NormalTok{(dest) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{summarize}\NormalTok{(}
+    \AttributeTok{distance =} \FunctionTok{mean}\NormalTok{(distance),}
+    \AttributeTok{speed =} \FunctionTok{mean}\NormalTok{(distance }\SpecialCharTok{/}\NormalTok{ air\_time, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ distance, }\AttributeTok{y =}\NormalTok{ speed)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_smooth}\NormalTok{(}
+    \AttributeTok{method =} \StringTok{"loess"}\NormalTok{,}
+    \AttributeTok{span =} \FloatTok{0.5}\NormalTok{,}
+    \AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{, }
+    \AttributeTok{color =} \StringTok{"white"}\NormalTok{, }
+    \AttributeTok{linewidth =} \DecValTok{4}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Sectioning Comments}\label{sectioning-comments}
+
+When writing long scripts, it is advisable to break the code into
+sections and using \emph{sectioning} comments to label them. The RStudio
+keyboard shortcut to create such comment is \texttt{Cnrl+Shift+R}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load data {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+
+\CommentTok{\# Plot data {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\end{Highlighting}
+\end{Shaded}
+
+\chapter{Data Tidying}\label{data-tidying}
+
+\section{Introduction}\label{introduction-4}
+
+This page explains how use the \texttt{tidyr} package to put data in
+tidy form where:
+
+\begin{itemize}
+\tightlist
+\item
+  each row represents an observation
+\item
+  each column represents a variable
+\item
+  each cell contain a single value
+\end{itemize}
+
+Putting data in tidy form will make it easy to process using tidyverse
+packages.
+
+\section{Clear Workspace}\label{clear-workspace-5}
+
+Always start by clearing the workspace. This ensure objects created in
+other files are not used used here.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rm}\NormalTok{(}\AttributeTok{list =} \FunctionTok{ls}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Packages}\label{sec-packages}
+
+\subsection{List}\label{list-5}
+
+List all the packages that will be used in this script.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{packages }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"styler"}\NormalTok{, }\StringTok{"dplyr"}\NormalTok{, }\StringTok{"tidyr"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Install Missing}\label{install-missing-5}
+
+Any missing package will be installed automatically. This ensure
+smoother execution when run by others.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Do NOT modify}
+\FunctionTok{install.packages}\NormalTok{(}\FunctionTok{setdiff}\NormalTok{(packages, }\FunctionTok{rownames}\NormalTok{(}\FunctionTok{installed.packages}\NormalTok{())))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Load}\label{load-5}
+
+Load all packages
+
+\begin{verbatim}
+Loading required package: styler
+\end{verbatim}
+
+\begin{verbatim}
+Loading required package: dplyr
+\end{verbatim}
+
+\begin{verbatim}
+
+Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+The following objects are masked from 'package:stats':
+
+    filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{verbatim}
+Loading required package: tidyr
+\end{verbatim}
+
+\begin{verbatim}
+[[1]]
+[1] TRUE
+
+[[2]]
+[1] TRUE
+
+[[3]]
+[1] TRUE
+\end{verbatim}
+
+\section{\texorpdfstring{Lengthening Data,
+\texttt{pivot\_longer}}{Lengthening Data, pivot\_longer}}\label{lengthening-data-pivot_longer}
+
+\subsection{One Variable in Column
+Headers}\label{one-variable-in-column-headers}
+
+\subsubsection{Toy Example}\label{toy-example}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ds }\OtherTok{\textless{}{-}} \FunctionTok{tribble}\NormalTok{(}
+  \SpecialCharTok{\textasciitilde{}}\NormalTok{id, }\SpecialCharTok{\textasciitilde{}}\NormalTok{A, }\SpecialCharTok{\textasciitilde{}}\NormalTok{B\_1, }\SpecialCharTok{\textasciitilde{}}\NormalTok{B\_2,}
+  \StringTok{"A"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{10.1}\NormalTok{, }\FloatTok{10.2}\NormalTok{,}
+  \StringTok{"B"}\NormalTok{, }\DecValTok{2}\NormalTok{, }\FloatTok{20.1}\NormalTok{, }\ConstantTok{NA}\NormalTok{,}
+  \StringTok{"C"}\NormalTok{, }\DecValTok{3}\NormalTok{, }\ConstantTok{NA}\NormalTok{, }\FloatTok{30.2}
+\NormalTok{)}
+
+\NormalTok{ds}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 3 x 4
+  id        A   B_1   B_2
+  <chr> <dbl> <dbl> <dbl>
+1 A         1  10.1  10.2
+2 B         2  20.1  NA  
+3 C         3  NA    30.2
+\end{verbatim}
+
+\subsubsection{Lengthen}\label{lengthen}
+
+\begin{quote}
+I want the values in all the columns that start with \texttt{B\_} to be
+placed into a (single) column named \texttt{value}. To distinguish which
+value belong to which column, create a new column called
+\texttt{B\_type} for this purpuse.
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ds\_lengthen }\OtherTok{\textless{}{-}}\NormalTok{ ds }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{pivot\_longer}\NormalTok{(}
+    \AttributeTok{cols =} \FunctionTok{starts\_with}\NormalTok{(}\StringTok{"B\_"}\NormalTok{),}
+    \AttributeTok{names\_to =} \StringTok{"B\_type"}\NormalTok{,}
+    \AttributeTok{values\_to =} \StringTok{"value"}
+\NormalTok{  )}
+
+\NormalTok{ds\_lengthen}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 6 x 4
+  id        A B_type value
+  <chr> <dbl> <chr>  <dbl>
+1 A         1 B_1     10.1
+2 A         1 B_2     10.2
+3 B         2 B_1     20.1
+4 B         2 B_2     NA  
+5 C         3 B_1     NA  
+6 C         3 B_2     30.2
+\end{verbatim}
+
+\subsubsection{Remove NA}\label{remove-na}
+
+Use the argument \texttt{values\_drop\_na\ =\ TRUE}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ds\_lengthen }\OtherTok{\textless{}{-}}\NormalTok{ ds }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{pivot\_longer}\NormalTok{(}
+    \AttributeTok{cols =} \FunctionTok{starts\_with}\NormalTok{(}\StringTok{"B\_"}\NormalTok{),}
+    \AttributeTok{names\_to =} \StringTok{"B\_type"}\NormalTok{,}
+    \AttributeTok{values\_to =} \StringTok{"value"}\NormalTok{,}
+    \AttributeTok{values\_drop\_na =} \ConstantTok{TRUE}
+\NormalTok{  )}
+
+\NormalTok{ds\_lengthen}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 4 x 4
+  id        A B_type value
+  <chr> <dbl> <chr>  <dbl>
+1 A         1 B_1     10.1
+2 A         1 B_2     10.2
+3 B         2 B_1     20.1
+4 C         3 B_2     30.2
+\end{verbatim}
+
+\subsubsection{Fix Cell Values}\label{fix-cell-values}
+
+Use the \texttt{readr::parse\_number()} function to extract the first
+number from var2 variable and ignore all other text.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ds\_lengthen }\OtherTok{\textless{}{-}}\NormalTok{ ds }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{pivot\_longer}\NormalTok{(}
+    \AttributeTok{cols =} \FunctionTok{starts\_with}\NormalTok{(}\StringTok{"B\_"}\NormalTok{),}
+    \AttributeTok{names\_to =} \StringTok{"B\_type"}\NormalTok{,}
+    \AttributeTok{values\_to =} \StringTok{"value"}\NormalTok{,}
+    \AttributeTok{values\_drop\_na =} \ConstantTok{TRUE}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{B\_type =}\NormalTok{ readr}\SpecialCharTok{::}\FunctionTok{parse\_number}\NormalTok{(B\_type)}
+\NormalTok{  )}
+
+\NormalTok{ds\_lengthen}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 4 x 4
+  id        A B_type value
+  <chr> <dbl>  <dbl> <dbl>
+1 A         1      1  10.1
+2 A         1      2  10.2
+3 B         2      1  20.1
+4 C         3      2  30.2
+\end{verbatim}
+
+\subsection{Multiple Variables in Column
+Headers}\label{multiple-variables-in-column-headers}
+
+\subsubsection{Toy Example}\label{toy-example-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ds2 }\OtherTok{\textless{}{-}} \FunctionTok{tribble}\NormalTok{(}
+  \SpecialCharTok{\textasciitilde{}}\NormalTok{id, }\SpecialCharTok{\textasciitilde{}}\NormalTok{A, }\SpecialCharTok{\textasciitilde{}}\NormalTok{B1\_C1, }\SpecialCharTok{\textasciitilde{}}\NormalTok{B1\_C2, }\SpecialCharTok{\textasciitilde{}}\NormalTok{B2\_C1, }\SpecialCharTok{\textasciitilde{}}\NormalTok{B2\_C2,}
+  \StringTok{"A"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{10.11}\NormalTok{, }\FloatTok{10.12}\NormalTok{, }\FloatTok{10.21}\NormalTok{, }\FloatTok{10.22}\NormalTok{,}
+  \StringTok{"B"}\NormalTok{, }\DecValTok{2}\NormalTok{, }\FloatTok{20.11}\NormalTok{, }\FloatTok{20.12}\NormalTok{, }\ConstantTok{NA}\NormalTok{, }\FloatTok{20.22}\NormalTok{,}
+  \StringTok{"C"}\NormalTok{, }\DecValTok{3}\NormalTok{, }\FloatTok{30.11}\NormalTok{, }\ConstantTok{NA}\NormalTok{, }\FloatTok{30.21}\NormalTok{, }\FloatTok{30.22}
+\NormalTok{)}
+
+\NormalTok{ds2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 3 x 6
+  id        A B1_C1 B1_C2 B2_C1 B2_C2
+  <chr> <dbl> <dbl> <dbl> <dbl> <dbl>
+1 A         1  10.1  10.1  10.2  10.2
+2 B         2  20.1  20.1  NA    20.2
+3 C         3  30.1  NA    30.2  30.2
+\end{verbatim}
+
+\subsubsection{Lengthening w/o Seperating
+Variables}\label{lengthening-wo-seperating-variables}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ds\_lengthen }\OtherTok{\textless{}{-}}\NormalTok{ ds2 }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{pivot\_longer}\NormalTok{(}
+    \AttributeTok{cols =} \FunctionTok{starts\_with}\NormalTok{(}\StringTok{"B"}\NormalTok{),}
+    \AttributeTok{names\_to =} \StringTok{"B\_C"}\NormalTok{,}
+    \AttributeTok{values\_to =} \StringTok{"value"}
+\NormalTok{  )}
+
+\NormalTok{ds\_lengthen}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 12 x 4
+   id        A B_C   value
+   <chr> <dbl> <chr> <dbl>
+ 1 A         1 B1_C1  10.1
+ 2 A         1 B1_C2  10.1
+ 3 A         1 B2_C1  10.2
+ 4 A         1 B2_C2  10.2
+ 5 B         2 B1_C1  20.1
+ 6 B         2 B1_C2  20.1
+ 7 B         2 B2_C1  NA  
+ 8 B         2 B2_C2  20.2
+ 9 C         3 B1_C1  30.1
+10 C         3 B1_C2  NA  
+11 C         3 B2_C1  30.2
+12 C         3 B2_C2  30.2
+\end{verbatim}
+
+\subsubsection{Lengthening w/ Seperating
+Variables}\label{lengthening-w-seperating-variables}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ds\_lengthen }\OtherTok{\textless{}{-}}\NormalTok{ ds2 }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{pivot\_longer}\NormalTok{(}
+    \AttributeTok{cols =} \SpecialCharTok{!}\NormalTok{(id}\SpecialCharTok{:}\NormalTok{A),}
+    \AttributeTok{names\_sep =} \StringTok{"\_"}\NormalTok{,}
+    \AttributeTok{names\_to =} \FunctionTok{c}\NormalTok{(}\StringTok{"B"}\NormalTok{, }\StringTok{"C"}\NormalTok{),}
+    \AttributeTok{values\_to =} \StringTok{"value"}
+\NormalTok{  )}
+
+\NormalTok{ds\_lengthen}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 12 x 5
+   id        A B     C     value
+   <chr> <dbl> <chr> <chr> <dbl>
+ 1 A         1 B1    C1     10.1
+ 2 A         1 B1    C2     10.1
+ 3 A         1 B2    C1     10.2
+ 4 A         1 B2    C2     10.2
+ 5 B         2 B1    C1     20.1
+ 6 B         2 B1    C2     20.1
+ 7 B         2 B2    C1     NA  
+ 8 B         2 B2    C2     20.2
+ 9 C         3 B1    C1     30.1
+10 C         3 B1    C2     NA  
+11 C         3 B2    C1     30.2
+12 C         3 B2    C2     30.2
+\end{verbatim}
+
+\subsubsection{Dropping NA}\label{dropping-na}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ds\_lengthen }\OtherTok{\textless{}{-}}\NormalTok{ ds2 }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{pivot\_longer}\NormalTok{(}
+    \AttributeTok{cols =} \SpecialCharTok{!}\NormalTok{(id}\SpecialCharTok{:}\NormalTok{A),}
+    \AttributeTok{names\_sep =} \StringTok{"\_"}\NormalTok{,}
+    \AttributeTok{names\_to =} \FunctionTok{c}\NormalTok{(}\StringTok{"B"}\NormalTok{, }\StringTok{"C"}\NormalTok{),}
+    \AttributeTok{values\_to =} \StringTok{"value"}\NormalTok{,}
+    \AttributeTok{values\_drop\_na =} \ConstantTok{TRUE}
+\NormalTok{  )}
+
+\NormalTok{ds\_lengthen}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 10 x 5
+   id        A B     C     value
+   <chr> <dbl> <chr> <chr> <dbl>
+ 1 A         1 B1    C1     10.1
+ 2 A         1 B1    C2     10.1
+ 3 A         1 B2    C1     10.2
+ 4 A         1 B2    C2     10.2
+ 5 B         2 B1    C1     20.1
+ 6 B         2 B1    C2     20.1
+ 7 B         2 B2    C2     20.2
+ 8 C         3 B1    C1     30.1
+ 9 C         3 B2    C1     30.2
+10 C         3 B2    C2     30.2
+\end{verbatim}
+
+\subsection{Data and Variable Names in Colmnn
+Headers}\label{data-and-variable-names-in-colmnn-headers}
+
+\subsubsection{Toy Example}\label{toy-example-2}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ds3 }\OtherTok{\textless{}{-}} \FunctionTok{tribble}\NormalTok{(}
+  \SpecialCharTok{\textasciitilde{}}\NormalTok{id, }\SpecialCharTok{\textasciitilde{}}\NormalTok{child1\_name, }\SpecialCharTok{\textasciitilde{}}\NormalTok{child1\_age, }\SpecialCharTok{\textasciitilde{}}\NormalTok{child2\_name, }\SpecialCharTok{\textasciitilde{}}\NormalTok{child2\_age,}
+  \StringTok{"A"}\NormalTok{, }\StringTok{"A1"}\NormalTok{, }\DecValTok{11}\NormalTok{, }\StringTok{"A2"}\NormalTok{, }\DecValTok{12}\NormalTok{,}
+  \StringTok{"B"}\NormalTok{, }\StringTok{"B1"}\NormalTok{, }\DecValTok{21}\NormalTok{, }\ConstantTok{NA}\NormalTok{, }\ConstantTok{NA}\NormalTok{,}
+  \StringTok{"C"}\NormalTok{, }\ConstantTok{NA}\NormalTok{, }\ConstantTok{NA}\NormalTok{, }\StringTok{"C2"}\NormalTok{, }\DecValTok{32}
+\NormalTok{)}
+
+\NormalTok{ds3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 3 x 5
+  id    child1_name child1_age child2_name child2_age
+  <chr> <chr>            <dbl> <chr>            <dbl>
+1 A     A1                  11 A2                  12
+2 B     B1                  21 <NA>                NA
+3 C     <NA>                NA C2                  32
+\end{verbatim}
+
+\subsubsection{Lengthening w/o Removing
+NA}\label{lengthening-wo-removing-na}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ds\_lengthen }\OtherTok{\textless{}{-}}\NormalTok{ ds3 }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{pivot\_longer}\NormalTok{(}
+    \AttributeTok{cols =} \FunctionTok{starts\_with}\NormalTok{(}\StringTok{"child"}\NormalTok{),}
+    \AttributeTok{names\_sep =} \StringTok{"\_"}\NormalTok{,}
+    \AttributeTok{names\_to =} \FunctionTok{c}\NormalTok{(}\StringTok{"child"}\NormalTok{, }\StringTok{".value"}\NormalTok{)}
+\NormalTok{  )}
+
+\NormalTok{ds\_lengthen}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 6 x 4
+  id    child  name    age
+  <chr> <chr>  <chr> <dbl>
+1 A     child1 A1       11
+2 A     child2 A2       12
+3 B     child1 B1       21
+4 B     child2 <NA>     NA
+5 C     child1 <NA>     NA
+6 C     child2 C2       32
+\end{verbatim}
+
+\subsubsection{Lengthening w Removing
+NA}\label{lengthening-w-removing-na}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ds\_lengthen }\OtherTok{\textless{}{-}}\NormalTok{ ds3 }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{pivot\_longer}\NormalTok{(}
+    \AttributeTok{cols =} \FunctionTok{starts\_with}\NormalTok{(}\StringTok{"child"}\NormalTok{),}
+    \AttributeTok{names\_sep =} \StringTok{"\_"}\NormalTok{,}
+    \AttributeTok{names\_to =} \FunctionTok{c}\NormalTok{(}\StringTok{"child"}\NormalTok{, }\StringTok{".value"}\NormalTok{),}
+    \AttributeTok{values\_drop\_na =} \ConstantTok{TRUE}
+\NormalTok{  )}
+
+\NormalTok{ds\_lengthen}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 4 x 4
+  id    child  name    age
+  <chr> <chr>  <chr> <dbl>
+1 A     child1 A1       11
+2 A     child2 A2       12
+3 B     child1 B1       21
+4 C     child2 C2       32
+\end{verbatim}
+
+\subsubsection{Fixing Cell Values}\label{fixing-cell-values}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ds\_lengthen }\OtherTok{\textless{}{-}}\NormalTok{ ds3 }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{pivot\_longer}\NormalTok{(}
+    \AttributeTok{cols =} \FunctionTok{starts\_with}\NormalTok{(}\StringTok{"child"}\NormalTok{),}
+    \AttributeTok{names\_sep =} \StringTok{"\_"}\NormalTok{,}
+    \AttributeTok{names\_to =} \FunctionTok{c}\NormalTok{(}\StringTok{"child"}\NormalTok{, }\StringTok{".value"}\NormalTok{),}
+    \AttributeTok{values\_drop\_na =} \ConstantTok{TRUE}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{child =}\NormalTok{ readr}\SpecialCharTok{::}\FunctionTok{parse\_number}\NormalTok{(child)}
+\NormalTok{  )}
+
+\NormalTok{ds\_lengthen}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 4 x 4
+  id    child name    age
+  <chr> <dbl> <chr> <dbl>
+1 A         1 A1       11
+2 A         2 A2       12
+3 B         1 B1       21
+4 C         2 C2       32
+\end{verbatim}
+
 \part{Practice}
 
 This section contains practices for the programming/scripting languages
@@ -2468,7 +3785,7 @@ that I am learning.
 
 \chapter{Topic Modeling in R}\label{topic-modeling-in-r}
 
-\section{Introduction}\label{introduction-1}
+\section{Introduction}\label{introduction-5}
 
 An attempt to understand Sherlock Holmes short stories found in
 Adventures of Sherlock Holmes book by Arthur Conan Doyle. After

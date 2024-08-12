@@ -1,0 +1,254 @@
+---
+title: "Data Tidying"
+number-sections: true
+---
+
+## Introduction
+
+This page explains how use the `tidyr` package to put data in tidy form where:
+
+- each row represents an observation
+- each column represents a variable
+- each cell contain a single value
+
+Putting data in tidy form will make it easy to process using tidyverse packages.
+
+
+## Clear Workspace
+
+Always start by clearing the workspace. This ensure objects created in other files are not used used here.
+
+```{r}
+#| include: true
+#| results: 'hide'
+
+rm(list = ls())
+```
+
+## Packages {#sec-packages}
+
+### List
+
+List all the packages that will be used in this script.
+
+```{r List of Used Packages}
+#| include: true
+#| echo: true
+#| error: true
+
+packages <- c("styler", "dplyr", "tidyr")
+```
+
+### Install Missing
+
+Any missing package will be installed automatically. This ensure smoother execution when run by others.
+
+```{r Install Missing Packages}
+#| include: true
+#| echo: true
+#| error: true
+
+# Do NOT modify
+install.packages(setdiff(packages, rownames(installed.packages())))
+```
+
+### Load
+
+Load all packages
+
+```{r Load Packages}
+#| include: true
+#| echo: false
+#| error: true
+
+# Do NOT modify
+lapply(packages, require, character.only = TRUE)
+```
+
+## Lengthening Data, `pivot_longer`
+
+
+### One Variable in Column Headers
+
+#### Toy Example
+
+```{r}
+ds <- tribble(
+  ~id, ~A, ~B_1, ~B_2,
+  "A", 1, 10.1, 10.2,
+  "B", 2, 20.1, NA,
+  "C", 3, NA, 30.2
+)
+
+ds
+```
+
+
+#### Lengthen
+
+> I want the values in all the columns that start with `B_` to be placed into a (single) column named `value`.  To distinguish which value belong to which column, create a new column called `B_type` for this purpuse.
+
+```{r}
+ds_lengthen <- ds |> 
+  pivot_longer(
+    cols = starts_with("B_"),
+    names_to = "B_type",
+    values_to = "value"
+  )
+
+ds_lengthen
+```
+
+#### Remove NA
+
+Use the argument `values_drop_na = TRUE`
+
+```{r}
+ds_lengthen <- ds |> 
+  pivot_longer(
+    cols = starts_with("B_"),
+    names_to = "B_type",
+    values_to = "value",
+    values_drop_na = TRUE
+  )
+
+ds_lengthen
+```
+
+
+#### Fix Cell Values
+
+Use the `readr::parse_number()` function to extract the first number from var2 variable and ignore all other text.
+
+```{r}
+ds_lengthen <- ds |> 
+  pivot_longer(
+    cols = starts_with("B_"),
+    names_to = "B_type",
+    values_to = "value",
+    values_drop_na = TRUE
+  ) |> 
+  mutate(
+    B_type = readr::parse_number(B_type)
+  )
+
+ds_lengthen
+```
+
+
+### Multiple Variables in Column Headers
+
+#### Toy Example
+
+```{r}
+ds2 <- tribble(
+  ~id, ~A, ~B1_C1, ~B1_C2, ~B2_C1, ~B2_C2,
+  "A", 1, 10.11, 10.12, 10.21, 10.22,
+  "B", 2, 20.11, 20.12, NA, 20.22,
+  "C", 3, 30.11, NA, 30.21, 30.22
+)
+
+ds2
+```
+
+#### Lengthening w/o Seperating Variables
+
+```{r}
+ds_lengthen <- ds2 |> 
+  pivot_longer(
+    cols = starts_with("B"),
+    names_to = "B_C",
+    values_to = "value"
+  )
+
+ds_lengthen
+```
+
+#### Lengthening w/ Seperating Variables
+
+```{r}
+ds_lengthen <- ds2 |> 
+  pivot_longer(
+    cols = !(id:A),
+    names_sep = "_",
+    names_to = c("B", "C"),
+    values_to = "value"
+  )
+
+ds_lengthen
+```
+
+#### Dropping NA
+
+```{r}
+ds_lengthen <- ds2 |> 
+  pivot_longer(
+    cols = !(id:A),
+    names_sep = "_",
+    names_to = c("B", "C"),
+    values_to = "value",
+    values_drop_na = TRUE
+  )
+
+ds_lengthen
+```
+
+### Data and Variable Names in Colmnn Headers
+
+#### Toy Example
+
+```{r}
+ds3 <- tribble(
+  ~id, ~child1_name, ~child1_age, ~child2_name, ~child2_age,
+  "A", "A1", 11, "A2", 12,
+  "B", "B1", 21, NA, NA,
+  "C", NA, NA, "C2", 32
+)
+
+ds3
+```
+
+#### Lengthening w/o Removing NA
+
+```{r}
+ds_lengthen <- ds3 |> 
+  pivot_longer(
+    cols = starts_with("child"),
+    names_sep = "_",
+    names_to = c("child", ".value")
+  )
+
+ds_lengthen
+```
+
+#### Lengthening w Removing NA
+
+```{r}
+ds_lengthen <- ds3 |> 
+  pivot_longer(
+    cols = starts_with("child"),
+    names_sep = "_",
+    names_to = c("child", ".value"),
+    values_drop_na = TRUE
+  )
+
+ds_lengthen
+```
+
+
+#### Fixing Cell Values
+
+```{r}
+ds_lengthen <- ds3 |> 
+  pivot_longer(
+    cols = starts_with("child"),
+    names_sep = "_",
+    names_to = c("child", ".value"),
+    values_drop_na = TRUE
+  ) |> 
+  mutate(
+    child = readr::parse_number(child)
+  )
+
+ds_lengthen
+```

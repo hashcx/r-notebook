@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -163,7 +197,31 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../src/r-for-data-science/01-data-viz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data visualization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Visualization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/02-workflow-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Workflow: Basics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/03-data-trans.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Transformation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/04-workflow-code-style.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Workflow: Code Style</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/05-data-tidying.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Tidying</span></span></a>
   </div>
 </li>
       </ul>
@@ -180,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../src/practice/topic-modeling-r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Topic Modeling in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Topic Modeling in R</span></span></a>
   </div>
 </li>
       </ul>
@@ -204,7 +262,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/notebooks/_notebooks.html">Notebooks</a></li><li class="breadcrumb-item"><a href="../../src/notebooks/rstudio.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">RStudio</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">RStudio</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">RStudio</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -223,18 +281,27 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="keyboard-shortcuts" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="keyboard-shortcuts"><span class="header-section-number">3.1</span> Keyboard Shortcuts</h2>
-<p>Below is a set of helpful keyboard shortcut. The full list can be reached by clicking Tools -&gt; Keyboard Shortcut Help (<code>Alt-Shift-K</code>) -&gt; See All Shortcuts</p>
+<p>Below is a set of helpful keyboard shortcut. The full list can be reached by clicking Tools -&gt; Keyboard Shortcut Help (<code>Alt+Shift+K</code>) -&gt; See All Shortcuts</p>
 <ul>
-<li><code>Ctrl+Enter</code>: run line on which cursor is standing</li>
+<li><code>Ctrl+Enter</code>: run line of code on which cursor is standing</li>
 <li><code>Ctrl+Alt+I</code>: insert new code chunk</li>
 <li><code>Ctrl+Shift+C</code>: comment/un-comment</li>
 <li><code>Alt-⬆️</code>: move line up</li>
 <li><code>Alt-⬇️️</code>: move line down</li>
 <li><code>Ctrl+D</code>: delete line</li>
 <li><code>Ctrl+Shift+A</code>: format code</li>
-<li><code>Ctrl+M</code>: add pipe <code>|&gt;</code> operator</li>
+<li><code>Ctrl+M</code>: add pipe <code>|&gt;</code> operator–to change from <code>%&gt;%</code>, go to Tools -&gt; Global Options… -&gt; Code section -&gt; Editing tab -&gt; check Use native pipe operator, <code>|&gt;</code> (requires R 4.1+)</li>
+<li><code>Ctrl++</code>: increase font size of all windows</li>
+<li><code>Ctrl+-</code>: decrease font size of all windows</li>
+<li><code>Alt+-</code> : insert assignment <code>&lt;-</code>. Notice:
+<ul>
+<li>the inserted assignment it is surrounded by spaces</li>
+<li>the action happen when the cursor is inside an R chunk or R script file</li>
+</ul></li>
 </ul>
 
+
+<!-- -->
 
 </section>
 
@@ -318,6 +385,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -659,7 +777,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text">R for Data Science (2e)</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "RStudio"</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="an">eval:</span><span class="co"> true</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">---</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">## Keyboard Shortcuts</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a>Below is a set of helpful keyboard shortcut. The full list can be reached by clicking Tools -<span class="sc">\&gt;</span> Keyboard Shortcut Help (<span class="in">`Alt+Shift+K`</span>) -<span class="sc">\&gt;</span> See All Shortcuts</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="ss">-   </span><span class="in">`Ctrl+Enter`</span>: run line of code on which cursor is standing</span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="ss">-   </span><span class="in">`Ctrl+Alt+I`</span>: insert new code chunk</span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="ss">-   </span><span class="in">`Ctrl+Shift+C`</span>: comment/un-comment</span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="ss">-   </span><span class="in">`Alt-⬆️`</span>: move line up</span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="ss">-   </span><span class="in">`Alt-⬇️️`</span>: move line down</span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="ss">-   </span><span class="in">`Ctrl+D`</span>: delete line</span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="ss">-   </span><span class="in">`Ctrl+Shift+A`</span>: format code</span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="ss">-   </span><span class="in">`Ctrl+M`</span>: add pipe <span class="in">`|&gt;`</span> operator--to change from <span class="in">`%&gt;%`</span>, go to Tools -<span class="sc">\&gt;</span> Global Options... -<span class="sc">\&gt;</span> Code section -<span class="sc">\&gt;</span> Editing tab -<span class="sc">\&gt;</span> check Use native pipe operator, <span class="in">`|&gt;`</span> (requires R 4.1+)</span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="ss">-   </span><span class="in">`Ctrl++`</span>: increase font size of all windows</span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="ss">-   </span><span class="in">`Ctrl+-`</span>: decrease font size of all windows</span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="ss">-   </span><span class="in">`Alt+-`</span> : insert assignment <span class="in">`&lt;-`</span>. Notice:</span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="ss">    -   </span>the inserted assignment it is surrounded by spaces</span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="ss">    -   </span>the action happen when the cursor is inside an R chunk or R script file</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

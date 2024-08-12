@@ -1,5 +1,5 @@
 ---
-title: "Data visualization"
+title: "Data Visualization"
 number-sections: true
 ---
 
@@ -9,7 +9,7 @@ This page introduces the plot creation vocabulary step by step
 
 ## Clear Workspace
 
-Always start by clearing the workspace.  This ensure objects created in other files are not used used here.
+Always start by clearing the workspace. This ensure objects created in other files are not used used here.
 
 ```{r}
 #| include: true
@@ -29,12 +29,12 @@ List all the packages that will be used in this script.
 #| echo: true
 #| error: true
 
-packages = c("palmerpenguins", 'ggthemes', 'ggplot2', 'dplyr', 'printr', 'here', 'knitr')
+packages = c("palmerpenguins", 'ggthemes', 'ggplot2', 'dplyr', 'here', 'knitr')
 ```
 
 ### Install Missing
 
-Any missing package will be installed automatically.  This ensure smoother execution when run by others.
+Any missing package will be installed automatically. This ensure smoother execution when run by others.
 
 ```{r Install Missing Packages}
 #| include: true
@@ -62,7 +62,7 @@ lapply(packages, require, character.only = TRUE)
 
 ### Load Dataset
 
-The `penguins` dataset from the `palmerpenguins` package will be used for plotting.  Typically, the package is loaded using the `library` function as shown in the code chunk below.  However, a better approach is the one outlined in @sec-packages.
+The `penguins` dataset from the `palmerpenguins` package will be used for plotting. Typically, the package is loaded using the `library` function as shown in the code chunk below. However, a better approach is the one outlined in @sec-packages.
 
 ```{r}
 #| eval: false
@@ -84,10 +84,9 @@ Explore the dataset differently
 dplyr::glimpse(penguins)
 ```
 
-
 ### Load Plotting Package
 
-The `ggplot2` package will be used for plotting.  The package is typically loaded using the `library` function as shown in the code chunk below.  However, a better approach is the one outlined in @sec-packages.
+The `ggplot2` package will be used for plotting. The package is typically loaded using the `library` function as shown in the code chunk below. However, a better approach is the one outlined in @sec-packages.
 
 ```{r}
 #| eval: false
@@ -122,7 +121,7 @@ ggplot(data = penguins,
 
 ### Display Data
 
-Specify how the data (observations) will be represented geometrically on the plot, eg, bars, points, or line.  The functions starting with `geom_` is used for this purpose.  These functions add layer of the selected geometric object to the plot.
+Specify how the data (observations) will be represented geometrically on the plot, eg, bars, points, or line. The functions starting with `geom_` is used for this purpose. These functions add layer of the selected geometric object to the plot.
 
 ```{r}
 ggplot(data = penguins,
@@ -157,7 +156,7 @@ ggplot(
 
 ### Display One Trendline
 
-The aesthetic mapping defined in the `ggplot()` function is *global* meaning that all the `geom_()` functions inherit it.  However, the aesthetic mapping defined in the `geom_()` functions are *local*, ie, not shared with other `gemo_()` functions.
+The aesthetic mapping defined in the `ggplot()` function is *global* meaning that all the `geom_()` functions inherit it. However, the aesthetic mapping defined in the `geom_()` functions are *local*, ie, not shared with other `gemo_()` functions.
 
 ```{r}
 ggplot(data = penguins,
@@ -177,17 +176,15 @@ ggplot(data = penguins,
   geom_smooth(method = "lm")
 ```
 
-
 ### Fix Labels
 
-The `labs()` function can be used to make the plot more accessible.  The function will add new layer to the plot and the following items can be added to the layer using the corresponding parameters
+The `labs()` function can be used to make the plot more accessible. The function will add new layer to the plot and the following items can be added to the layer using the corresponding parameters
 
-- a title using the `title` parameter
-- a sub-title, if necessary, using the `subtitle` parameter
-- x-axis title using the `x` parameter
-- y-axis title using the `y` parameter 
-- data-series label or legend using the `color` and/or `shape` parameters
-
+-   a title using the `title` parameter
+-   a sub-title, if necessary, using the `subtitle` parameter
+-   x-axis title using the `x` parameter
+-   y-axis title using the `y` parameter
+-   data-series label or legend using the `color` and/or `shape` parameters
 
 ```{r}
 ggplot(data = penguins,
@@ -204,14 +201,12 @@ ggplot(data = penguins,
   )
 ```
 
+Other types of texts can be added using other functions. The other types of texts are:
 
-Other types of texts can be added using other functions.  The other types of texts are:
-
-- x-axis label
-- y-axis label
-- data labels, if necessary
-- annotation for interesting or important data, if exist
-
+-   x-axis label
+-   y-axis label
+-   data labels, if necessary
+-   annotation for interesting or important data, if exist
 
 ### Ensure Color-blind Safe
 
@@ -235,7 +230,7 @@ ggplot(data = penguins,
 
 ### Can Call Implicitly
 
-The first one or two arguments of functions are so important that scientists should know them by heart.  Hence, to save some typing, the name of these arguments are usually omitted and only the values assigned to them are kept, ie, the names becomes implicit and no more explicit.  Hence, the above call can be written as follows--the arguments `data` and `mapping` were omitted.
+The first one or two arguments of functions are so important that scientists should know them by heart. Hence, to save some typing, the name of these arguments are usually omitted and only the values assigned to them are kept, ie, the names becomes implicit and no more explicit. Hence, the above call can be written as follows--the arguments `data` and `mapping` were omitted.
 
 ```{r}
 ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
@@ -252,10 +247,9 @@ ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
   scale_color_colorblind()
 ```
 
-
 ### Use Pipe Operator
 
-The pipe operator `\>` (shortcut: `Ctrl+M`) can be used to make the code tidy.  The above code can be re-written as follow--notice the dataset was pulled before the call to the `ggplot()` function.
+The pipe operator `\>` (shortcut: `Ctrl+M`) can be used to make the code tidy. The above code can be re-written as follow--notice the dataset was pulled before the call to the `ggplot()` function.
 
 ```{r}
 penguins |>
@@ -279,43 +273,38 @@ penguins |>
 
 Plot options to visualize how a categorical variable is distributed:
 
-- bar chart, if the counts are not computed, using `gemo_bar()` function
-- column chart, if the counts are computed, `gemo_col()` function
-
+-   bar chart, if the counts are not computed, using `gemo_bar()` function
+-   column chart, if the counts are computed, `gemo_col()` function
 
 ### Numerical Variables
 
 Plot options to visualize how a numerical (discrete or continuous) variable is distributed:
 
-- histogram, using `geom_histogram()` function
+-   histogram, using `geom_histogram()` function
 
 ::: callout-note
-
 #### Histogram Bin Width
 
 The bin width of the histogram is in the unit of the variable mapped to the plot `x` (or `y`) aesthetic (visual property)
-
 :::
 
-- density plot, using `geom_density()` function
-- boxplot, using `geom_boplot()` function
-
+-   density plot, using `geom_density()` function
+-   boxplot, using `geom_boplot()` function
 
 ::: callout-note
-
 #### Boxplot Components
 
 As described beautifully in [R4DS](https://r4ds.hadley.nz/data-visualize#visualizing-relationships), a boxplot consists of:
 
-1. A box that describes the range of the middle half of the data, a distance known as the interquartile range (IQR), stretching from the 25th percentile of the distribution to the 75th percentile.
+1.  A box that describes the range of the middle half of the data, a distance known as the interquartile range (IQR), stretching from the 25th percentile of the distribution to the 75th percentile.
 
-2. A line in the middle of the box displaying the median, ie, the 50th percentile, of the distribution.
+2.  A line in the middle of the box displaying the median, ie, the 50th percentile, of the distribution.
 
-3. The box and the line give sense of the spread of the distribution and whether or not the distribution is symmetric about the median or skewed to one side
+3.  The box and the line give sense of the spread of the distribution and whether or not the distribution is symmetric about the median or skewed to one side
 
-4. Visual points that display the observations that fall more than 1.5 time the IQR from either edge of the box.  These outlying points (hence called outliers) are unusual so are plotted individually
+4.  Visual points that display the observations that fall more than 1.5 time the IQR from either edge of the box. These outlying points (hence called outliers) are unusual so are plotted individually
 
-5. A whisker that extend from each end of the box and goes to the farthest non-outlier point in the distribution
+5.  A whisker that extend from each end of the box and goes to the farthest non-outlier point in the distribution
 
 Below is the diagram from [R4DS](https://r4ds.hadley.nz/data-visualize#visualizing-relationships) showing the above components and how the boxpot is created.
 
@@ -327,7 +316,6 @@ Below is the diagram from [R4DS](https://r4ds.hadley.nz/data-visualize#visualizi
 
 knitr::include_graphics(here("images", "EDA-boxplot.png"))
 ```
-
 :::
 
 ## Visualizing Relationships
@@ -338,23 +326,22 @@ For each category of the categorical variable, We can use any of the plot option
 
 ### Two Categoricals
 
-Each category of one of the categorical variables will be placed on the x-axis (or the y-axis) by mapping it to the plot `x` (or `y`) aesthetic (visual property) of the `geom_bar()` and the distribution of the categories of the other categorical variables by mapping it to the plot `fill` aesthetic (visual property).  The second variable can be shown as:
+Each category of one of the categorical variables will be placed on the x-axis (or the y-axis) by mapping it to the plot `x` (or `y`) aesthetic (visual property) of the `geom_bar()` and the distribution of the categories of the other categorical variables by mapping it to the plot `fill` aesthetic (visual property). The second variable can be shown as:
 
-- pure counts (stacked bar chart), or
-- percentages (percent stack bar chart) by setting the `position` attribute of the `geom_bar()` to `fill`.
-
+-   pure counts (stacked bar chart), or
+-   percentages (percent stack bar chart) by setting the `position` attribute of the `geom_bar()` to `fill`.
 
 ### Two Numerical
 
 Plot options to show the relationship between two numerical variables are:
 
-- Scatter plot using the `geom_point()` function
-- trend line using `geom_smooth()` function
-- line graph using `geom_line()` function if one of the variables is monotonic, eg, time or date.
+-   Scatter plot using the `geom_point()` function
+-   trend line using `geom_smooth()` function
+-   line graph using `geom_line()` function if one of the variables is monotonic, eg, time or date.
 
 ### Three or More Variables
 
 To visualize 3+ variables, We can either
 
-- map variables to other aesthetics of the plot, eg, *color*, *size*, and *shape*
-- split plot into facets, subplots that each display one subset of the data, based on a categorical variable using `facet_wrap()` function where its first argument is a formula created using `~` followed by a (categorical) variable name.
+-   map variables to other aesthetics of the plot, eg, *color*, *size*, and *shape*
+-   split plot into facets, subplots that each display one subset of the data, based on a categorical variable using `facet_wrap()` function where its first argument is a formula created using `~` followed by a (categorical) variable name.

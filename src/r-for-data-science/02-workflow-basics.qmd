@@ -1,0 +1,75 @@
+---
+title: "Workflow: Basics"
+number-sections: true
+---
+
+## Introduction
+
+This page covers basic concepts when working with R.  I took note for those that were new to me or found useful to remind myself with.
+
+
+## Clear Workspace
+
+Always start by clearing the workspace. This ensure objects created in other files are not used used here.
+
+```{r}
+#| include: true
+#| results: 'hide'
+
+rm(list = ls())
+```
+
+## Packages {#sec-packages}
+
+### List
+
+List all the packages that will be used in this script.
+
+```{r List of Used Packages}
+#| include: true
+#| echo: true
+#| error: true
+
+packages = c()
+```
+
+### Install Missing
+
+Any missing package will be installed automatically. This ensure smoother execution when run by others.
+
+```{r Install Missing Packages}
+#| include: true
+#| echo: true
+#| error: true
+
+# Do NOT modify
+install.packages(setdiff(packages, rownames(installed.packages())))
+```
+
+### Load
+
+Load all packages
+
+```{r Load Packages}
+#| include: true
+#| echo: false
+#| error: true
+
+# Do NOT modify
+lapply(packages, require, character.only = TRUE)
+```
+
+## Comments
+
+Use comments to explain the *why* of your code, eg, you changed the default value of a parameter of a function from say `.2` to `.9`, why?
+
+
+## Nameing Objects Rules
+
+- Allowed characters when naming objects
+  - letters
+  - numbers
+  - `_`
+  - `.`
+- All names must start with a letter
+- R is case-sensitive, ie, `var`, `Var`, and `VAR` are different names

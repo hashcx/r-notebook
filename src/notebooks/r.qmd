@@ -16,7 +16,9 @@ eval: true
   
 
 
-Clear the objects in its workspace environment to avoid mixing up objects created in other files
+## Clear Workspace
+
+Always start by clearing the workspace. This ensure objects created in other files are not used used here.
 
 ```{r}
 #| include: true
@@ -25,6 +27,11 @@ Clear the objects in its workspace environment to avoid mixing up objects create
 rm(list = ls())
 ```
 
+
+## Packages {#sec-packages}
+
+### List
+
 List all the packages that will be used in this script.
 
 ```{r List Packages}
@@ -32,11 +39,13 @@ List all the packages that will be used in this script.
 #| echo: true
 #| error: true
 
-packages = c("here")
+packages <- c("here")
 ```
 
 
-Any missing package will be installed automatically
+### Install Missing
+
+Any missing package will be installed automatically. This ensure smoother execution when run by others.
 
 ```{r Install Missing Packages}
 #| include: true
@@ -46,6 +55,8 @@ Any missing package will be installed automatically
 # Do NOT modify
 install.packages(setdiff(packages, rownames(installed.packages())))
 ```
+
+### Load
 
 Load all packages
 
@@ -70,7 +81,7 @@ lapply(packages, require, character.only = TRUE)
 To know the datatype of an object, run the command:
 
 ```{r eval=FALSE}
-class(x)	# give the data type of x
+class(x) # give the data type of x
 ```
 
 ### Mixing Data Types
@@ -82,11 +93,51 @@ class(x)	# give the data type of x
 ## Data Structures
 
 -   **vector**: hold single type of data
+
+::: callout-note
+
+### Creating Vector
+
+The `c()` function (**c**ombine multiple elements) can be used to create vectors in R.
+
+```
+x <- c(1, 2, 3, 4)
+```
+
+:::
+
 -   **matrix**: 2D vector
 -   **array**: nD vector
 -   **list**: generic vector, can hold mixed type of data, eg, one element can a character, another a list of integers, and the third could be a logical
 -   **data frame**: table where columns represent vectors
--   **tibbles**: data frames, but slightly tweaked to work better with `tidyverse` package
+-   **tibbles**: data frames, but slightly tweaked to work better with `tidyverse`--when printing tibbles, only the first few columns that fit into the screen will be shown
+
+::: callout-note
+
+### Printing tibble All Columns
+
+To force the `print()` function to print all the columns of a `tibble`, set the `width` parameter to `Inf` as follows:
+
+```{r eval=FALSE}
+print(ds, width = Inf)
+```
+
+:::
+
+To construct small tibble by hand, use the `tribble` function as follows:
+
+```{r}
+#| eval: false
+
+df <- tribble(
+  ~var1, ~var2, ~var3
+  "A", 1, TRUE,
+  "B", 2, FALSE,
+  "C", 3, TRUE
+)
+```
+
+
 -   **factor**
 
 ```{r}
@@ -103,8 +154,8 @@ knitr::include_graphics(here("images", "datastructure.png"))
 To know the data structure and length of the object, run the command:
 
 ```{r eval=FALSE}
-str(x)		# give the structure type of x
-length(x)	# length of structure
+str(x) # give the structure type of x
+length(x) # length of structure
 ```
 
 ## Basics Operations
@@ -112,15 +163,15 @@ length(x)	# length of structure
 Assignment
 
 ```{r}
-x <- 3		# assign 3 to x
-(x <- 3)	# assign 3 to x & print the result to console
+x <- 3 # assign 3 to x (x gets 3)
+(x <- 3) # assign 3 to x (x gets 3) & print the result to console
 ```
 
-Getting Help
+Getting Help 
 
 ```{r eval=FALSE}
-args(round)	# print the argument list of function
-?round		  # show documentation of function in Help window
+args(round) # print the argument list of function
+?round # show documentation of function in Help window
 ```
 
 Dealing with Structure
@@ -162,8 +213,10 @@ library(here)
 Loading file from repository and saving it locally on disk. It is always a good idea to structure the workspace--for more information, see [Best Practices for Scientific Computing paper](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745).
 
 ```{r}
-download.file(url = "https://ndownloader.figshare.com/files/2292169", 
-	destfile = here("data", "portal_data_joined.csv"))
+download.file(
+  url = "https://ndownloader.figshare.com/files/2292169",
+  destfile = here("data", "portal_data_joined.csv")
+)
 ```
 
 Load file to R as data frame
@@ -175,15 +228,15 @@ surveys <- read.csv(here("data", "portal_data_joined.csv"))
 Inspecting data frame
 
 ```{r}
-class(surveys)	# data type
+class(surveys) # data type
 ```
 
 ```{r}
-str(surveys)	  # structure
+str(surveys) # structure
 ```
 
 ```{r}
-dim(surveys)	  # dimensions
+dim(surveys) # dimensions
 nrow(surveys)
 ncol(surveys)
 ```
@@ -202,10 +255,10 @@ tail(surveys)
 ### Retrieve specific element/row/column
 
 ```{r}
-surveys[1,1]	# element[1,1]
-surveys[1, ]	# row 1
-head(surveys[ ,1])	# column 1
-head(surveys$sex)	  # column by name
+surveys[1, 1] # element[1,1]
+surveys[1, ] # row 1
+head(surveys[, 1]) # column 1
+head(surveys$sex) # column by name
 ```
 
 ### Dealing with factor (categorical) columns
@@ -220,7 +273,7 @@ nlevels(surveys$sex)
 Reorder factors (to get better plots)
 
 ```{r}
-surveys$sex_ordered <- factor(surveys$sex, level=c("F", "M", ""))
+surveys$sex_ordered <- factor(surveys$sex, level = c("F", "M", ""))
 str(surveys$sex_ordered)
 levels(surveys$sex_ordered)
 nlevels(surveys$sex_ordered)
@@ -271,7 +324,7 @@ Load & inspect data
 # notice the '_' instead of '.' of basic R
 surveys <- read_csv(here("data", "portal_data_joined.csv"))
 
-str(surveys)	# structure: tbl_df (tibble)
+str(surveys) # structure: tbl_df (tibble)
 # view(surveys)	# preview in the viewer window, avoid when rendering
 ```
 
@@ -309,8 +362,8 @@ survey_sml <- select(filter(surveys, weight < 5), species_id, sex, weight)
 
 # using pipe %>% of magritter package.  Use Ctrl + Shift + M to add
 survey_sml <- surveys %>%
-	filter(weight < 5) %>%
-	select(species_id, sex, weight)
+  filter(weight < 5) %>%
+  select(species_id, sex, weight)
 ```
 
 ### Summary
@@ -321,59 +374,59 @@ one factor
 
 ```{r}
 surveys %>%
-	group_by(sex) %>%
-	summarise(mean_weight = mean(weight, na.rm = TRUE))
+  group_by(sex) %>%
+  summarise(mean_weight = mean(weight, na.rm = TRUE))
 ```
 
 two factors
 
 ```{r}
 surveys %>%
-	group_by(sex, species) %>%
-	summarise(mean_weight = mean(weight, na.rm = TRUE))
+  group_by(sex, species) %>%
+  summarise(mean_weight = mean(weight, na.rm = TRUE))
 
 surveys %>%
-	group_by(species, sex) %>%
-	summarise(mean_weight = mean(weight, na.rm = TRUE))
+  group_by(species, sex) %>%
+  summarise(mean_weight = mean(weight, na.rm = TRUE))
 ```
 
 to avoid using `na.rm = FALSE` each statistics
 
 ```{r}
 surveys %>%
-	filter(!is.na(weight)) %>%
-	group_by(species, sex) %>%
-	summarise(mean_weight = mean(weight), sd_weight = sd(weight), sd_count = n())
+  filter(!is.na(weight)) %>%
+  group_by(species, sex) %>%
+  summarise(mean_weight = mean(weight), sd_weight = sd(weight), sd_count = n())
 ```
 
 arrange by mean weight
 
 ```{r}
 surveys %>%
-	filter(!is.na(weight)) %>%
-	group_by(species, sex) %>%
-	summarise(mean_weight = mean(weight), sd_weight = sd(weight), sd_count = n()) %>%
-	arrange(mean_weight)
+  filter(!is.na(weight)) %>%
+  group_by(species, sex) %>%
+  summarise(mean_weight = mean(weight), sd_weight = sd(weight), sd_count = n()) %>%
+  arrange(mean_weight)
 ```
 
 in descending order
 
 ```{r}
 surveys %>%
-	filter(!is.na(weight)) %>%
-	group_by(species, sex) %>%
-	summarise(mean_weight = mean(weight), sd_weight = sd(weight), sd_count = n()) %>%
-	arrange(desc(mean_weight))
+  filter(!is.na(weight)) %>%
+  group_by(species, sex) %>%
+  summarise(mean_weight = mean(weight), sd_weight = sd(weight), sd_count = n()) %>%
+  arrange(desc(mean_weight))
 ```
 
 by count
 
 ```{r}
 surveys %>%
-	filter(!is.na(weight)) %>%
-	group_by(species, sex) %>%
-	summarise(mean_weight = mean(weight), sd_weight = sd(weight), sd_count = n()) %>%
-	arrange(sd_count)
+  filter(!is.na(weight)) %>%
+  group_by(species, sex) %>%
+  summarise(mean_weight = mean(weight), sd_weight = sd(weight), sd_count = n()) %>%
+  arrange(sd_count)
 ```
 
 ### Count
@@ -382,7 +435,7 @@ Count of a categorical column
 
 ```{r}
 surveys %>%
-	count(sex)
+  count(sex)
 ```
 
 ### Reshaping
@@ -393,16 +446,16 @@ prepare the needed data first
 
 ```{r}
 surveys_gw <- surveys %>%
-	filter(!is.na(weight)) %>%
-	group_by(genus, plot_id) %>%
-	summarize(mean_weight = mean(weight))
+  filter(!is.na(weight)) %>%
+  group_by(genus, plot_id) %>%
+  summarize(mean_weight = mean(weight))
 ```
 
 creating a 2D table where each dimension represent a category the cell will represent a statistics
 
 ```{r}
 surveys_spread <- surveys_gw %>%
-	spread(key = genus, value = mean_weight)
+  spread(key = genus, value = mean_weight)
 str(surveys_spread)
 head(surveys_spread)
 ```
@@ -411,7 +464,7 @@ bring spread back
 
 ```{r}
 surveys_gw <- surveys_spread %>%
-	gather(key = genus, value = mean_weight, -plot_id)
+  gather(key = genus, value = mean_weight, -plot_id)
 str(surveys_gw)
 head(surveys_gw)
 ```
@@ -437,7 +490,7 @@ filter only those in the indicated category
 
 ```{r}
 surveys_com <- surveys %>%
-	filter(species_id %in% c("albigula", "eremicus"))
+  filter(species_id %in% c("albigula", "eremicus"))
 ```
 
 ### Saving to disk
@@ -454,13 +507,17 @@ write_cvs()
 Step 1: Bind the plot to specific data frame
 
 ```{r}
-surveys_plot <- ggplot(data = survey_complete, 
-	mapping = aes(x = weight, y = hindfoot_length))
+surveys_plot <- ggplot(
+  data = survey_complete,
+  mapping = aes(x = weight, y = hindfoot_length)
+)
 
 # Color for each group
-surveys_plot <- ggplot(data = survey_complete, 
-	mapping = aes(x = weight, y = hindfoot_length),
-	color=species_id)
+surveys_plot <- ggplot(
+  data = survey_complete,
+  mapping = aes(x = weight, y = hindfoot_length),
+  color = species_id
+)
 ```
 
 Step 2: Select the type of the plot
@@ -491,18 +548,20 @@ surveys_plot + geom_jitter(alpha = 0.1)
 ### Boxplot
 
 ```{r}
-surveys_plot <- ggplot(data = survey_complete, 
-	mapping = aes(x = species_id, y = weight))
+surveys_plot <- ggplot(
+  data = survey_complete,
+  mapping = aes(x = species_id, y = weight)
+)
 
 surveys_plot + geom_boxplot()
 
 # show data
-surveys_plot + geom_boxplot(alpha = 0.5) + 
-	geom_jitter(alpha = 0.1, color = "tomato")
+surveys_plot + geom_boxplot(alpha = 0.5) +
+  geom_jitter(alpha = 0.1, color = "tomato")
 
 # bring boxplot layer in front
 surveys_plot + geom_jitter(alpha = 0.1, color = "tomato") +
-	geom_boxplot(alpha = 0.7)
+  geom_boxplot(alpha = 0.7)
 ```
 
 ### Time series data
@@ -510,10 +569,12 @@ surveys_plot + geom_jitter(alpha = 0.1, color = "tomato") +
 ```{r}
 # create appropriate dataset
 yearly_count <- survey_complete %>%
-	count(year, species_id)
+  count(year, species_id)
 
-surveys_plot <- ggplot(data = yearly_count, 
-	mapping = aes(x = year, y = n))
+surveys_plot <- ggplot(
+  data = yearly_count,
+  mapping = aes(x = year, y = n)
+)
 
 surveys_plot + geom_line()
 
@@ -524,23 +585,25 @@ surveys_plot + geom_line(aes(group = species_id))
 surveys_plot + geom_line(aes(color = species_id))
 
 # split into multiple plots
-surveys_plot + geom_line() + facet_wrap(~ species_id)
+surveys_plot + geom_line() + facet_wrap(~species_id)
 
 # split the line in each plot by sex
 yearly_sex_counts <- survey_complete %>%
-	count(year, species_id, sex)
+  count(year, species_id, sex)
 
-surveys_plot <- ggplot(data = yearly_sex_counts, 
-	mapping = aes(x = year, y = n))
+surveys_plot <- ggplot(
+  data = yearly_sex_counts,
+  mapping = aes(x = year, y = n)
+)
 
 surveys_plot + geom_line(aes(color = sex)) +
-	facet_wrap(~ species_id)
+  facet_wrap(~species_id)
 
 # remove background
 surveys_plot + geom_line(aes(color = sex)) +
-	facet_wrap(~ species_id) +
-	theme_bw() +
-	theme(panel.grid = element_blank())
+  facet_wrap(~species_id) +
+  theme_bw() +
+  theme(panel.grid = element_blank())
 ```
 
 ## References

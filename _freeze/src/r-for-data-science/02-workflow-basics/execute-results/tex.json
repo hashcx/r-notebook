@@ -1,0 +1,19 @@
+{
+  "hash": "e302a880a16902b80fe60cff9ed682d8",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Workflow: Basics\"\nnumber-sections: true\n---\n\n\n\n## Introduction\n\nThis page covers basic concepts when working with R.  I took note for those that were new to me or found useful to remind myself with.\n\n\n## Clear Workspace\n\nAlways start by clearing the workspace. This ensure objects created in other files are not used used here.\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nrm(list = ls())\n```\n:::\n\n\n\n## Packages {#sec-packages}\n\n### List\n\nList all the packages that will be used in this script.\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\npackages = c()\n```\n:::\n\n\n\n### Install Missing\n\nAny missing package will be installed automatically. This ensure smoother execution when run by others.\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Do NOT modify\ninstall.packages(setdiff(packages, rownames(installed.packages())))\n```\n:::\n\n\n\n### Load\n\nLoad all packages\n\n\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n\n```\nlist()\n```\n\n\n:::\n:::\n\n\n\n## Comments\n\nUse comments to explain the *why* of your code, eg, you changed the default value of a parameter of a function from say `.2` to `.9`, why?\n\n\n## Nameing Objects Rules\n\n- Allowed characters when naming objects\n  - letters\n  - numbers\n  - `_`\n  - `.`\n- All names must start with a letter\n- R is case-sensitive, ie, `var`, `Var`, and `VAR` are different names\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}

@@ -32,6 +32,10 @@ book:
     - part: src/r-for-data-science/_r-for-data-science.qmd
       chapters: 
       - src/r-for-data-science/01-data-viz.qmd
+      - src/r-for-data-science/02-workflow-basics.qmd
+      - src/r-for-data-science/03-data-trans.qmd
+      - src/r-for-data-science/04-workflow-code-style.qmd
+      - src/r-for-data-science/05-data-tidying.qmd
     
     - part: src/practice/_practice.qmd
       chapters: 
@@ -39,11 +43,13 @@ book:
 
 format:
   html:
-    code-copy: true
     theme: cosmo
     css: sty/styles.css
-    code-link: true
     toc: true
+    code-copy: true
+    code-link: true
+    code-line-numbers: true
+    code-tools: true
   pdf:
     documentclass: scrreprt
     keep-tex: true

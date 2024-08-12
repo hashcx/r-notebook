@@ -5,13 +5,18 @@ eval: true
 
 ## Keyboard Shortcuts
 
-Below is a set of helpful keyboard shortcut.  The full list can be reached by clicking Tools -> Keyboard Shortcut Help (`Alt-Shift-K`) -> See All Shortcuts
+Below is a set of helpful keyboard shortcut. The full list can be reached by clicking Tools -\> Keyboard Shortcut Help (`Alt+Shift+K`) -\> See All Shortcuts
 
-- `Ctrl+Enter`: run line on which cursor is standing
-- `Ctrl+Alt+I`: insert new code chunk
-- `Ctrl+Shift+C`: comment/un-comment
-- `Alt-⬆️`: move line up
-- `Alt-⬇️️`: move line down
-- `Ctrl+D`: delete line
-- `Ctrl+Shift+A`: format code
-- `Ctrl+M`: add pipe `|>` operator
+-   `Ctrl+Enter`: run line of code on which cursor is standing
+-   `Ctrl+Alt+I`: insert new code chunk
+-   `Ctrl+Shift+C`: comment/un-comment
+-   `Alt-⬆️`: move line up
+-   `Alt-⬇️️`: move line down
+-   `Ctrl+D`: delete line
+-   `Ctrl+Shift+A`: format code
+-   `Ctrl+M`: add pipe `|>` operator--to change from `%>%`, go to Tools -\> Global Options... -\> Code section -\> Editing tab -\> check Use native pipe operator, `|>` (requires R 4.1+)
+-   `Ctrl++`: increase font size of all windows
+-   `Ctrl+-`: decrease font size of all windows
+-   `Alt+-` : insert assignment `<-`. Notice:
+    -   the inserted assignment it is surrounded by spaces
+    -   the action happen when the cursor is inside an R chunk or R script file
