@@ -3,11 +3,7 @@ title: "Data Transformation"
 number-sections: true
 ---
 
-## Introduction
-
-This page introduces the `dplyr` package used to transform data such as creating new variables, editing existing variables, filtering out observations, and creating summaries.
-
-## Clear Workspace
+## Clear Workspace, DON'T EDIT {-}
 
 Always start by clearing the workspace. This ensure objects created in other files are not used used here.
 
@@ -18,13 +14,11 @@ Always start by clearing the workspace. This ensure objects created in other fil
 rm(list = ls())
 ```
 
-## Packages {#sec-packages}
+## List Used Packages, EDIT {-}
 
-### List
+List all the packages that will be used in chunk below.
 
-List all the packages that will be used in this script.
-
-```{r List of Used Packages}
+```{r}
 #| include: true
 #| echo: true
 #| error: true
@@ -32,7 +26,10 @@ List all the packages that will be used in this script.
 packages = c("nycflights13", "ggplot2", "dplyr")
 ```
 
-### Install Missing
+
+## Load Packages, DON'T EDIT {#sec-packages -}
+
+### Install Missing {-}
 
 Any missing package will be installed automatically. This ensure smoother execution when run by others.
 
@@ -45,18 +42,24 @@ Any missing package will be installed automatically. This ensure smoother execut
 install.packages(setdiff(packages, rownames(installed.packages())))
 ```
 
-### Load
+### Load {-}
 
 Load all packages
 
 ```{r Load Packages}
 #| include: true
-#| echo: false
+#| echo: true
 #| error: true
 
 # Do NOT modify
 lapply(packages, require, character.only = TRUE)
 ```
+
+## Introduction
+
+This page introduces the `dplyr` package used to transform data such as creating new variables, editing existing variables, filtering out observations, and creating summaries.
+
+
 
 ## `dplyr` Functions (Verbs)
 

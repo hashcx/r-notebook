@@ -3,6 +3,64 @@ title: "Topic Modeling in R"
 eval: TRUE
 ---
 
+## Clear Workspace, DON'T EDIT {-}
+
+Always start by clearing the workspace. This ensure objects created in other files are not used used here.
+
+```{r}
+#| include: true
+#| results: 'hide'
+
+rm(list = ls())
+```
+
+## List Used Packages, EDIT {-}
+
+List all the packages that will be used in chunk below.
+
+```{r}
+#| include: true
+#| echo: true
+#| error: true
+
+packages <- c("gutenbergr", # download books from Project Gutenberg using book ID
+              "tidyverse",
+              "tidytext",
+              "ggplot2",
+              "stm", # for do topic modeling
+              "quanteda") # great text mining, will be used to structure the input to stm
+```
+
+
+## Load Packages, DON'T EDIT {#sec-packages -}
+
+### Install Missing {-}
+
+Any missing package will be installed automatically. This ensure smoother execution when run by others.
+
+```{r Install Missing Packages}
+#| include: true
+#| echo: true
+#| error: true
+
+# Do NOT modify
+install.packages(setdiff(packages, rownames(installed.packages())))
+```
+
+### Load {-}
+
+Load all packages
+
+```{r Load Packages}
+#| include: true
+#| echo: true
+#| error: true
+
+# Do NOT modify
+lapply(packages, require, character.only = TRUE)
+```
+
+
 ## Introduction
 
 An attempt to understand Sherlock Holmes short stories found in Adventures of Sherlock Holmes book by Arthur Conan Doyle.  After inspecting the table of content, the book seems to have 12 stories, one story per chapter.  The analysis is inspired by [Julia Silge](https://juliasilge.com/)’s YouTube video [Topic modeling with R and tidy data principles](https://www.youtube.com/embed/evTuL-RcRpc)
@@ -10,10 +68,6 @@ An attempt to understand Sherlock Holmes short stories found in Adventures of Sh
 ## Download Book
 
 ```{r}
-library(gutenbergr)  # download books from Project Gutenberg using book ID
-library(tidyverse)
-library(tidytext)
-
 # Download the book, each line of the book is read into a seperate row
 sherlock_raw <- gutenberg_download(48320)
 dim(sherlock_raw)
@@ -69,8 +123,6 @@ tidy_sherlock <- sherlock %>%
 -   tf-idf (term frequency-inverse document frequency) is a great exploratory tool before starting with topic modeling
 
 ```{r}
-library(ggplot2)
-
 tidy_sherlock %>% 
   
   # count number of occurrence of words in stories
@@ -109,10 +161,6 @@ tidy_sherlock %>%
 Training the model for the topics
 
 ```{r}
-library(stm)        # for do topic modeling
-library(quanteda)   # great text mining, will be used to structure the input
-                    #   to stm
-
 # Convert from tidy form to quanteda form (document x term matrix)
 sherlock_stm <- tidy_sherlock %>% 
   count(story, word, sort = TRUE) %>% 

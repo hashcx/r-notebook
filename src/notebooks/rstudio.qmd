@@ -3,6 +3,58 @@ title: "RStudio"
 eval: true
 ---
 
+## Clear Workspace, DON'T EDIT {-}
+
+Always start by clearing the workspace. This ensure objects created in other files are not used used here.
+
+```{r}
+#| include: true
+#| results: 'hide'
+
+rm(list = ls())
+```
+
+## List Used Packages, EDIT {-}
+
+List all the packages that will be used in chunk below.
+
+```{r}
+#| include: true
+#| echo: true
+#| error: true
+
+packages <- c()
+```
+
+
+## Load Packages, DON'T EDIT {#sec-packages -}
+
+### Install Missing {-}
+
+Any missing package will be installed automatically. This ensure smoother execution when run by others.
+
+```{r Install Missing Packages}
+#| include: true
+#| echo: true
+#| error: true
+
+# Do NOT modify
+install.packages(setdiff(packages, rownames(installed.packages())))
+```
+
+### Load {-}
+
+Load all packages
+
+```{r Load Packages}
+#| include: true
+#| echo: true
+#| error: true
+
+# Do NOT modify
+lapply(packages, require, character.only = TRUE)
+```
+
 ## Keyboard Shortcuts
 
 Below is a set of helpful keyboard shortcut. The full list can be reached by clicking Tools -\> Keyboard Shortcut Help (`Alt+Shift+K`) -\> See All Shortcuts
