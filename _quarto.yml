@@ -28,6 +28,7 @@ book:
         - src/notebooks/r.qmd
         - src/notebooks/quarto.qmd
         - src/notebooks/rstudio.qmd
+        - src/notebooks/windows.qmd
     
     - part: src/r-for-data-science/_r-for-data-science.qmd
       chapters: 
@@ -36,6 +37,8 @@ book:
       - src/r-for-data-science/03-data-trans.qmd
       - src/r-for-data-science/04-workflow-code-style.qmd
       - src/r-for-data-science/05-data-tidying.qmd
+      - src/r-for-data-science/06-workflow-scripts-and-projects.qmd
+      - src/r-for-data-science/07-data-import.qmd
     
     - part: src/practice/_practice.qmd
       chapters: 
