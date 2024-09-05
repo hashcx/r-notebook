@@ -33,6 +33,14 @@ packages <- c("styler")
 
 Any missing package will be installed automatically. This ensure smoother execution when run by others.
 
+::: callout-important
+
+#### Installing Packages on Other People Machine
+
+Be aware the people may not like installing packages into their machine automatically.  This might break some of their previous code.
+
+:::
+
 ```{r Install Missing Packages}
 #| include: true
 #| echo: true

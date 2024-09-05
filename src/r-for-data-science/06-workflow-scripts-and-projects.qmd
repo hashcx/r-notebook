@@ -1,11 +1,11 @@
 ---
-title: "Workflow: Basics"
+title: "Workflow: Scripts & Projects"
 number-sections: true
 ---
 
 ## Clear Workspace, DON'T EDIT {-}
 
-Always start by clearing the workspace. This ensure objects created in other files are not used used here.
+Always start by clearing the workspace. This ensure objects created in other files are not used here.
 
 ```{r}
 #| include: true
@@ -23,7 +23,7 @@ List all the packages that will be used in chunk below.
 #| echo: true
 #| error: true
 
-packages <- c()
+packages <- c("tidyverse")
 ```
 
 
@@ -63,23 +63,18 @@ Load all packages
 lapply(packages, require, character.only = TRUE)
 ```
 
-
 ## Introduction
 
-This page covers basic concepts when working with R.  I took note for those that were new to me or found useful to remind myself with.
+This chapter is about how to organize project files.
 
+## Diamond Example
 
-## Comments
+```{r}
+diamonds |> 
+  ggplot(aes(x = carat, y = price)) +
+  geom_hex()
+# ggsave("figures/diamonds.png")
 
-Use comments to explain the *why* of your code, eg, you changed the default value of a parameter of a function from say `.2` to `.9`, why?
+# write_csv(diamonds, "data/diamonds.csv")
+```
 
-
-## Nameing Objects Rules
-
-- Allowed characters when naming objects
-  - letters
-  - numbers
-  - `_`
-  - `.`
-- All names must start with a letter
-- R is case-sensitive, ie, `var`, `Var`, and `VAR` are different names

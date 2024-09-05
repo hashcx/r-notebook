@@ -23,7 +23,7 @@ List all the packages that will be used in chunk below.
 #| echo: true
 #| error: true
 
-packages <- c("here", "tidyverse")
+packages <- c("here", "tidyverse", "janitor")
 ```
 
 
@@ -77,8 +77,20 @@ lapply(packages, require, character.only = TRUE)
 
 To know the datatype of an object, run the command:
 
-```{r eval=FALSE}
+```{r}
+#| eval: false
+
 class(x) # give the data type of x
+```
+
+To know the type of the variables of each variable.
+
+```{r}
+#| eval: false
+
+x |> 
+  slice(0) |> 
+  glimpse()
 ```
 
 ### Mixing Data Types
@@ -115,7 +127,9 @@ x <- c(1, 2, 3, 4)
 
 To force the `print()` function to print all the columns of a `tibble`, set the `width` parameter to `Inf` as follows:
 
-```{r eval=FALSE}
+```{r}
+#| eval: false
+
 print(ds, width = Inf)
 ```
 
@@ -149,10 +163,14 @@ knitr::include_graphics(here("images", "datastructure.png"))
 
 To know the data structure and length of the object, run the command:
 
-```{r eval=FALSE}
+```{r}
+#| eval: false
+
 str(x) # give the structure type of x
 length(x) # length of structure
 ```
+
+
 
 ## Basics Operations
 
@@ -165,7 +183,9 @@ x <- 3 # assign 3 to x (x gets 3)
 
 Getting Help 
 
-```{r eval=FALSE}
+```{r}
+#| eval: false
+
 args(round) # print the argument list of function
 ?round # show documentation of function in Help window
 ```
@@ -205,7 +225,7 @@ The `here` package makes it easy to point to files starting from the project mai
 ```{r}
 #| eval: false
 
-library("here")
+library("here", "janitor")
 ```
 
 Loading file from repository and saving it locally on disk. It is always a good idea to structure the workspace--for more information, see [Best Practices for Scientific Computing paper](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745).
@@ -221,7 +241,16 @@ Load file to R as data frame
 
 ```{r}
 surveys <- read.csv(here("data", "portal_data_joined.csv"))
+
+glimpse(surveys)
 ```
+
+Clean names
+```{r}
+surveys <- surveys |> 
+  janitor::clean_names()
+```
+
 
 Inspecting data frame
 
@@ -231,6 +260,12 @@ class(surveys) # data type
 
 ```{r}
 str(surveys) # structure
+```
+
+```{r}
+surveys |> 
+  slice(0) |> 
+  glimpse()
 ```
 
 ```{r}
@@ -495,7 +530,9 @@ surveys_com <- surveys %>%
 
 ### Saving to disk
 
-```{r eval=FALSE}
+```{r}
+#| eval: false
+
 write_cvs()
 ```
 
