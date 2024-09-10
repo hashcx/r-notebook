@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.555">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Amin G. Alhashim">
 <title>Workspace - 11&nbsp; Data Import</title>
 <style>
 code{white-space: pre-wrap;}
@@ -277,6 +278,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Amin G. Alhashim </p>
+          </div>
+  </div>
     
   
     
@@ -802,69 +809,70 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">---</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="an">title:</span><span class="co"> "Data Import"</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="an">number-sections:</span><span class="co"> true</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co">---</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="fu">## Clear Workspace, DON'T EDIT {-}</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a></span>
-<span id="cb6-8"><a href="#cb6-8"></a>Always start by clearing the workspace. This ensure objects created in other files are not used used here.</span>
-<span id="cb6-9"><a href="#cb6-9"></a></span>
-<span id="cb6-12"><a href="#cb6-12"></a><span class="in">```{r}</span></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="co">#| include: true</span></span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="co">#| results: 'hide'</span></span>
-<span id="cb6-15"><a href="#cb6-15"></a></span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb6-17"><a href="#cb6-17"></a><span class="in">```</span></span>
-<span id="cb6-18"><a href="#cb6-18"></a></span>
-<span id="cb6-19"><a href="#cb6-19"></a><span class="fu">## List Used Packages, EDIT {-}</span></span>
-<span id="cb6-20"><a href="#cb6-20"></a></span>
-<span id="cb6-21"><a href="#cb6-21"></a>List all the packages that will be used in chunk below.</span>
-<span id="cb6-22"><a href="#cb6-22"></a></span>
-<span id="cb6-25"><a href="#cb6-25"></a><span class="in">```{r}</span></span>
-<span id="cb6-26"><a href="#cb6-26"></a><span class="co">#| include: true</span></span>
-<span id="cb6-27"><a href="#cb6-27"></a><span class="co">#| echo: true</span></span>
-<span id="cb6-28"><a href="#cb6-28"></a><span class="co">#| error: true</span></span>
-<span id="cb6-29"><a href="#cb6-29"></a></span>
-<span id="cb6-30"><a href="#cb6-30"></a>packages <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb6-31"><a href="#cb6-31"></a><span class="in">```</span></span>
-<span id="cb6-32"><a href="#cb6-32"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="an">author:</span><span class="co"> "Amin G. Alhashim"</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co">---</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="fu">## Clear Workspace, DON'T EDIT {-}</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a></span>
+<span id="cb6-9"><a href="#cb6-9"></a>Always start by clearing the workspace. This ensure objects created in other files are not used used here.</span>
+<span id="cb6-10"><a href="#cb6-10"></a></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="in">```{r}</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co">#| include: true</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="co">#| results: 'hide'</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a></span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="in">```</span></span>
+<span id="cb6-19"><a href="#cb6-19"></a></span>
+<span id="cb6-20"><a href="#cb6-20"></a><span class="fu">## List Used Packages, EDIT {-}</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a></span>
+<span id="cb6-22"><a href="#cb6-22"></a>List all the packages that will be used in chunk below.</span>
+<span id="cb6-23"><a href="#cb6-23"></a></span>
+<span id="cb6-26"><a href="#cb6-26"></a><span class="in">```{r}</span></span>
+<span id="cb6-27"><a href="#cb6-27"></a><span class="co">#| include: true</span></span>
+<span id="cb6-28"><a href="#cb6-28"></a><span class="co">#| echo: true</span></span>
+<span id="cb6-29"><a href="#cb6-29"></a><span class="co">#| error: true</span></span>
+<span id="cb6-30"><a href="#cb6-30"></a></span>
+<span id="cb6-31"><a href="#cb6-31"></a>packages <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb6-32"><a href="#cb6-32"></a><span class="in">```</span></span>
 <span id="cb6-33"><a href="#cb6-33"></a></span>
-<span id="cb6-34"><a href="#cb6-34"></a><span class="fu">## Load Packages, DON'T EDIT {#sec-packages -}</span></span>
-<span id="cb6-35"><a href="#cb6-35"></a></span>
-<span id="cb6-36"><a href="#cb6-36"></a><span class="fu">### Install Missing {-}</span></span>
-<span id="cb6-37"><a href="#cb6-37"></a></span>
-<span id="cb6-38"><a href="#cb6-38"></a>Any missing package will be installed automatically. This ensure smoother execution when run on another machine.</span>
-<span id="cb6-39"><a href="#cb6-39"></a></span>
-<span id="cb6-40"><a href="#cb6-40"></a>::: callout-important</span>
-<span id="cb6-41"><a href="#cb6-41"></a></span>
-<span id="cb6-42"><a href="#cb6-42"></a><span class="fu">#### Installing Packages on Other People Machine</span></span>
-<span id="cb6-43"><a href="#cb6-43"></a></span>
-<span id="cb6-44"><a href="#cb6-44"></a>Be aware that people may not like installing packages into their machine automatically.  This might break some of their previous code.</span>
-<span id="cb6-45"><a href="#cb6-45"></a></span>
-<span id="cb6-46"><a href="#cb6-46"></a>:::</span>
-<span id="cb6-47"><a href="#cb6-47"></a></span>
-<span id="cb6-48"><a href="#cb6-48"></a><span class="in">```{r Install Missing Packages}</span></span>
-<span id="cb6-49"><a href="#cb6-49"></a><span class="in">#| include: true</span></span>
-<span id="cb6-50"><a href="#cb6-50"></a><span class="in">#| echo: true</span></span>
-<span id="cb6-51"><a href="#cb6-51"></a><span class="in">#| error: true</span></span>
-<span id="cb6-52"><a href="#cb6-52"></a></span>
-<span id="cb6-53"><a href="#cb6-53"></a><span class="in"># Do NOT modify</span></span>
-<span id="cb6-54"><a href="#cb6-54"></a><span class="in">install.packages(setdiff(packages, rownames(installed.packages())))</span></span>
-<span id="cb6-55"><a href="#cb6-55"></a><span class="in">```</span></span>
-<span id="cb6-56"><a href="#cb6-56"></a></span>
-<span id="cb6-57"><a href="#cb6-57"></a><span class="fu">### Load {-}</span></span>
-<span id="cb6-58"><a href="#cb6-58"></a></span>
-<span id="cb6-59"><a href="#cb6-59"></a>Load all packages</span>
-<span id="cb6-60"><a href="#cb6-60"></a></span>
-<span id="cb6-61"><a href="#cb6-61"></a><span class="in">```{r Load Packages}</span></span>
-<span id="cb6-62"><a href="#cb6-62"></a><span class="in">#| include: true</span></span>
-<span id="cb6-63"><a href="#cb6-63"></a><span class="in">#| echo: true</span></span>
-<span id="cb6-64"><a href="#cb6-64"></a><span class="in">#| error: true</span></span>
-<span id="cb6-65"><a href="#cb6-65"></a></span>
-<span id="cb6-66"><a href="#cb6-66"></a><span class="in"># Do NOT modify</span></span>
-<span id="cb6-67"><a href="#cb6-67"></a><span class="in">lapply(packages, require, character.only = TRUE)</span></span>
-<span id="cb6-68"><a href="#cb6-68"></a><span class="in">```</span></span>
-<span id="cb6-69"><a href="#cb6-69"></a></span>
-<span id="cb6-70"><a href="#cb6-70"></a><span class="fu">## Introduction</span></span>
+<span id="cb6-34"><a href="#cb6-34"></a></span>
+<span id="cb6-35"><a href="#cb6-35"></a><span class="fu">## Load Packages, DON'T EDIT {#sec-packages -}</span></span>
+<span id="cb6-36"><a href="#cb6-36"></a></span>
+<span id="cb6-37"><a href="#cb6-37"></a><span class="fu">### Install Missing {-}</span></span>
+<span id="cb6-38"><a href="#cb6-38"></a></span>
+<span id="cb6-39"><a href="#cb6-39"></a>Any missing package will be installed automatically. This ensure smoother execution when run on another machine.</span>
+<span id="cb6-40"><a href="#cb6-40"></a></span>
+<span id="cb6-41"><a href="#cb6-41"></a>::: callout-important</span>
+<span id="cb6-42"><a href="#cb6-42"></a></span>
+<span id="cb6-43"><a href="#cb6-43"></a><span class="fu">#### Installing Packages on Other People Machine</span></span>
+<span id="cb6-44"><a href="#cb6-44"></a></span>
+<span id="cb6-45"><a href="#cb6-45"></a>Be aware that people may not like installing packages into their machine automatically.  This might break some of their previous code.</span>
+<span id="cb6-46"><a href="#cb6-46"></a></span>
+<span id="cb6-47"><a href="#cb6-47"></a>:::</span>
+<span id="cb6-48"><a href="#cb6-48"></a></span>
+<span id="cb6-49"><a href="#cb6-49"></a><span class="in">```{r Install Missing Packages}</span></span>
+<span id="cb6-50"><a href="#cb6-50"></a><span class="in">#| include: true</span></span>
+<span id="cb6-51"><a href="#cb6-51"></a><span class="in">#| echo: true</span></span>
+<span id="cb6-52"><a href="#cb6-52"></a><span class="in">#| error: true</span></span>
+<span id="cb6-53"><a href="#cb6-53"></a></span>
+<span id="cb6-54"><a href="#cb6-54"></a><span class="in"># Do NOT modify</span></span>
+<span id="cb6-55"><a href="#cb6-55"></a><span class="in">install.packages(setdiff(packages, rownames(installed.packages())))</span></span>
+<span id="cb6-56"><a href="#cb6-56"></a><span class="in">```</span></span>
+<span id="cb6-57"><a href="#cb6-57"></a></span>
+<span id="cb6-58"><a href="#cb6-58"></a><span class="fu">### Load {-}</span></span>
+<span id="cb6-59"><a href="#cb6-59"></a></span>
+<span id="cb6-60"><a href="#cb6-60"></a>Load all packages</span>
+<span id="cb6-61"><a href="#cb6-61"></a></span>
+<span id="cb6-62"><a href="#cb6-62"></a><span class="in">```{r Load Packages}</span></span>
+<span id="cb6-63"><a href="#cb6-63"></a><span class="in">#| include: true</span></span>
+<span id="cb6-64"><a href="#cb6-64"></a><span class="in">#| echo: true</span></span>
+<span id="cb6-65"><a href="#cb6-65"></a><span class="in">#| error: true</span></span>
+<span id="cb6-66"><a href="#cb6-66"></a></span>
+<span id="cb6-67"><a href="#cb6-67"></a><span class="in"># Do NOT modify</span></span>
+<span id="cb6-68"><a href="#cb6-68"></a><span class="in">lapply(packages, require, character.only = TRUE)</span></span>
+<span id="cb6-69"><a href="#cb6-69"></a><span class="in">```</span></span>
+<span id="cb6-70"><a href="#cb6-70"></a></span>
+<span id="cb6-71"><a href="#cb6-71"></a><span class="fu">## Introduction</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

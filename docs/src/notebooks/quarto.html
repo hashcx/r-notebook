@@ -265,7 +265,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
   <li><a href="#render-review" id="toc-render-review" class="nav-link" data-scroll-target="#render-review"><span class="header-section-number">2.1</span> Render &amp; Review</a></li>
   <li><a href="#render-wo-review" id="toc-render-wo-review" class="nav-link" data-scroll-target="#render-wo-review"><span class="header-section-number">2.2</span> Render w/o Review</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2.3</span> References</a></li>
+  <li><a href="#import-content" id="toc-import-content" class="nav-link" data-scroll-target="#import-content"><span class="header-section-number">2.3</span> Import Content</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2.4</span> References</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -328,8 +329,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li>Terminal -&gt; <code>quarto render help</code>
 </li>
-</ol></section><section id="references" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="references">
-<span class="header-section-number">2.3</span> References</h2>
+</ol></section><section id="import-content" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="import-content">
+<span class="header-section-number">2.3</span> Import Content</h2>
+<p>To import a document to another use the following shortcodes:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a>{{include file.qmd}}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="references" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="references">
+<span class="header-section-number">2.4</span> References</h2>
 <ul>
 <li><a href="https://quarto.org/docs/reference/">Quarto Reference</a></li>
 </ul>
@@ -807,77 +812,83 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">---</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="an">title:</span><span class="co"> "Quarto"</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="co">---</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="fu">## Clear Workspace, DON'T EDIT {-}</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a></span>
-<span id="cb6-7"><a href="#cb6-7"></a>Always start by clearing the workspace. This ensure objects created in other files are not used used here.</span>
-<span id="cb6-8"><a href="#cb6-8"></a></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="in">```{r}</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a><span class="co">#| include: true</span></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="co">#| results: 'hide'</span></span>
-<span id="cb6-14"><a href="#cb6-14"></a></span>
-<span id="cb6-15"><a href="#cb6-15"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="in">```</span></span>
-<span id="cb6-17"><a href="#cb6-17"></a></span>
-<span id="cb6-18"><a href="#cb6-18"></a><span class="fu">## List Used Packages, EDIT {-}</span></span>
-<span id="cb6-19"><a href="#cb6-19"></a></span>
-<span id="cb6-20"><a href="#cb6-20"></a>List all the packages that will be used in chunk below.</span>
-<span id="cb6-21"><a href="#cb6-21"></a></span>
-<span id="cb6-24"><a href="#cb6-24"></a><span class="in">```{r}</span></span>
-<span id="cb6-25"><a href="#cb6-25"></a><span class="co">#| include: true</span></span>
-<span id="cb6-26"><a href="#cb6-26"></a><span class="co">#| echo: true</span></span>
-<span id="cb6-27"><a href="#cb6-27"></a><span class="co">#| error: true</span></span>
-<span id="cb6-28"><a href="#cb6-28"></a></span>
-<span id="cb6-29"><a href="#cb6-29"></a>packages <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb6-30"><a href="#cb6-30"></a><span class="in">```</span></span>
-<span id="cb6-31"><a href="#cb6-31"></a></span>
-<span id="cb6-32"><a href="#cb6-32"></a></span>
-<span id="cb6-33"><a href="#cb6-33"></a><span class="fu">## Load Packages, DON'T EDIT {#sec-packages -}</span></span>
-<span id="cb6-34"><a href="#cb6-34"></a></span>
-<span id="cb6-35"><a href="#cb6-35"></a><span class="fu">### Install Missing {-}</span></span>
-<span id="cb6-36"><a href="#cb6-36"></a></span>
-<span id="cb6-37"><a href="#cb6-37"></a>Any missing package will be installed automatically. This ensure smoother execution when run by others.</span>
-<span id="cb6-38"><a href="#cb6-38"></a></span>
-<span id="cb6-39"><a href="#cb6-39"></a><span class="in">```{r Install Missing Packages}</span></span>
-<span id="cb6-40"><a href="#cb6-40"></a><span class="in">#| include: true</span></span>
-<span id="cb6-41"><a href="#cb6-41"></a><span class="in">#| echo: true</span></span>
-<span id="cb6-42"><a href="#cb6-42"></a><span class="in">#| error: true</span></span>
-<span id="cb6-43"><a href="#cb6-43"></a></span>
-<span id="cb6-44"><a href="#cb6-44"></a><span class="in"># Do NOT modify</span></span>
-<span id="cb6-45"><a href="#cb6-45"></a><span class="in">install.packages(setdiff(packages, rownames(installed.packages())))</span></span>
-<span id="cb6-46"><a href="#cb6-46"></a><span class="in">```</span></span>
-<span id="cb6-47"><a href="#cb6-47"></a></span>
-<span id="cb6-48"><a href="#cb6-48"></a><span class="fu">### Load</span></span>
-<span id="cb6-49"><a href="#cb6-49"></a></span>
-<span id="cb6-50"><a href="#cb6-50"></a>Load all packages {-}</span>
-<span id="cb6-51"><a href="#cb6-51"></a></span>
-<span id="cb6-52"><a href="#cb6-52"></a><span class="in">```{r Load Packages}</span></span>
-<span id="cb6-53"><a href="#cb6-53"></a><span class="in">#| include: true</span></span>
-<span id="cb6-54"><a href="#cb6-54"></a><span class="in">#| echo: true</span></span>
-<span id="cb6-55"><a href="#cb6-55"></a><span class="in">#| error: true</span></span>
-<span id="cb6-56"><a href="#cb6-56"></a></span>
-<span id="cb6-57"><a href="#cb6-57"></a><span class="in"># Do NOT modify</span></span>
-<span id="cb6-58"><a href="#cb6-58"></a><span class="in">lapply(packages, require, character.only = TRUE)</span></span>
-<span id="cb6-59"><a href="#cb6-59"></a><span class="in">```</span></span>
-<span id="cb6-60"><a href="#cb6-60"></a></span>
-<span id="cb6-61"><a href="#cb6-61"></a></span>
-<span id="cb6-62"><a href="#cb6-62"></a><span class="fu">## Render &amp; Review</span></span>
-<span id="cb6-63"><a href="#cb6-63"></a></span>
-<span id="cb6-64"><a href="#cb6-64"></a><span class="ss">1.  </span>VSCode/RStudio -<span class="sc">\&gt;</span> *Render* button</span>
-<span id="cb6-65"><a href="#cb6-65"></a><span class="ss">2.  </span>Terminal -<span class="sc">\&gt;</span> <span class="in">`quarto preview`</span></span>
-<span id="cb6-66"><a href="#cb6-66"></a><span class="ss">3.  </span>Terminal -<span class="sc">\&gt;</span> <span class="in">`quarto preview help`</span></span>
-<span id="cb6-67"><a href="#cb6-67"></a></span>
-<span id="cb6-68"><a href="#cb6-68"></a><span class="fu">## Render w/o Review</span></span>
-<span id="cb6-69"><a href="#cb6-69"></a></span>
-<span id="cb6-70"><a href="#cb6-70"></a><span class="ss">1.  </span>Terminal -<span class="sc">\&gt;</span> <span class="in">`quarto render`</span></span>
-<span id="cb6-71"><a href="#cb6-71"></a><span class="ss">2.  </span>Terminal -<span class="sc">\&gt;</span> <span class="in">`quarto render help`</span></span>
-<span id="cb6-72"><a href="#cb6-72"></a></span>
-<span id="cb6-73"><a href="#cb6-73"></a><span class="fu">## References</span></span>
-<span id="cb6-74"><a href="#cb6-74"></a></span>
-<span id="cb6-75"><a href="#cb6-75"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">Quarto Reference</span><span class="co">](https://quarto.org/docs/reference/)</span></span>
+<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="an">title:</span><span class="co"> "Quarto"</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">---</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="fu">## Clear Workspace, DON'T EDIT {.unnumbered}</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a>Always start by clearing the workspace. This ensure objects created in other files are not used used here.</span>
+<span id="cb7-8"><a href="#cb7-8"></a></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="in">```{r}</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="co">#| include: true</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="co">#| results: 'hide'</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a></span>
+<span id="cb7-15"><a href="#cb7-15"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="in">```</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a></span>
+<span id="cb7-18"><a href="#cb7-18"></a><span class="fu">## List Used Packages, EDIT {.unnumbered}</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a></span>
+<span id="cb7-20"><a href="#cb7-20"></a>List all the packages that will be used in chunk below.</span>
+<span id="cb7-21"><a href="#cb7-21"></a></span>
+<span id="cb7-24"><a href="#cb7-24"></a><span class="in">```{r}</span></span>
+<span id="cb7-25"><a href="#cb7-25"></a><span class="co">#| include: true</span></span>
+<span id="cb7-26"><a href="#cb7-26"></a><span class="co">#| echo: true</span></span>
+<span id="cb7-27"><a href="#cb7-27"></a><span class="co">#| error: true</span></span>
+<span id="cb7-28"><a href="#cb7-28"></a></span>
+<span id="cb7-29"><a href="#cb7-29"></a>packages <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb7-30"><a href="#cb7-30"></a><span class="in">```</span></span>
+<span id="cb7-31"><a href="#cb7-31"></a></span>
+<span id="cb7-32"><a href="#cb7-32"></a><span class="fu">## Load Packages, DON'T EDIT {#sec-packages .unnumbered}</span></span>
+<span id="cb7-33"><a href="#cb7-33"></a></span>
+<span id="cb7-34"><a href="#cb7-34"></a><span class="fu">### Install Missing {.unnumbered}</span></span>
+<span id="cb7-35"><a href="#cb7-35"></a></span>
+<span id="cb7-36"><a href="#cb7-36"></a>Any missing package will be installed automatically. This ensure smoother execution when run by others.</span>
+<span id="cb7-37"><a href="#cb7-37"></a></span>
+<span id="cb7-38"><a href="#cb7-38"></a><span class="in">```{r Install Missing Packages}</span></span>
+<span id="cb7-39"><a href="#cb7-39"></a><span class="in">#| include: true</span></span>
+<span id="cb7-40"><a href="#cb7-40"></a><span class="in">#| echo: true</span></span>
+<span id="cb7-41"><a href="#cb7-41"></a><span class="in">#| error: true</span></span>
+<span id="cb7-42"><a href="#cb7-42"></a></span>
+<span id="cb7-43"><a href="#cb7-43"></a><span class="in"># Do NOT modify</span></span>
+<span id="cb7-44"><a href="#cb7-44"></a><span class="in">install.packages(setdiff(packages, rownames(installed.packages())))</span></span>
+<span id="cb7-45"><a href="#cb7-45"></a><span class="in">```</span></span>
+<span id="cb7-46"><a href="#cb7-46"></a></span>
+<span id="cb7-47"><a href="#cb7-47"></a><span class="fu">### Load</span></span>
+<span id="cb7-48"><a href="#cb7-48"></a></span>
+<span id="cb7-49"><a href="#cb7-49"></a>Load all packages {-}</span>
+<span id="cb7-50"><a href="#cb7-50"></a></span>
+<span id="cb7-51"><a href="#cb7-51"></a><span class="in">```{r Load Packages}</span></span>
+<span id="cb7-52"><a href="#cb7-52"></a><span class="in">#| include: true</span></span>
+<span id="cb7-53"><a href="#cb7-53"></a><span class="in">#| echo: true</span></span>
+<span id="cb7-54"><a href="#cb7-54"></a><span class="in">#| error: true</span></span>
+<span id="cb7-55"><a href="#cb7-55"></a></span>
+<span id="cb7-56"><a href="#cb7-56"></a><span class="in"># Do NOT modify</span></span>
+<span id="cb7-57"><a href="#cb7-57"></a><span class="in">lapply(packages, require, character.only = TRUE)</span></span>
+<span id="cb7-58"><a href="#cb7-58"></a><span class="in">```</span></span>
+<span id="cb7-59"><a href="#cb7-59"></a></span>
+<span id="cb7-60"><a href="#cb7-60"></a><span class="fu">## Render &amp; Review</span></span>
+<span id="cb7-61"><a href="#cb7-61"></a></span>
+<span id="cb7-62"><a href="#cb7-62"></a><span class="ss">1.  </span>VSCode/RStudio -<span class="sc">\&gt;</span> *Render* button</span>
+<span id="cb7-63"><a href="#cb7-63"></a><span class="ss">2.  </span>Terminal -<span class="sc">\&gt;</span> <span class="in">`quarto preview`</span></span>
+<span id="cb7-64"><a href="#cb7-64"></a><span class="ss">3.  </span>Terminal -<span class="sc">\&gt;</span> <span class="in">`quarto preview help`</span></span>
+<span id="cb7-65"><a href="#cb7-65"></a></span>
+<span id="cb7-66"><a href="#cb7-66"></a><span class="fu">## Render w/o Review</span></span>
+<span id="cb7-67"><a href="#cb7-67"></a></span>
+<span id="cb7-68"><a href="#cb7-68"></a><span class="ss">1.  </span>Terminal -<span class="sc">\&gt;</span> <span class="in">`quarto render`</span></span>
+<span id="cb7-69"><a href="#cb7-69"></a><span class="ss">2.  </span>Terminal -<span class="sc">\&gt;</span> <span class="in">`quarto render help`</span></span>
+<span id="cb7-70"><a href="#cb7-70"></a></span>
+<span id="cb7-71"><a href="#cb7-71"></a><span class="fu">## Import Content</span></span>
+<span id="cb7-72"><a href="#cb7-72"></a></span>
+<span id="cb7-73"><a href="#cb7-73"></a>To import a document to another use the following shortcodes:</span>
+<span id="cb7-74"><a href="#cb7-74"></a></span>
+<span id="cb7-75"><a href="#cb7-75"></a><span class="in">``` markdown</span></span>
+<span id="cb7-76"><a href="#cb7-76"></a>{{include file.qmd}}</span>
+<span id="cb7-77"><a href="#cb7-77"></a><span class="in">```</span></span>
+<span id="cb7-78"><a href="#cb7-78"></a></span>
+<span id="cb7-79"><a href="#cb7-79"></a><span class="fu">## References</span></span>
+<span id="cb7-80"><a href="#cb7-80"></a></span>
+<span id="cb7-81"><a href="#cb7-81"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">Quarto Reference</span><span class="co">](https://quarto.org/docs/reference/)</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
