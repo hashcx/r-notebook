@@ -2,7 +2,7 @@
 title: "Quarto"
 ---
 
-## Clear Workspace, DON'T EDIT {-}
+## Clear Workspace, DON'T EDIT {.unnumbered}
 
 Always start by clearing the workspace. This ensure objects created in other files are not used used here.
 
@@ -13,7 +13,7 @@ Always start by clearing the workspace. This ensure objects created in other fil
 rm(list = ls())
 ```
 
-## List Used Packages, EDIT {-}
+## List Used Packages, EDIT {.unnumbered}
 
 List all the packages that will be used in chunk below.
 
@@ -25,10 +25,9 @@ List all the packages that will be used in chunk below.
 packages <- c()
 ```
 
+## Load Packages, DON'T EDIT {#sec-packages .unnumbered}
 
-## Load Packages, DON'T EDIT {#sec-packages -}
-
-### Install Missing {-}
+### Install Missing {.unnumbered}
 
 Any missing package will be installed automatically. This ensure smoother execution when run by others.
 
@@ -54,7 +53,6 @@ Load all packages {-}
 lapply(packages, require, character.only = TRUE)
 ```
 
-
 ## Render & Review
 
 1.  VSCode/RStudio -\> *Render* button
@@ -65,6 +63,14 @@ lapply(packages, require, character.only = TRUE)
 
 1.  Terminal -\> `quarto render`
 2.  Terminal -\> `quarto render help`
+
+## Import Content
+
+To import a document to another use the following shortcodes:
+
+``` markdown
+{{include file.qmd}}
+```
 
 ## References
 
