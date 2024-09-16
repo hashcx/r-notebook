@@ -540,6 +540,8 @@ write_cvs()
 
 -   Help in making complex plots from data frames in simple steps
 -   ggplot graphics are built step by step by adding new elements; this makes it flexible as well as customization
+- To get list of ggplot2 geometric objects: `help.search("gemo_", package="ggplot2")`
+- To know the aesthetic specification each geom_ can take: `vignette("ggplot2-specs")`
 
 Step 1: Bind the plot to specific data frame
 
@@ -548,6 +550,7 @@ surveys_plot <- ggplot(
   data = survey_complete,
   mapping = aes(x = weight, y = hindfoot_length)
 )
+surveys_plot
 
 # Color for each group
 surveys_plot <- ggplot(
@@ -555,6 +558,7 @@ surveys_plot <- ggplot(
   mapping = aes(x = weight, y = hindfoot_length),
   color = species_id
 )
+surveys_plot
 ```
 
 Step 2: Select the type of the plot
