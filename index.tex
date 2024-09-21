@@ -377,7 +377,7 @@ To know the type of the variables of each variable.
   \textbf{vector}: hold single type of data
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Creating Vector}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Creating Vector}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-note-color-frame, rightrule=.15mm]
 
 The \texttt{c()} function (\textbf{c}ombine multiple elements) can be
 used to create vectors in R.
@@ -406,7 +406,7 @@ x <- c(1, 2, 3, 4)
   columns that fit into the screen will be shown
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Printing tibble All Columns}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Printing tibble All Columns}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-note-color-frame, rightrule=.15mm]
 
 To force the \texttt{print()} function to print all the columns of a
 \texttt{tibble}, set the \texttt{width} parameter to \texttt{Inf} as
@@ -1528,6 +1528,12 @@ filter only those in the indicated category
 \item
   ggplot graphics are built step by step by adding new elements; this
   makes it flexible as well as customization
+\item
+  To get list of ggplot2 geometric objects:
+  \texttt{help.search("gemo\_",\ package="ggplot2")}
+\item
+  To know the aesthetic specification each geom\_ can take:
+  \texttt{vignette("ggplot2-specs")}
 \end{itemize}
 
 Step 1: Bind the plot to specific data frame
@@ -1538,15 +1544,25 @@ Step 1: Bind the plot to specific data frame
   \AttributeTok{data =}\NormalTok{ survey\_complete,}
   \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ weight, }\AttributeTok{y =}\NormalTok{ hindfoot\_length)}
 \NormalTok{)}
+\NormalTok{surveys\_plot}
+\end{Highlighting}
+\end{Shaded}
 
+\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-48-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{\# Color for each group}
 \NormalTok{surveys\_plot }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}
   \AttributeTok{data =}\NormalTok{ survey\_complete,}
   \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ weight, }\AttributeTok{y =}\NormalTok{ hindfoot\_length),}
   \AttributeTok{color =}\NormalTok{ species\_id}
 \NormalTok{)}
+\NormalTok{surveys\_plot}
 \end{Highlighting}
 \end{Shaded}
+
+\includegraphics{src/notebooks/r_files/figure-pdf/unnamed-chunk-48-2.pdf}
 
 Step 2: Select the type of the plot
 
@@ -1861,7 +1877,7 @@ To import a document to another use the following shortcodes:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{\{include file.qmd\}\}}
+\NormalTok{\{\{\textless{} include file.qmd \textgreater{}\}\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1877,14 +1893,14 @@ To import a document to another use the following shortcodes:
 
 \section{Keyboard Shortcuts}\label{keyboard-shortcuts}
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Mac Users}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Mac Users}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-note-color-frame, rightrule=.15mm]
 
 In place of \texttt{Ctrl} in the keyboard shortcuts below, use
 \texttt{Cmd}.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{RStudio Tips}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{RStudio Tips}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-note-color-frame, rightrule=.15mm]
 
 \href{https://x.com/rstudiotips}{RStudio Tip} on X on how to use RStudio
 IDE effectively.
@@ -2031,7 +2047,7 @@ List all the packages that will be used in chunk below.
 Any missing package will be installed automatically. This ensure
 smoother execution when run by others.
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Installing Packages on Other People Machine}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Installing Packages on Other People Machine}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-important-color-frame, rightrule=.15mm]
 
 Be aware the people may not like installing packages into their machine
 automatically. This might break some of their previous code.
@@ -2610,7 +2626,7 @@ variable is distributed:
   histogram, using \texttt{geom\_histogram()} function
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Histogram Bin Width}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Histogram Bin Width}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-note-color-frame, rightrule=.15mm]
 
 The bin width of the histogram is in the unit of the variable mapped to
 the plot \texttt{x} (or \texttt{y}) aesthetic (visual property)
@@ -2625,7 +2641,7 @@ the plot \texttt{x} (or \texttt{y}) aesthetic (visual property)
   boxplot, using \texttt{geom\_boplot()} function
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Boxplot Components}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Boxplot Components}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-note-color-frame, rightrule=.15mm]
 
 As described beautifully in
 \href{https://r4ds.hadley.nz/data-visualize\#visualizing-relationships}{R4DS},
@@ -2771,7 +2787,7 @@ List all the packages that will be used in chunk below.
 Any missing package will be installed automatically. This ensure
 smoother execution when run by others.
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Installing Packages on Other People Machine}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Installing Packages on Other People Machine}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-important-color-frame, rightrule=.15mm]
 
 Be aware the people may not like installing packages into their machine
 automatically. This might break some of their previous code.
@@ -2878,7 +2894,7 @@ List all the packages that will be used in chunk below.
 Any missing package will be installed automatically. This ensure
 smoother execution when run by others.
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Installing Packages on Other People Machine}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Installing Packages on Other People Machine}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-important-color-frame, rightrule=.15mm]
 
 Be aware the people may not like installing packages into their machine
 automatically. This might break some of their previous code.
@@ -3233,7 +3249,7 @@ List all the packages that will be used in chunk below.
 Any missing package will be installed automatically. This ensure
 smoother execution when run by others.
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Installing Packages on Other People Machine}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Installing Packages on Other People Machine}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-important-color-frame, rightrule=.15mm]
 
 Be aware the people may not like installing packages into their machine
 automatically. This might break some of their previous code.
@@ -3269,7 +3285,7 @@ Load all packages
 This page covers code style concepts when working with R. I took note
 for those that were new to me or found useful to remind myself with.
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Code Style \& Punctuation}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Code Style \& Punctuation}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-note-color-frame, rightrule=.15mm]
 
 Code style is like punctuation, when used correctly,
 itmakecodereadeasily.
@@ -3506,7 +3522,7 @@ them are copied below.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Long Pipeline}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Long Pipeline}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-note-color-frame, rightrule=.15mm]
 
 Break long pipelines (tasks) to meaningful pipelines (sub-tasks) and
 save the intermediate steps. This will make the code more readable and
@@ -3590,7 +3606,7 @@ List all the packages that will be used in chunk below.
 \subsection*{Install Missing}\label{install-missing-6}
 \addcontentsline{toc}{subsection}{Install Missing}
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Installing Packages on Other People Machine}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Installing Packages on Other People Machine}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-important-color-frame, rightrule=.15mm]
 
 Be aware the people may not like installing packages into their machine
 automatically. This might break some of their previous code.
@@ -3648,7 +3664,7 @@ tidy form where:
 Putting data in tidy form will make it easy to process using tidyverse
 packages.
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Data Trasformation Bottom-Line}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Data Trasformation Bottom-Line}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-note-color-frame, rightrule=.15mm]
 
 Tidying is 1-to-1 process--the data takes different form but it can be
 put back into its original form which mean that no values are lost.
@@ -3658,7 +3674,7 @@ put back into its original form which mean that no values are lost.
 \section{\texorpdfstring{Lengthening Data,
 \texttt{pivot\_longer}}{Lengthening Data, pivot\_longer}}\label{lengthening-data-pivot_longer}
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{`pivot\_longer' Idea}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{`pivot\_longer' Idea}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-note-color-frame, rightrule=.15mm]
 
 When pivoting longer, the number of the rows in the dataset increases
 while the number of columns decreases.
@@ -3704,7 +3720,7 @@ value belong to which column, create a new column called
 \texttt{B\_type} for this purpuse.
 \end{quote}
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Dimensions of New Dataset}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Dimensions of New Dataset}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-note-color-frame, rightrule=.15mm]
 
 Assume the dimensions of the old dataset are:
 
@@ -4062,7 +4078,7 @@ NA}\label{lengthening-w-removing-na}
 \section{\texorpdfstring{Widening Data,
 \texttt{pivot-wider}}{Widening Data, pivot-wider}}\label{widening-data-pivot-wider}
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{`pivot\_wider' Idea}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{`pivot\_wider' Idea}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-note-color-frame, rightrule=.15mm]
 
 When pivoting wider, the number of the columns in the dataset increases
 while the number of rows decreases.
@@ -4322,7 +4338,7 @@ List all the packages that will be used in chunk below.
 Any missing package will be installed automatically. This ensure
 smoother execution when run by others.
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Installing Packages on Other People Machine}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Installing Packages on Other People Machine}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-important-color-frame, rightrule=.15mm]
 
 Be aware the people may not like installing packages into their machine
 automatically. This might break some of their previous code.
@@ -4435,7 +4451,7 @@ List all the packages that will be used in chunk below.
 Any missing package will be installed automatically. This ensure
 smoother execution when run on another machine.
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Installing Packages on Other People Machine}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Installing Packages on Other People Machine}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-important-color-frame, rightrule=.15mm]
 
 Be aware that people may not like installing packages into their machine
 automatically. This might break some of their previous code.
@@ -4518,7 +4534,7 @@ List all the packages that will be used in chunk below.
 Any missing package will be installed automatically. This ensure
 smoother execution when run by others.
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, left=2mm, opacityback=0, coltitle=black, colback=white, opacitybacktitle=0.6, rightrule=.15mm, leftrule=.75mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Installing Packages on Other People Machine}, bottomtitle=1mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, opacityback=0, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Installing Packages on Other People Machine}, titlerule=0mm, bottomtitle=1mm, arc=.35mm, breakable, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, left=2mm, bottomrule=.15mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, colframe=quarto-callout-important-color-frame, rightrule=.15mm]
 
 Be aware the people may not like installing packages into their machine
 automatically. This might break some of their previous code.
