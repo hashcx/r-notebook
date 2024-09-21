@@ -69,7 +69,7 @@ lapply(packages, require, character.only = TRUE)
 To import a document to another use the following shortcodes:
 
 ``` markdown
-{{include file.qmd}}
+{{< include file.qmd >}}
 ```
 
 ## References
