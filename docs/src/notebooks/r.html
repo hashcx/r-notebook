@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Workspace - 1&nbsp; R</title>
+<title>R – Workspace</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -54,7 +54,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
@@ -67,10 +66,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -98,28 +99,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script><link rel="stylesheet" href="../../sty/styles.css">
 </head>
-<body class="nav-sidebar floating">
+<body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/notebooks/_notebooks.html">Notebooks</a></li><li class="breadcrumb-item"><a href="../../src/notebooks/r.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/notebooks/_notebooks.html">Notebooks</a></li><li class="breadcrumb-item"><a href="../../src/notebooks/r.html"><span class="chapter-title">R</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Workspace</a> 
+      <a href="../../">HashCX</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/hashcx/workspace/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <a href="../../Workspace.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -143,35 +145,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../src/notebooks/_notebooks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Notebooks</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Science</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/notebooks/r.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R</span></span></a>
+  <a href="../../src/ds/file_org.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">File Organization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/notebooks/quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  <a href="../../src/ds/eda.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">EDA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/notebooks/rstudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">RStudio</span></span></a>
+  <a href="../../src/ds/tips.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tips</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../src/notebooks/_notebooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebooks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/notebooks/r.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/notebooks/windows.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Microsoft Windows</span></span></a>
+  <a href="../../src/notebooks/quarto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quarto</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/notebooks/rstudio.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/notebooks/windows.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Microsoft Windows</span></a>
   </div>
 </li>
       </ul>
@@ -180,68 +204,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../../src/r-for-data-science/_r-for-data-science.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R for Data Science (2e)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/01-data-viz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Visualization</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/02-workflow-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Workflow: Basics</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/03-data-trans.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Transformation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/04-workflow-code-style.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Workflow: Code Style</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/05-data-tidying.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Tidying</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/06-workflow-scripts-and-projects.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Workflow: Scripts &amp; Projects</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/07-data-import.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data Import</span></span></a>
-  </div>
-</li>
-      </ul>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../src/practice/_practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Practice</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/practice/topic-modeling-r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Topic Modeling in R</span></span></a>
+  <a href="../../src/r-for-data-science/01-data-viz.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/02-workflow-basics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Workflow: Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/03-data-trans.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Transformation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/04-workflow-code-style.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Workflow: Code Style</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/05-data-tidying.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Tidying</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/06-workflow-scripts-and-projects.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Workflow: Scripts &amp; Projects</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/07-data-import.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Import</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Projects</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/projects/topic-modeling-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Topic Modeling in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/projects/scrap_mac_registrar.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Scrap Mac Registrar Website</span></a>
   </div>
 </li>
       </ul>
@@ -263,51 +284,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#load" id="toc-load" class="nav-link" data-scroll-target="#load">Load</a></li>
   </ul>
 </li>
-  <li><a href="#general-notes" id="toc-general-notes" class="nav-link" data-scroll-target="#general-notes"><span class="header-section-number">1.1</span> General Notes</a></li>
+  <li><a href="#general-notes" id="toc-general-notes" class="nav-link" data-scroll-target="#general-notes">General Notes</a></li>
   <li>
-<a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types"><span class="header-section-number">1.2</span> Data Types</a>
+<a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types">Data Types</a>
   <ul class="collapse">
-<li><a href="#mixing-data-types" id="toc-mixing-data-types" class="nav-link" data-scroll-target="#mixing-data-types"><span class="header-section-number">1.2.1</span> Mixing Data Types</a></li>
+<li><a href="#mixing-data-types" id="toc-mixing-data-types" class="nav-link" data-scroll-target="#mixing-data-types">Mixing Data Types</a></li>
   </ul>
 </li>
-  <li><a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures"><span class="header-section-number">1.3</span> Data Structures</a></li>
-  <li><a href="#basics-operations" id="toc-basics-operations" class="nav-link" data-scroll-target="#basics-operations"><span class="header-section-number">1.4</span> Basics Operations</a></li>
+  <li><a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures">Data Structures</a></li>
+  <li><a href="#basics-operations" id="toc-basics-operations" class="nav-link" data-scroll-target="#basics-operations">Basics Operations</a></li>
   <li>
-<a href="#exploratory-operations" id="toc-exploratory-operations" class="nav-link" data-scroll-target="#exploratory-operations"><span class="header-section-number">1.5</span> Exploratory Operations</a>
+<a href="#exploratory-operations" id="toc-exploratory-operations" class="nav-link" data-scroll-target="#exploratory-operations">Exploratory Operations</a>
   <ul class="collapse">
-<li><a href="#retrieve-specific-elementrowcolumn" id="toc-retrieve-specific-elementrowcolumn" class="nav-link" data-scroll-target="#retrieve-specific-elementrowcolumn"><span class="header-section-number">1.5.1</span> Retrieve specific element/row/column</a></li>
-  <li><a href="#dealing-with-factor-categorical-columns" id="toc-dealing-with-factor-categorical-columns" class="nav-link" data-scroll-target="#dealing-with-factor-categorical-columns"><span class="header-section-number">1.5.2</span> Dealing with factor (categorical) columns</a></li>
-  <li><a href="#basic-plotting" id="toc-basic-plotting" class="nav-link" data-scroll-target="#basic-plotting"><span class="header-section-number">1.5.3</span> Basic Plotting</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#data-manipulation" id="toc-data-manipulation" class="nav-link" data-scroll-target="#data-manipulation"><span class="header-section-number">1.6</span> Data Manipulation</a>
-  <ul class="collapse">
-<li><a href="#selection" id="toc-selection" class="nav-link" data-scroll-target="#selection"><span class="header-section-number">1.6.1</span> Selection</a></li>
-  <li><a href="#piping" id="toc-piping" class="nav-link" data-scroll-target="#piping"><span class="header-section-number">1.6.2</span> Piping</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">1.6.3</span> Summary</a></li>
-  <li><a href="#count" id="toc-count" class="nav-link" data-scroll-target="#count"><span class="header-section-number">1.6.4</span> Count</a></li>
-  <li><a href="#reshaping" id="toc-reshaping" class="nav-link" data-scroll-target="#reshaping"><span class="header-section-number">1.6.5</span> Reshaping</a></li>
-  <li><a href="#filtering" id="toc-filtering" class="nav-link" data-scroll-target="#filtering"><span class="header-section-number">1.6.6</span> Filtering</a></li>
-  <li><a href="#saving-to-disk" id="toc-saving-to-disk" class="nav-link" data-scroll-target="#saving-to-disk"><span class="header-section-number">1.6.7</span> Saving to disk</a></li>
+<li><a href="#retrieve-specific-elementrowcolumn" id="toc-retrieve-specific-elementrowcolumn" class="nav-link" data-scroll-target="#retrieve-specific-elementrowcolumn">Retrieve specific element/row/column</a></li>
+  <li><a href="#dealing-with-factor-categorical-columns" id="toc-dealing-with-factor-categorical-columns" class="nav-link" data-scroll-target="#dealing-with-factor-categorical-columns">Dealing with factor (categorical) columns</a></li>
+  <li><a href="#basic-plotting" id="toc-basic-plotting" class="nav-link" data-scroll-target="#basic-plotting">Basic Plotting</a></li>
   </ul>
 </li>
   <li>
-<a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization"><span class="header-section-number">1.7</span> Visualization</a>
+<a href="#data-manipulation" id="toc-data-manipulation" class="nav-link" data-scroll-target="#data-manipulation">Data Manipulation</a>
   <ul class="collapse">
-<li><a href="#scatter-plot" id="toc-scatter-plot" class="nav-link" data-scroll-target="#scatter-plot"><span class="header-section-number">1.7.1</span> Scatter plot</a></li>
-  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot"><span class="header-section-number">1.7.2</span> Boxplot</a></li>
-  <li><a href="#time-series-data" id="toc-time-series-data" class="nav-link" data-scroll-target="#time-series-data"><span class="header-section-number">1.7.3</span> Time series data</a></li>
+<li><a href="#selection" id="toc-selection" class="nav-link" data-scroll-target="#selection">Selection</a></li>
+  <li><a href="#piping" id="toc-piping" class="nav-link" data-scroll-target="#piping">Piping</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#count" id="toc-count" class="nav-link" data-scroll-target="#count">Count</a></li>
+  <li><a href="#reshaping" id="toc-reshaping" class="nav-link" data-scroll-target="#reshaping">Reshaping</a></li>
+  <li><a href="#filtering" id="toc-filtering" class="nav-link" data-scroll-target="#filtering">Filtering</a></li>
+  <li><a href="#saving-to-disk" id="toc-saving-to-disk" class="nav-link" data-scroll-target="#saving-to-disk">Saving to disk</a></li>
   </ul>
 </li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">1.8</span> References</a></li>
-  </ul></nav>
+  <li>
+<a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a>
+  <ul class="collapse">
+<li><a href="#scatter-plot" id="toc-scatter-plot" class="nav-link" data-scroll-target="#scatter-plot">Scatter plot</a></li>
+  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot">Boxplot</a></li>
+  <li><a href="#time-series-data" id="toc-time-series-data" class="nav-link" data-scroll-target="#time-series-data">Time series data</a></li>
+  </ul>
+</li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/hashcx/workspace/edit/main/src/notebooks/r.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hashcx/workspace/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/notebooks/_notebooks.html">Notebooks</a></li><li class="breadcrumb-item"><a href="../../src/notebooks/r.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R</span></a></li></ol></nav><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R</span>
-</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/notebooks/_notebooks.html">Notebooks</a></li><li class="breadcrumb-item"><a href="../../src/notebooks/r.html"><span class="chapter-title">R</span></a></li></ol></nav><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-title">R</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -348,8 +367,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [1] TRUE</code></pre>
 </div>
 </div>
-</section></section><section id="general-notes" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="general-notes">
-<span class="header-section-number">1.1</span> General Notes</h2>
+</section></section><section id="general-notes" class="level2"><h2 class="anchored" data-anchor-id="general-notes">General Notes</h2>
 <ul>
 <li>When writing R code, create a project instead of a file which will enable saving the workspace settings</li>
 <li>An R package usually includes:
@@ -365,8 +383,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Environment window -&gt; Broom icon</li>
 </ol>
 </li>
-</ul></section><section id="data-types" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="data-types">
-<span class="header-section-number">1.2</span> Data Types</h2>
+</ul></section><section id="data-types" class="level2"><h2 class="anchored" data-anchor-id="data-types">Data Types</h2>
 <ul>
 <li>character</li>
 <li>numeric</li>
@@ -384,14 +401,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">slice</span>(<span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="mixing-data-types" class="level3" data-number="1.2.1"><h3 data-number="1.2.1" class="anchored" data-anchor-id="mixing-data-types">
-<span class="header-section-number">1.2.1</span> Mixing Data Types</h3>
+<section id="mixing-data-types" class="level3"><h3 class="anchored" data-anchor-id="mixing-data-types">Mixing Data Types</h3>
 <ul>
 <li>character + numeric –&gt; character</li>
 <li>numeric + logical –&gt; numeric</li>
 <li>numeric + character + logical –&gt; character</li>
-</ul></section></section><section id="data-structures" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="data-structures">
-<span class="header-section-number">1.3</span> Data Structures</h2>
+</ul></section></section><section id="data-structures" class="level2"><h2 class="anchored" data-anchor-id="data-structures">Data Structures</h2>
 <ul>
 <li>
 <strong>vector</strong>: hold single type of data</li>
@@ -452,12 +467,12 @@ Printing tibble All Columns
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-datastructure" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-datastructure" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-datastructure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../../images/datastructure.png" class="img-fluid figure-img" width="256">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-datastructure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.1: Common data structures in R ( taken from <a href="https://jjallaire.github.io/hopr/objects.html">Grolemund, 2014</a>)
+Figure&nbsp;4.1: Common data structures in R ( taken from <a href="https://jjallaire.github.io/hopr/objects.html">Grolemund, 2014</a>)
 </figcaption></figure>
 </div>
 </div>
@@ -467,8 +482,7 @@ Figure&nbsp;1.1: Common data structures in R ( taken from <a href="https://jjall
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">str</span>(x) <span class="co"># give the structure type of x</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="fu">length</span>(x) <span class="co"># length of structure</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="basics-operations" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="basics-operations">
-<span class="header-section-number">1.4</span> Basics Operations</h2>
+</section><section id="basics-operations" class="level2"><h2 class="anchored" data-anchor-id="basics-operations">Basics Operations</h2>
 <p>Assignment</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="co"># assign 3 to x (x gets 3)</span></span>
@@ -516,8 +530,7 @@ Figure&nbsp;1.1: Common data structures in R ( taken from <a href="https://jjall
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># how to use mean</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a><span class="co"># ?mean</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="exploratory-operations" class="level2" data-number="1.5"><h2 data-number="1.5" class="anchored" data-anchor-id="exploratory-operations">
-<span class="header-section-number">1.5</span> Exploratory Operations</h2>
+</section><section id="exploratory-operations" class="level2"><h2 class="anchored" data-anchor-id="exploratory-operations">Exploratory Operations</h2>
 <p>The <code>here</code> package makes it easy to point to files starting from the project main directory.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">library</span>(<span class="st">"here"</span>, <span class="st">"janitor"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -685,8 +698,7 @@ $ plot_type       &lt;chr&gt; </code></pre>
 34786 Chaetodipus      sp. Rodent Rodent Exclosure</code></pre>
 </div>
 </div>
-<section id="retrieve-specific-elementrowcolumn" class="level3" data-number="1.5.1"><h3 data-number="1.5.1" class="anchored" data-anchor-id="retrieve-specific-elementrowcolumn">
-<span class="header-section-number">1.5.1</span> Retrieve specific element/row/column</h3>
+<section id="retrieve-specific-elementrowcolumn" class="level3"><h3 class="anchored" data-anchor-id="retrieve-specific-elementrowcolumn">Retrieve specific element/row/column</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>surveys[<span class="dv">1</span>, <span class="dv">1</span>] <span class="co"># element[1,1]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -708,8 +720,7 @@ $ plot_type       &lt;chr&gt; </code></pre>
 <pre><code>[1] "M" "M" ""  ""  ""  "" </code></pre>
 </div>
 </div>
-</section><section id="dealing-with-factor-categorical-columns" class="level3" data-number="1.5.2"><h3 data-number="1.5.2" class="anchored" data-anchor-id="dealing-with-factor-categorical-columns">
-<span class="header-section-number">1.5.2</span> Dealing with factor (categorical) columns</h3>
+</section><section id="dealing-with-factor-categorical-columns" class="level3"><h3 class="anchored" data-anchor-id="dealing-with-factor-categorical-columns">Dealing with factor (categorical) columns</h3>
 <p>R convert columns that contain characters to factors by default. Factors are treated as integer vectors. By default, R sorts levels in alphabetical order.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="fu">levels</span>(surveys<span class="sc">$</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -737,8 +748,7 @@ $ plot_type       &lt;chr&gt; </code></pre>
 <pre><code>[1] 3</code></pre>
 </div>
 </div>
-</section><section id="basic-plotting" class="level3" data-number="1.5.3"><h3 data-number="1.5.3" class="anchored" data-anchor-id="basic-plotting">
-<span class="header-section-number">1.5.3</span> Basic Plotting</h3>
+</section><section id="basic-plotting" class="level3"><h3 class="anchored" data-anchor-id="basic-plotting">Basic Plotting</h3>
 <p>Histogram</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a><span class="co"># plot(surveys$sex)  # not possible</span></span>
@@ -762,8 +772,7 @@ $ plot_type       &lt;chr&gt; </code></pre>
 </div>
 </div>
 </div>
-</section></section><section id="data-manipulation" class="level2" data-number="1.6"><h2 data-number="1.6" class="anchored" data-anchor-id="data-manipulation">
-<span class="header-section-number">1.6</span> Data Manipulation</h2>
+</section></section><section id="data-manipulation" class="level2"><h2 class="anchored" data-anchor-id="data-manipulation">Data Manipulation</h2>
 <ul>
 <li>
 <code>tdlyr</code>
@@ -844,8 +853,7 @@ dbl (7): record_id, month, day, year, plot_id, hindfoot_length, weight
 </div>
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a><span class="co"># view(surveys) # preview in the viewer window, avoid when rendering</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="selection" class="level3" data-number="1.6.1"><h3 data-number="1.6.1" class="anchored" data-anchor-id="selection">
-<span class="header-section-number">1.6.1</span> Selection</h3>
+<section id="selection" class="level3"><h3 class="anchored" data-anchor-id="selection">Selection</h3>
 <p>Select certain columns</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a><span class="fu">select</span>(surveys, plot_id, species_id, weight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -908,8 +916,7 @@ dbl (7): record_id, month, day, year, plot_id, hindfoot_length, weight
 # ℹ 4 more variables: genus &lt;chr&gt;, species &lt;chr&gt;, taxa &lt;chr&gt;, plot_type &lt;chr&gt;</code></pre>
 </div>
 </div>
-</section><section id="piping" class="level3" data-number="1.6.2"><h3 data-number="1.6.2" class="anchored" data-anchor-id="piping">
-<span class="header-section-number">1.6.2</span> Piping</h3>
+</section><section id="piping" class="level3"><h3 class="anchored" data-anchor-id="piping">Piping</h3>
 <p>Sending the results of one function to another</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a><span class="co"># in multiple steps</span></span>
@@ -924,8 +931,7 @@ dbl (7): record_id, month, day, year, plot_id, hindfoot_length, weight
 <span id="cb79-10"><a href="#cb79-10"></a>  <span class="fu">filter</span>(weight <span class="sc">&lt;</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb79-11"><a href="#cb79-11"></a>  <span class="fu">select</span>(species_id, sex, weight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="summary" class="level3" data-number="1.6.3"><h3 data-number="1.6.3" class="anchored" data-anchor-id="summary">
-<span class="header-section-number">1.6.3</span> Summary</h3>
+</section><section id="summary" class="level3"><h3 class="anchored" data-anchor-id="summary">Summary</h3>
 <p>Summary of groups (1+ columns)</p>
 <p>one factor</p>
 <div class="cell">
@@ -1107,8 +1113,7 @@ argument.</code></pre>
 # ℹ 49 more rows</code></pre>
 </div>
 </div>
-</section><section id="count" class="level3" data-number="1.6.4"><h3 data-number="1.6.4" class="anchored" data-anchor-id="count">
-<span class="header-section-number">1.6.4</span> Count</h3>
+</section><section id="count" class="level3"><h3 class="anchored" data-anchor-id="count">Count</h3>
 <p>Count of a categorical column</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1"></a>surveys <span class="sc">%&gt;%</span></span>
@@ -1122,8 +1127,7 @@ argument.</code></pre>
 3 &lt;NA&gt;   1748</code></pre>
 </div>
 </div>
-</section><section id="reshaping" class="level3" data-number="1.6.5"><h3 data-number="1.6.5" class="anchored" data-anchor-id="reshaping">
-<span class="header-section-number">1.6.5</span> Reshaping</h3>
+</section><section id="reshaping" class="level3"><h3 class="anchored" data-anchor-id="reshaping">Reshaping</h3>
 <p>Using gather &amp; spreed</p>
 <p>prepare the needed data first</p>
 <div class="cell">
@@ -1193,8 +1197,7 @@ argument.</code></pre>
 6       6 Baiomys       NA   </code></pre>
 </div>
 </div>
-</section><section id="filtering" class="level3" data-number="1.6.6"><h3 data-number="1.6.6" class="anchored" data-anchor-id="filtering">
-<span class="header-section-number">1.6.6</span> Filtering</h3>
+</section><section id="filtering" class="level3"><h3 class="anchored" data-anchor-id="filtering">Filtering</h3>
 <p>Remove missing data</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1"></a>survey_complete <span class="ot">&lt;-</span> surveys <span class="sc">%&gt;%</span></span>
@@ -1211,13 +1214,11 @@ argument.</code></pre>
 <div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1"></a>surveys_com <span class="ot">&lt;-</span> surveys <span class="sc">%&gt;%</span></span>
 <span id="cb114-2"><a href="#cb114-2"></a>  <span class="fu">filter</span>(species_id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"albigula"</span>, <span class="st">"eremicus"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="saving-to-disk" class="level3" data-number="1.6.7"><h3 data-number="1.6.7" class="anchored" data-anchor-id="saving-to-disk">
-<span class="header-section-number">1.6.7</span> Saving to disk</h3>
+</section><section id="saving-to-disk" class="level3"><h3 class="anchored" data-anchor-id="saving-to-disk">Saving to disk</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1"></a><span class="fu">write_cvs</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="visualization" class="level2" data-number="1.7"><h2 data-number="1.7" class="anchored" data-anchor-id="visualization">
-<span class="header-section-number">1.7</span> Visualization</h2>
+</section></section><section id="visualization" class="level2"><h2 class="anchored" data-anchor-id="visualization">Visualization</h2>
 <ul>
 <li>Help in making complex plots from data frames in simple steps</li>
 <li>ggplot graphics are built step by step by adding new elements; this makes it flexible as well as customization</li>
@@ -1259,8 +1260,7 @@ argument.</code></pre>
 <li>boxplots &gt; geom_boxplot()</li>
 <li>trend lines, time series, etc. &gt; geom_line()</li>
 </ul>
-<section id="scatter-plot" class="level3" data-number="1.7.1"><h3 data-number="1.7.1" class="anchored" data-anchor-id="scatter-plot">
-<span class="header-section-number">1.7.1</span> Scatter plot</h3>
+<section id="scatter-plot" class="level3"><h3 class="anchored" data-anchor-id="scatter-plot">Scatter plot</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1"></a>surveys_plot <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1303,8 +1303,7 @@ argument.</code></pre>
 </div>
 </div>
 </div>
-</section><section id="boxplot" class="level3" data-number="1.7.2"><h3 data-number="1.7.2" class="anchored" data-anchor-id="boxplot">
-<span class="header-section-number">1.7.2</span> Boxplot</h3>
+</section><section id="boxplot" class="level3"><h3 class="anchored" data-anchor-id="boxplot">Boxplot</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1"></a>surveys_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
 <span id="cb123-2"><a href="#cb123-2"></a>  <span class="at">data =</span> survey_complete,</span>
@@ -1337,8 +1336,7 @@ argument.</code></pre>
 </div>
 </div>
 </div>
-</section><section id="time-series-data" class="level3" data-number="1.7.3"><h3 data-number="1.7.3" class="anchored" data-anchor-id="time-series-data">
-<span class="header-section-number">1.7.3</span> Time series data</h3>
+</section><section id="time-series-data" class="level3"><h3 class="anchored" data-anchor-id="time-series-data">Time series data</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1"></a><span class="co"># create appropriate dataset</span></span>
 <span id="cb126-2"><a href="#cb126-2"></a>yearly_count <span class="ot">&lt;-</span> survey_complete <span class="sc">%&gt;%</span></span>
@@ -1421,8 +1419,7 @@ argument.</code></pre>
 </div>
 </div>
 </div>
-</section></section><section id="references" class="level2" data-number="1.8"><h2 data-number="1.8" class="anchored" data-anchor-id="references">
-<span class="header-section-number">1.8</span> References</h2>
+</section></section><section id="references" class="level2"><h2 class="anchored" data-anchor-id="references">References</h2>
 <ul>
 <li>OU Software Carpentry Workshop (check other workshops <a href="https://libraries.ou.edu/content/software-and-data-carpentry">here</a>)
 <ul>
@@ -1463,6 +1460,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -1478,18 +1619,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1521,7 +1651,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -1580,7 +1732,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -1589,6 +1741,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1909,7 +2066,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../src/notebooks/quarto.html" class="pagination-link" aria-label="Quarto">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quarto</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-title">Quarto</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -2573,10 +2730,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb135-760"><a href="#cb135-760"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">Intro to ggplot</span><span class="co">](https://rawcdn.githack.com/allisonhorst/data-vis/fc107e063f50ef8695b0a75ed73d74720aca2c65/data_vis_np.html)</span> by <span class="co">[</span><span class="ot">Allison Horst</span><span class="co">](https://github.com/allisonhorst)</span></span>
 <span id="cb135-761"><a href="#cb135-761"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">R for Data Science book by Garrett Grolemund and Hadley Wickham</span><span class="co">](https://r4ds.had.co.nz/)</span></span>
 <span id="cb135-762"><a href="#cb135-762"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">Best Practices for Scientific Computing paper</span><span class="co">](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)</span></span>
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hashcx/workspace/edit/main/src/notebooks/r.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hashcx/workspace/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Workspace - 8&nbsp; Workflow: Code Style</title>
+<title>11&nbsp; Workflow: Code Style – Workspace</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -54,7 +54,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
@@ -67,10 +66,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -98,28 +99,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script><link rel="stylesheet" href="../../sty/styles.css">
 </head>
-<body class="nav-sidebar floating">
+<body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/r-for-data-science/_r-for-data-science.html">R for Data Science (2e)</a></li><li class="breadcrumb-item"><a href="../../src/r-for-data-science/04-workflow-code-style.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Workflow: Code Style</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/r-for-data-science/_r-for-data-science.html">R for Data Science (2e)</a></li><li class="breadcrumb-item"><a href="../../src/r-for-data-science/04-workflow-code-style.html"><span class="chapter-title">Workflow: Code Style</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Workspace</a> 
+      <a href="../../">HashCX</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/hashcx/workspace/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <a href="../../Workspace.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -143,35 +145,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../src/notebooks/_notebooks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Notebooks</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Science</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/notebooks/r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R</span></span></a>
+  <a href="../../src/ds/file_org.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">File Organization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/notebooks/quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  <a href="../../src/ds/eda.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">EDA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/notebooks/rstudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">RStudio</span></span></a>
+  <a href="../../src/ds/tips.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tips</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../src/notebooks/_notebooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebooks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/notebooks/r.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/notebooks/windows.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Microsoft Windows</span></span></a>
+  <a href="../../src/notebooks/quarto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quarto</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/notebooks/rstudio.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/notebooks/windows.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Microsoft Windows</span></a>
   </div>
 </li>
       </ul>
@@ -180,68 +204,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../../src/r-for-data-science/_r-for-data-science.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R for Data Science (2e)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/01-data-viz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Visualization</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/02-workflow-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Workflow: Basics</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/03-data-trans.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Transformation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/04-workflow-code-style.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Workflow: Code Style</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/05-data-tidying.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Tidying</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/06-workflow-scripts-and-projects.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Workflow: Scripts &amp; Projects</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/07-data-import.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data Import</span></span></a>
-  </div>
-</li>
-      </ul>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../src/practice/_practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Practice</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/practice/topic-modeling-r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Topic Modeling in R</span></span></a>
+  <a href="../../src/r-for-data-science/01-data-viz.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/02-workflow-basics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Workflow: Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/03-data-trans.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Transformation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/04-workflow-code-style.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Workflow: Code Style</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/05-data-tidying.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Tidying</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/06-workflow-scripts-and-projects.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Workflow: Scripts &amp; Projects</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/07-data-import.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Import</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Projects</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/projects/topic-modeling-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Topic Modeling in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/projects/scrap_mac_registrar.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Scrap Mac Registrar Website</span></a>
   </div>
 </li>
       </ul>
@@ -263,32 +284,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#load" id="toc-load" class="nav-link" data-scroll-target="#load">Load</a></li>
   </ul>
 </li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">8.1</span> Introduction</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">11.1</span> Introduction</a></li>
   <li>
-<a href="#styling-overview" id="toc-styling-overview" class="nav-link" data-scroll-target="#styling-overview"><span class="header-section-number">8.2</span> Styling Overview</a>
+<a href="#styling-overview" id="toc-styling-overview" class="nav-link" data-scroll-target="#styling-overview"><span class="header-section-number">11.2</span> Styling Overview</a>
   <ul class="collapse">
-<li><a href="#consistency" id="toc-consistency" class="nav-link" data-scroll-target="#consistency"><span class="header-section-number">8.2.1</span> Consistency</a></li>
-  <li><a href="#guidelines" id="toc-guidelines" class="nav-link" data-scroll-target="#guidelines"><span class="header-section-number">8.2.2</span> Guidelines</a></li>
-  <li><a href="#automatic" id="toc-automatic" class="nav-link" data-scroll-target="#automatic"><span class="header-section-number">8.2.3</span> Automatic</a></li>
+<li><a href="#consistency" id="toc-consistency" class="nav-link" data-scroll-target="#consistency"><span class="header-section-number">11.2.1</span> Consistency</a></li>
+  <li><a href="#guidelines" id="toc-guidelines" class="nav-link" data-scroll-target="#guidelines"><span class="header-section-number">11.2.2</span> Guidelines</a></li>
+  <li><a href="#automatic" id="toc-automatic" class="nav-link" data-scroll-target="#automatic"><span class="header-section-number">11.2.3</span> Automatic</a></li>
   </ul>
 </li>
   <li>
-<a href="#styling-specifics" id="toc-styling-specifics" class="nav-link" data-scroll-target="#styling-specifics"><span class="header-section-number">8.3</span> Styling Specifics</a>
+<a href="#styling-specifics" id="toc-styling-specifics" class="nav-link" data-scroll-target="#styling-specifics"><span class="header-section-number">11.3</span> Styling Specifics</a>
   <ul class="collapse">
-<li><a href="#names" id="toc-names" class="nav-link" data-scroll-target="#names"><span class="header-section-number">8.3.1</span> Names</a></li>
-  <li><a href="#spaces" id="toc-spaces" class="nav-link" data-scroll-target="#spaces"><span class="header-section-number">8.3.2</span> Spaces</a></li>
-  <li><a href="#pipes" id="toc-pipes" class="nav-link" data-scroll-target="#pipes"><span class="header-section-number">8.3.3</span> Pipes <code>|&gt;</code></a></li>
-  <li><a href="#ggplot2" id="toc-ggplot2" class="nav-link" data-scroll-target="#ggplot2"><span class="header-section-number">8.3.4</span> <code>ggplot2</code></a></li>
-  <li><a href="#sectioning-comments" id="toc-sectioning-comments" class="nav-link" data-scroll-target="#sectioning-comments"><span class="header-section-number">8.3.5</span> Sectioning Comments</a></li>
+<li><a href="#names" id="toc-names" class="nav-link" data-scroll-target="#names"><span class="header-section-number">11.3.1</span> Names</a></li>
+  <li><a href="#spaces" id="toc-spaces" class="nav-link" data-scroll-target="#spaces"><span class="header-section-number">11.3.2</span> Spaces</a></li>
+  <li><a href="#pipes" id="toc-pipes" class="nav-link" data-scroll-target="#pipes"><span class="header-section-number">11.3.3</span> Pipes <code>|&gt;</code></a></li>
+  <li><a href="#ggplot2" id="toc-ggplot2" class="nav-link" data-scroll-target="#ggplot2"><span class="header-section-number">11.3.4</span> <code>ggplot2</code></a></li>
+  <li><a href="#sectioning-comments" id="toc-sectioning-comments" class="nav-link" data-scroll-target="#sectioning-comments"><span class="header-section-number">11.3.5</span> Sectioning Comments</a></li>
   </ul>
 </li>
-  </ul></nav>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/hashcx/workspace/edit/main/src/r-for-data-science/04-workflow-code-style.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hashcx/workspace/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/r-for-data-science/_r-for-data-science.html">R for Data Science (2e)</a></li><li class="breadcrumb-item"><a href="../../src/r-for-data-science/04-workflow-code-style.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Workflow: Code Style</span></a></li></ol></nav><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Workflow: Code Style</span>
-</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/r-for-data-science/_r-for-data-science.html">R for Data Science (2e)</a></li><li class="breadcrumb-item"><a href="../../src/r-for-data-science/04-workflow-code-style.html"><span class="chapter-title">Workflow: Code Style</span></a></li></ol></nav><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-title">Workflow: Code Style</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -342,8 +361,8 @@ Installing Packages on Other People Machine
 [1] TRUE</code></pre>
 </div>
 </div>
-</section></section><section id="introduction" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="introduction">
-<span class="header-section-number">8.1</span> Introduction</h2>
+</section></section><section id="introduction" class="level2" data-number="11.1"><h2 data-number="11.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">11.1</span> Introduction</h2>
 <p>This page covers code style concepts when working with R. I took note for those that were new to me or found useful to remind myself with.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -358,13 +377,13 @@ Code Style &amp; Punctuation
 <p>Code style is like punctuation, when used correctly, itmakecodereadeasily.</p>
 </div>
 </div>
-</section><section id="styling-overview" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="styling-overview">
-<span class="header-section-number">8.2</span> Styling Overview</h2>
-<section id="consistency" class="level3" data-number="8.2.1"><h3 data-number="8.2.1" class="anchored" data-anchor-id="consistency">
-<span class="header-section-number">8.2.1</span> Consistency</h3>
+</section><section id="styling-overview" class="level2" data-number="11.2"><h2 data-number="11.2" class="anchored" data-anchor-id="styling-overview">
+<span class="header-section-number">11.2</span> Styling Overview</h2>
+<section id="consistency" class="level3" data-number="11.2.1"><h3 data-number="11.2.1" class="anchored" data-anchor-id="consistency">
+<span class="header-section-number">11.2.1</span> Consistency</h3>
 <p>Although there are styling guidelines (see below for example) that one can follow, it is important that a programmer pick one and stick with it to make easy for other including future self to read your work.</p>
-</section><section id="guidelines" class="level3" data-number="8.2.2"><h3 data-number="8.2.2" class="anchored" data-anchor-id="guidelines">
-<span class="header-section-number">8.2.2</span> Guidelines</h3>
+</section><section id="guidelines" class="level3" data-number="11.2.2"><h3 data-number="11.2.2" class="anchored" data-anchor-id="guidelines">
+<span class="header-section-number">11.2.2</span> Guidelines</h3>
 <p>There is not official styling guideline for R. However, there are different styling guidelines that one can adopt, below are some of those found by search R styling guidelines (<a href="https://www.google.com/search?q=r+styling+guidlines&amp;oq=r+styling+guidlines">html</a>):</p>
 <ul>
 <li>tidyverse Style Guide (<a href="https://style.tidyverse.org/">html</a>) by Hadley Wickham. <strong>This is the adopted guidelines in these notes.</strong>
@@ -373,22 +392,22 @@ Code Style &amp; Punctuation
 <li>R Coding Conventions (<a href="https://docs.google.com/document/d/1esDVxyWvH8AsX-VJa-8oqWaHLs4stGlIbk8kLc5VlII/preview">html</a>) by Henrik Bengtsson, Assoc Professor, Dept of Statistics, University of California, Berkeley</li>
 <li>Coding Style (<a href="https://contributions.bioconductor.org/r-code.html#r-code">html</a>) by Bioconductor project (<a href="https://bioconductor.org/">website</a>)</li>
 <li>R Style Guide (<a href="https://jef.works/R-style-guide/">html</a>) by Jean Fan (<a href="https://github.com/JEFworks">GitHub</a>), Assistant Professor, Center for Computational Biology, Department of Biomedical Engineering, Johns Hopkins University</li>
-</ul></section><section id="automatic" class="level3" data-number="8.2.3"><h3 data-number="8.2.3" class="anchored" data-anchor-id="automatic">
-<span class="header-section-number">8.2.3</span> Automatic</h3>
+</ul></section><section id="automatic" class="level3" data-number="11.2.3"><h3 data-number="11.2.3" class="anchored" data-anchor-id="automatic">
+<span class="header-section-number">11.2.3</span> Automatic</h3>
 <p>There are package that can be used to automatically style existing code. Below are some of those:</p>
 <ul>
 <li>
 <code>styler</code> package (<a href="https://styler.r-lib.org/">website</a>) by Lorenz Walthert (<a href="https://lorenzwalthert.com/">website</a>). After installing the package, launch RStudio’s command palette using the keyboard shortcut <code>Ctrl+Shift+P</code>, type <code>styler</code>, and select from the available commands</li>
-</ul></section></section><section id="styling-specifics" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="styling-specifics">
-<span class="header-section-number">8.3</span> Styling Specifics</h2>
-<section id="names" class="level3" data-number="8.3.1"><h3 data-number="8.3.1" class="anchored" data-anchor-id="names">
-<span class="header-section-number">8.3.1</span> Names</h3>
+</ul></section></section><section id="styling-specifics" class="level2" data-number="11.3"><h2 data-number="11.3" class="anchored" data-anchor-id="styling-specifics">
+<span class="header-section-number">11.3</span> Styling Specifics</h2>
+<section id="names" class="level3" data-number="11.3.1"><h3 data-number="11.3.1" class="anchored" data-anchor-id="names">
+<span class="header-section-number">11.3.1</span> Names</h3>
 <ul>
 <li>Use meaningful names</li>
 <li>snake_case is used to separate_multi_word_variables</li>
 <li>variables with certain theme should start with the same common word/letter to make use of the auto-complete functionality</li>
-</ul></section><section id="spaces" class="level3" data-number="8.3.2"><h3 data-number="8.3.2" class="anchored" data-anchor-id="spaces">
-<span class="header-section-number">8.3.2</span> Spaces</h3>
+</ul></section><section id="spaces" class="level3" data-number="11.3.2"><h3 data-number="11.3.2" class="anchored" data-anchor-id="spaces">
+<span class="header-section-number">11.3.2</span> Spaces</h3>
 <ul>
 <li>Except <code>^</code>, put spaces on both sides of mathematical operators</li>
 <li>Put spaces on both sides of the assignment operator, <code>&lt;-</code>
@@ -423,8 +442,8 @@ Code Style &amp; Punctuation
 <span id="cb8-5"><a href="#cb8-5"></a>    <span class="at">dep_minute =</span> dep_time <span class="sc">%%</span>  <span class="dv">100</span></span>
 <span id="cb8-6"><a href="#cb8-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="pipes" class="level3" data-number="8.3.3"><h3 data-number="8.3.3" class="anchored" data-anchor-id="pipes">
-<span class="header-section-number">8.3.3</span> Pipes <code>|&gt;</code>
+</section><section id="pipes" class="level3" data-number="11.3.3"><h3 data-number="11.3.3" class="anchored" data-anchor-id="pipes">
+<span class="header-section-number">11.3.3</span> Pipes <code>|&gt;</code>
 </h3>
 <p>The roles for pipes are nicely summarized in <a href="https://r4ds.hadley.nz/workflow-style#sec-pipes">R4DS</a>. Most of them are copied below.</p>
 <ul>
@@ -506,8 +525,8 @@ Long Pipeline
 <p>Break long pipelines (tasks) to meaningful pipelines (sub-tasks) and save the intermediate steps. This will make the code more readable and easy to check and debug.</p>
 </div>
 </div>
-</section><section id="ggplot2" class="level3" data-number="8.3.4"><h3 data-number="8.3.4" class="anchored" data-anchor-id="ggplot2">
-<span class="header-section-number">8.3.4</span> <code>ggplot2</code>
+</section><section id="ggplot2" class="level3" data-number="11.3.4"><h3 data-number="11.3.4" class="anchored" data-anchor-id="ggplot2">
+<span class="header-section-number">11.3.4</span> <code>ggplot2</code>
 </h3>
 <p>The same rules from pipe can be applied to <code>ggplot2</code>.</p>
 <div class="cell">
@@ -527,8 +546,8 @@ Long Pipeline
 <span id="cb11-14"><a href="#cb11-14"></a>  ) <span class="sc">+</span></span>
 <span id="cb11-15"><a href="#cb11-15"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="sectioning-comments" class="level3" data-number="8.3.5"><h3 data-number="8.3.5" class="anchored" data-anchor-id="sectioning-comments">
-<span class="header-section-number">8.3.5</span> Sectioning Comments</h3>
+</section><section id="sectioning-comments" class="level3" data-number="11.3.5"><h3 data-number="11.3.5" class="anchored" data-anchor-id="sectioning-comments">
+<span class="header-section-number">11.3.5</span> Sectioning Comments</h3>
 <p>When writing long scripts, it is advisable to break the code into sections and using <em>sectioning</em> comments to label them. The RStudio keyboard shortcut to create such comment is <code>Cnrl+Shift+R</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Load data --------------------------------------</span></span>
@@ -559,6 +578,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -574,18 +737,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -617,7 +769,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -676,7 +850,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -685,6 +859,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1000,12 +1179,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../../src/r-for-data-science/03-data-trans.html" class="pagination-link" aria-label="Data Transformation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Transformation</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Data Transformation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../src/r-for-data-science/05-data-tidying.html" class="pagination-link" aria-label="Data Tidying">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Tidying</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-title">Data Tidying</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1263,10 +1442,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-270"><a href="#cb13-270"></a></span>
 <span id="cb13-271"><a href="#cb13-271"></a><span class="co"># Plot data --------------------------------------</span></span>
 <span id="cb13-272"><a href="#cb13-272"></a><span class="in">```</span></span>
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hashcx/workspace/edit/main/src/r-for-data-science/04-workflow-code-style.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hashcx/workspace/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Workspace - 9&nbsp; Data Tidying</title>
+<title>12&nbsp; Data Tidying – Workspace</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -54,7 +54,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
@@ -67,10 +66,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -98,28 +99,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script><link rel="stylesheet" href="../../sty/styles.css">
 </head>
-<body class="nav-sidebar floating">
+<body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/r-for-data-science/_r-for-data-science.html">R for Data Science (2e)</a></li><li class="breadcrumb-item"><a href="../../src/r-for-data-science/05-data-tidying.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Tidying</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/r-for-data-science/_r-for-data-science.html">R for Data Science (2e)</a></li><li class="breadcrumb-item"><a href="../../src/r-for-data-science/05-data-tidying.html"><span class="chapter-title">Data Tidying</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Workspace</a> 
+      <a href="../../">HashCX</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/hashcx/workspace/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <a href="../../Workspace.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -143,35 +145,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../src/notebooks/_notebooks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Notebooks</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Science</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/notebooks/r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R</span></span></a>
+  <a href="../../src/ds/file_org.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">File Organization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/notebooks/quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  <a href="../../src/ds/eda.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">EDA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/notebooks/rstudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">RStudio</span></span></a>
+  <a href="../../src/ds/tips.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tips</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../src/notebooks/_notebooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebooks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/notebooks/r.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/notebooks/windows.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Microsoft Windows</span></span></a>
+  <a href="../../src/notebooks/quarto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quarto</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/notebooks/rstudio.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/notebooks/windows.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Microsoft Windows</span></a>
   </div>
 </li>
       </ul>
@@ -180,68 +204,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../../src/r-for-data-science/_r-for-data-science.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R for Data Science (2e)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/01-data-viz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Visualization</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/02-workflow-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Workflow: Basics</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/03-data-trans.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Transformation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/04-workflow-code-style.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Workflow: Code Style</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/05-data-tidying.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Tidying</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/06-workflow-scripts-and-projects.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Workflow: Scripts &amp; Projects</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/r-for-data-science/07-data-import.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data Import</span></span></a>
-  </div>
-</li>
-      </ul>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../src/practice/_practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Practice</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/practice/topic-modeling-r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Topic Modeling in R</span></span></a>
+  <a href="../../src/r-for-data-science/01-data-viz.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/02-workflow-basics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Workflow: Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/03-data-trans.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Transformation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/04-workflow-code-style.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Workflow: Code Style</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/05-data-tidying.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Data Tidying</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/06-workflow-scripts-and-projects.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Workflow: Scripts &amp; Projects</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/r-for-data-science/07-data-import.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Import</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Projects</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/projects/topic-modeling-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Topic Modeling in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/projects/scrap_mac_registrar.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Scrap Mac Registrar Website</span></a>
   </div>
 </li>
       </ul>
@@ -263,31 +284,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#load" id="toc-load" class="nav-link" data-scroll-target="#load">Load</a></li>
   </ul>
 </li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">9.1</span> Introduction</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">12.1</span> Introduction</a></li>
   <li>
-<a href="#lengthening-data-pivot_longer" id="toc-lengthening-data-pivot_longer" class="nav-link" data-scroll-target="#lengthening-data-pivot_longer"><span class="header-section-number">9.2</span> Lengthening Data, <code>pivot_longer</code></a>
+<a href="#lengthening-data-pivot_longer" id="toc-lengthening-data-pivot_longer" class="nav-link" data-scroll-target="#lengthening-data-pivot_longer"><span class="header-section-number">12.2</span> Lengthening Data, <code>pivot_longer</code></a>
   <ul class="collapse">
-<li><a href="#one-variable-in-column-headers" id="toc-one-variable-in-column-headers" class="nav-link" data-scroll-target="#one-variable-in-column-headers"><span class="header-section-number">9.2.1</span> One Variable in Column Headers</a></li>
-  <li><a href="#multiple-variables-in-column-headers" id="toc-multiple-variables-in-column-headers" class="nav-link" data-scroll-target="#multiple-variables-in-column-headers"><span class="header-section-number">9.2.2</span> Multiple Variables in Column Headers</a></li>
-  <li><a href="#data-and-variable-names-in-colmnn-headers" id="toc-data-and-variable-names-in-colmnn-headers" class="nav-link" data-scroll-target="#data-and-variable-names-in-colmnn-headers"><span class="header-section-number">9.2.3</span> Data and Variable Names in Colmnn Headers</a></li>
+<li><a href="#one-variable-in-column-headers" id="toc-one-variable-in-column-headers" class="nav-link" data-scroll-target="#one-variable-in-column-headers"><span class="header-section-number">12.2.1</span> One Variable in Column Headers</a></li>
+  <li><a href="#multiple-variables-in-column-headers" id="toc-multiple-variables-in-column-headers" class="nav-link" data-scroll-target="#multiple-variables-in-column-headers"><span class="header-section-number">12.2.2</span> Multiple Variables in Column Headers</a></li>
+  <li><a href="#data-and-variable-names-in-colmnn-headers" id="toc-data-and-variable-names-in-colmnn-headers" class="nav-link" data-scroll-target="#data-and-variable-names-in-colmnn-headers"><span class="header-section-number">12.2.3</span> Data and Variable Names in Colmnn Headers</a></li>
   </ul>
 </li>
   <li>
-<a href="#widening-data-pivot-wider" id="toc-widening-data-pivot-wider" class="nav-link" data-scroll-target="#widening-data-pivot-wider"><span class="header-section-number">9.3</span> Widening Data, <code>pivot-wider</code></a>
+<a href="#widening-data-pivot-wider" id="toc-widening-data-pivot-wider" class="nav-link" data-scroll-target="#widening-data-pivot-wider"><span class="header-section-number">12.3</span> Widening Data, <code>pivot-wider</code></a>
   <ul class="collapse">
-<li><a href="#no-missing-values" id="toc-no-missing-values" class="nav-link" data-scroll-target="#no-missing-values"><span class="header-section-number">9.3.1</span> No Missing Values</a></li>
-  <li><a href="#missing-values" id="toc-missing-values" class="nav-link" data-scroll-target="#missing-values"><span class="header-section-number">9.3.2</span> Missing Values</a></li>
-  <li><a href="#duplicate-values" id="toc-duplicate-values" class="nav-link" data-scroll-target="#duplicate-values"><span class="header-section-number">9.3.3</span> Duplicate Values</a></li>
+<li><a href="#no-missing-values" id="toc-no-missing-values" class="nav-link" data-scroll-target="#no-missing-values"><span class="header-section-number">12.3.1</span> No Missing Values</a></li>
+  <li><a href="#missing-values" id="toc-missing-values" class="nav-link" data-scroll-target="#missing-values"><span class="header-section-number">12.3.2</span> Missing Values</a></li>
+  <li><a href="#duplicate-values" id="toc-duplicate-values" class="nav-link" data-scroll-target="#duplicate-values"><span class="header-section-number">12.3.3</span> Duplicate Values</a></li>
   </ul>
 </li>
-  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">9.4</span> Reference</a></li>
-  </ul></nav>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">12.4</span> Reference</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/hashcx/workspace/edit/main/src/r-for-data-science/05-data-tidying.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hashcx/workspace/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/r-for-data-science/_r-for-data-science.html">R for Data Science (2e)</a></li><li class="breadcrumb-item"><a href="../../src/r-for-data-science/05-data-tidying.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Tidying</span></a></li></ol></nav><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Tidying</span>
-</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/r-for-data-science/_r-for-data-science.html">R for Data Science (2e)</a></li><li class="breadcrumb-item"><a href="../../src/r-for-data-science/05-data-tidying.html"><span class="chapter-title">Data Tidying</span></a></li></ol></nav><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-title">Data Tidying</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -347,8 +366,8 @@ Installing Packages on Other People Machine
 [1] TRUE</code></pre>
 </div>
 </div>
-</section></section><section id="introduction" class="level2" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="introduction">
-<span class="header-section-number">9.1</span> Introduction</h2>
+</section></section><section id="introduction" class="level2" data-number="12.1"><h2 data-number="12.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">12.1</span> Introduction</h2>
 <p>This page explains how use the <code>tidyr</code> package to put data in tidy form where:</p>
 <ul>
 <li>each row represents an observation</li>
@@ -369,8 +388,8 @@ Data Trasformation Bottom-Line
 <p>Tidying is 1-to-1 process–the data takes different form but it can be put back into its original form which mean that no values are lost.</p>
 </div>
 </div>
-</section><section id="lengthening-data-pivot_longer" class="level2" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="lengthening-data-pivot_longer">
-<span class="header-section-number">9.2</span> Lengthening Data, <code>pivot_longer</code>
+</section><section id="lengthening-data-pivot_longer" class="level2" data-number="12.2"><h2 data-number="12.2" class="anchored" data-anchor-id="lengthening-data-pivot_longer">
+<span class="header-section-number">12.2</span> Lengthening Data, <code>pivot_longer</code>
 </h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -385,10 +404,10 @@ Data Trasformation Bottom-Line
 <p>When pivoting longer, the number of the rows in the dataset increases while the number of columns decreases.</p>
 </div>
 </div>
-<section id="one-variable-in-column-headers" class="level3" data-number="9.2.1"><h3 data-number="9.2.1" class="anchored" data-anchor-id="one-variable-in-column-headers">
-<span class="header-section-number">9.2.1</span> One Variable in Column Headers</h3>
-<section id="toy-dataset" class="level4" data-number="9.2.1.1"><h4 data-number="9.2.1.1" class="anchored" data-anchor-id="toy-dataset">
-<span class="header-section-number">9.2.1.1</span> Toy Dataset</h4>
+<section id="one-variable-in-column-headers" class="level3" data-number="12.2.1"><h3 data-number="12.2.1" class="anchored" data-anchor-id="one-variable-in-column-headers">
+<span class="header-section-number">12.2.1</span> One Variable in Column Headers</h3>
+<section id="toy-dataset" class="level4" data-number="12.2.1.1"><h4 data-number="12.2.1.1" class="anchored" data-anchor-id="toy-dataset">
+<span class="header-section-number">12.2.1.1</span> Toy Dataset</h4>
 <p>The following toy dataset will be used to illustrate the concepts in this section. The book used <code><a href="https://tidyr.tidyverse.org/reference/billboard.html">tidyr::billboard</a></code> dataset.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>ds <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
@@ -408,8 +427,8 @@ Data Trasformation Bottom-Line
 3 C         3  NA    30.2</code></pre>
 </div>
 </div>
-</section><section id="lengthen" class="level4" data-number="9.2.1.2"><h4 data-number="9.2.1.2" class="anchored" data-anchor-id="lengthen">
-<span class="header-section-number">9.2.1.2</span> Lengthen</h4>
+</section><section id="lengthen" class="level4" data-number="12.2.1.2"><h4 data-number="12.2.1.2" class="anchored" data-anchor-id="lengthen">
+<span class="header-section-number">12.2.1.2</span> Lengthen</h4>
 <blockquote class="blockquote">
 <p>I want the values in all the columns that start with <code>B_</code> to be placed into a (single) column named <code>value</code>. To distinguish which value belong to which column, create a new column called <code>B_type</code> for this purpuse.</p>
 </blockquote>
@@ -456,8 +475,8 @@ Dimensions of New Dataset
 6 C         3 B_2     30.2</code></pre>
 </div>
 </div>
-</section><section id="remove-na" class="level4" data-number="9.2.1.3"><h4 data-number="9.2.1.3" class="anchored" data-anchor-id="remove-na">
-<span class="header-section-number">9.2.1.3</span> Remove NA</h4>
+</section><section id="remove-na" class="level4" data-number="12.2.1.3"><h4 data-number="12.2.1.3" class="anchored" data-anchor-id="remove-na">
+<span class="header-section-number">12.2.1.3</span> Remove NA</h4>
 <p>Use the argument <code>values_drop_na = TRUE</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>ds_lengthen <span class="ot">&lt;-</span> ds <span class="sc">|&gt;</span> </span>
@@ -479,8 +498,8 @@ Dimensions of New Dataset
 4 C         3 B_2     30.2</code></pre>
 </div>
 </div>
-</section><section id="fix-cell-values" class="level4" data-number="9.2.1.4"><h4 data-number="9.2.1.4" class="anchored" data-anchor-id="fix-cell-values">
-<span class="header-section-number">9.2.1.4</span> Fix Cell Values</h4>
+</section><section id="fix-cell-values" class="level4" data-number="12.2.1.4"><h4 data-number="12.2.1.4" class="anchored" data-anchor-id="fix-cell-values">
+<span class="header-section-number">12.2.1.4</span> Fix Cell Values</h4>
 <p>Use the <code><a href="https://readr.tidyverse.org/reference/parse_number.html">readr::parse_number()</a></code> function to extract the first number from var2 variable and ignore all other text.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>ds_lengthen <span class="ot">&lt;-</span> ds <span class="sc">|&gt;</span> </span>
@@ -505,10 +524,10 @@ Dimensions of New Dataset
 4 C         3      2  30.2</code></pre>
 </div>
 </div>
-</section></section><section id="multiple-variables-in-column-headers" class="level3" data-number="9.2.2"><h3 data-number="9.2.2" class="anchored" data-anchor-id="multiple-variables-in-column-headers">
-<span class="header-section-number">9.2.2</span> Multiple Variables in Column Headers</h3>
-<section id="toy-dataset-1" class="level4" data-number="9.2.2.1"><h4 data-number="9.2.2.1" class="anchored" data-anchor-id="toy-dataset-1">
-<span class="header-section-number">9.2.2.1</span> Toy Dataset</h4>
+</section></section><section id="multiple-variables-in-column-headers" class="level3" data-number="12.2.2"><h3 data-number="12.2.2" class="anchored" data-anchor-id="multiple-variables-in-column-headers">
+<span class="header-section-number">12.2.2</span> Multiple Variables in Column Headers</h3>
+<section id="toy-dataset-1" class="level4" data-number="12.2.2.1"><h4 data-number="12.2.2.1" class="anchored" data-anchor-id="toy-dataset-1">
+<span class="header-section-number">12.2.2.1</span> Toy Dataset</h4>
 <p>The following toy dataset will be used to illustrate the concepts in this section. The book used <code><a href="https://tidyr.tidyverse.org/reference/who.html">tidyr::who2</a></code> dataset.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>ds2 <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
@@ -528,8 +547,8 @@ Dimensions of New Dataset
 3 C         3  30.1  NA    30.2  30.2</code></pre>
 </div>
 </div>
-</section><section id="lengthening-wo-seperating-variables" class="level4" data-number="9.2.2.2"><h4 data-number="9.2.2.2" class="anchored" data-anchor-id="lengthening-wo-seperating-variables">
-<span class="header-section-number">9.2.2.2</span> Lengthening w/o Seperating Variables</h4>
+</section><section id="lengthening-wo-seperating-variables" class="level4" data-number="12.2.2.2"><h4 data-number="12.2.2.2" class="anchored" data-anchor-id="lengthening-wo-seperating-variables">
+<span class="header-section-number">12.2.2.2</span> Lengthening w/o Seperating Variables</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>ds_lengthen <span class="ot">&lt;-</span> ds2 <span class="sc">|&gt;</span> </span>
 <span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">pivot_longer</span>(</span>
@@ -557,8 +576,8 @@ Dimensions of New Dataset
 12 C         3 B2_C2  30.2</code></pre>
 </div>
 </div>
-</section><section id="lengthening-w-seperating-variables" class="level4" data-number="9.2.2.3"><h4 data-number="9.2.2.3" class="anchored" data-anchor-id="lengthening-w-seperating-variables">
-<span class="header-section-number">9.2.2.3</span> Lengthening w/ Seperating Variables</h4>
+</section><section id="lengthening-w-seperating-variables" class="level4" data-number="12.2.2.3"><h4 data-number="12.2.2.3" class="anchored" data-anchor-id="lengthening-w-seperating-variables">
+<span class="header-section-number">12.2.2.3</span> Lengthening w/ Seperating Variables</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>ds_lengthen <span class="ot">&lt;-</span> ds2 <span class="sc">|&gt;</span> </span>
 <span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">pivot_longer</span>(</span>
@@ -587,8 +606,8 @@ Dimensions of New Dataset
 12 C         3 B2    C2     30.2</code></pre>
 </div>
 </div>
-</section><section id="dropping-na" class="level4" data-number="9.2.2.4"><h4 data-number="9.2.2.4" class="anchored" data-anchor-id="dropping-na">
-<span class="header-section-number">9.2.2.4</span> Dropping NA</h4>
+</section><section id="dropping-na" class="level4" data-number="12.2.2.4"><h4 data-number="12.2.2.4" class="anchored" data-anchor-id="dropping-na">
+<span class="header-section-number">12.2.2.4</span> Dropping NA</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>ds_lengthen <span class="ot">&lt;-</span> ds2 <span class="sc">|&gt;</span> </span>
 <span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">pivot_longer</span>(</span>
@@ -616,10 +635,10 @@ Dimensions of New Dataset
 10 C         3 B2    C2     30.2</code></pre>
 </div>
 </div>
-</section></section><section id="data-and-variable-names-in-colmnn-headers" class="level3" data-number="9.2.3"><h3 data-number="9.2.3" class="anchored" data-anchor-id="data-and-variable-names-in-colmnn-headers">
-<span class="header-section-number">9.2.3</span> Data and Variable Names in Colmnn Headers</h3>
-<section id="toy-dataset-2" class="level4" data-number="9.2.3.1"><h4 data-number="9.2.3.1" class="anchored" data-anchor-id="toy-dataset-2">
-<span class="header-section-number">9.2.3.1</span> Toy Dataset</h4>
+</section></section><section id="data-and-variable-names-in-colmnn-headers" class="level3" data-number="12.2.3"><h3 data-number="12.2.3" class="anchored" data-anchor-id="data-and-variable-names-in-colmnn-headers">
+<span class="header-section-number">12.2.3</span> Data and Variable Names in Colmnn Headers</h3>
+<section id="toy-dataset-2" class="level4" data-number="12.2.3.1"><h4 data-number="12.2.3.1" class="anchored" data-anchor-id="toy-dataset-2">
+<span class="header-section-number">12.2.3.1</span> Toy Dataset</h4>
 <p>The following toy dataset will be used to illustrate the concepts in this section. The book used <code><a href="https://tidyr.tidyverse.org/reference/household.html">tidyr::household</a></code> dataset.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>ds3 <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
@@ -639,8 +658,8 @@ Dimensions of New Dataset
 3 C     &lt;NA&gt;                NA C2                  32</code></pre>
 </div>
 </div>
-</section><section id="lengthening-wo-removing-na" class="level4" data-number="9.2.3.2"><h4 data-number="9.2.3.2" class="anchored" data-anchor-id="lengthening-wo-removing-na">
-<span class="header-section-number">9.2.3.2</span> Lengthening w/o Removing NA</h4>
+</section><section id="lengthening-wo-removing-na" class="level4" data-number="12.2.3.2"><h4 data-number="12.2.3.2" class="anchored" data-anchor-id="lengthening-wo-removing-na">
+<span class="header-section-number">12.2.3.2</span> Lengthening w/o Removing NA</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>ds_lengthen <span class="ot">&lt;-</span> ds3 <span class="sc">|&gt;</span> </span>
 <span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">pivot_longer</span>(</span>
@@ -662,8 +681,8 @@ Dimensions of New Dataset
 6 C     child2 C2       32</code></pre>
 </div>
 </div>
-</section><section id="lengthening-w-removing-na" class="level4" data-number="9.2.3.3"><h4 data-number="9.2.3.3" class="anchored" data-anchor-id="lengthening-w-removing-na">
-<span class="header-section-number">9.2.3.3</span> Lengthening w Removing NA</h4>
+</section><section id="lengthening-w-removing-na" class="level4" data-number="12.2.3.3"><h4 data-number="12.2.3.3" class="anchored" data-anchor-id="lengthening-w-removing-na">
+<span class="header-section-number">12.2.3.3</span> Lengthening w Removing NA</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>ds_lengthen <span class="ot">&lt;-</span> ds3 <span class="sc">|&gt;</span> </span>
 <span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">pivot_longer</span>(</span>
@@ -684,8 +703,8 @@ Dimensions of New Dataset
 4 C     child2 C2       32</code></pre>
 </div>
 </div>
-</section><section id="fixing-cell-values" class="level4" data-number="9.2.3.4"><h4 data-number="9.2.3.4" class="anchored" data-anchor-id="fixing-cell-values">
-<span class="header-section-number">9.2.3.4</span> Fixing Cell Values</h4>
+</section><section id="fixing-cell-values" class="level4" data-number="12.2.3.4"><h4 data-number="12.2.3.4" class="anchored" data-anchor-id="fixing-cell-values">
+<span class="header-section-number">12.2.3.4</span> Fixing Cell Values</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>ds_lengthen <span class="ot">&lt;-</span> ds3 <span class="sc">|&gt;</span> </span>
 <span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">pivot_longer</span>(</span>
@@ -709,8 +728,8 @@ Dimensions of New Dataset
 4 C         2 C2       32</code></pre>
 </div>
 </div>
-</section></section></section><section id="widening-data-pivot-wider" class="level2" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="widening-data-pivot-wider">
-<span class="header-section-number">9.3</span> Widening Data, <code>pivot-wider</code>
+</section></section></section><section id="widening-data-pivot-wider" class="level2" data-number="12.3"><h2 data-number="12.3" class="anchored" data-anchor-id="widening-data-pivot-wider">
+<span class="header-section-number">12.3</span> Widening Data, <code>pivot-wider</code>
 </h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -725,10 +744,10 @@ Dimensions of New Dataset
 <p>When pivoting wider, the number of the columns in the dataset increases while the number of rows decreases.</p>
 </div>
 </div>
-<section id="no-missing-values" class="level3" data-number="9.3.1"><h3 data-number="9.3.1" class="anchored" data-anchor-id="no-missing-values">
-<span class="header-section-number">9.3.1</span> No Missing Values</h3>
-<section id="toy-dataset-3" class="level4" data-number="9.3.1.1"><h4 data-number="9.3.1.1" class="anchored" data-anchor-id="toy-dataset-3">
-<span class="header-section-number">9.3.1.1</span> Toy Dataset</h4>
+<section id="no-missing-values" class="level3" data-number="12.3.1"><h3 data-number="12.3.1" class="anchored" data-anchor-id="no-missing-values">
+<span class="header-section-number">12.3.1</span> No Missing Values</h3>
+<section id="toy-dataset-3" class="level4" data-number="12.3.1.1"><h4 data-number="12.3.1.1" class="anchored" data-anchor-id="toy-dataset-3">
+<span class="header-section-number">12.3.1.1</span> Toy Dataset</h4>
 <p>Notice that each unique value in the <code>id</code> column has a single value for each of the unique values in the <code>M</code> column.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>ds <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
@@ -754,8 +773,8 @@ Dimensions of New Dataset
 6 C     M2       31</code></pre>
 </div>
 </div>
-</section><section id="widenning" class="level4" data-number="9.3.1.2"><h4 data-number="9.3.1.2" class="anchored" data-anchor-id="widenning">
-<span class="header-section-number">9.3.1.2</span> Widenning</h4>
+</section><section id="widenning" class="level4" data-number="12.3.1.2"><h4 data-number="12.3.1.2" class="anchored" data-anchor-id="widenning">
+<span class="header-section-number">12.3.1.2</span> Widenning</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>ds_widen <span class="ot">&lt;-</span> ds <span class="sc">|&gt;</span> </span>
 <span id="cb32-2"><a href="#cb32-2"></a>  <span class="fu">pivot_wider</span>(</span>
@@ -773,10 +792,10 @@ Dimensions of New Dataset
 3 C        30    31</code></pre>
 </div>
 </div>
-</section></section><section id="missing-values" class="level3" data-number="9.3.2"><h3 data-number="9.3.2" class="anchored" data-anchor-id="missing-values">
-<span class="header-section-number">9.3.2</span> Missing Values</h3>
-<section id="toy-dataset-4" class="level4" data-number="9.3.2.1"><h4 data-number="9.3.2.1" class="anchored" data-anchor-id="toy-dataset-4">
-<span class="header-section-number">9.3.2.1</span> Toy Dataset</h4>
+</section></section><section id="missing-values" class="level3" data-number="12.3.2"><h3 data-number="12.3.2" class="anchored" data-anchor-id="missing-values">
+<span class="header-section-number">12.3.2</span> Missing Values</h3>
+<section id="toy-dataset-4" class="level4" data-number="12.3.2.1"><h4 data-number="12.3.2.1" class="anchored" data-anchor-id="toy-dataset-4">
+<span class="header-section-number">12.3.2.1</span> Toy Dataset</h4>
 <p>Notice that NOT each unique value in the <code>id</code> column has a single value for each of the unique values in the <code>M</code> column–<code>B</code> does not have value for the <code>M2</code> value.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>ds <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
@@ -800,8 +819,8 @@ Dimensions of New Dataset
 5 C     M2       31</code></pre>
 </div>
 </div>
-</section><section id="widenning-1" class="level4" data-number="9.3.2.2"><h4 data-number="9.3.2.2" class="anchored" data-anchor-id="widenning-1">
-<span class="header-section-number">9.3.2.2</span> Widenning</h4>
+</section><section id="widenning-1" class="level4" data-number="12.3.2.2"><h4 data-number="12.3.2.2" class="anchored" data-anchor-id="widenning-1">
+<span class="header-section-number">12.3.2.2</span> Widenning</h4>
 <p>Notice that <code>B</code> observation will be assigned <code>NA</code> as its value in the <code>M2</code> column.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>ds_widen <span class="ot">&lt;-</span> ds <span class="sc">|&gt;</span> </span>
@@ -820,10 +839,10 @@ Dimensions of New Dataset
 3 C        30    31</code></pre>
 </div>
 </div>
-</section></section><section id="duplicate-values" class="level3" data-number="9.3.3"><h3 data-number="9.3.3" class="anchored" data-anchor-id="duplicate-values">
-<span class="header-section-number">9.3.3</span> Duplicate Values</h3>
-<section id="toy-dataset-5" class="level4" data-number="9.3.3.1"><h4 data-number="9.3.3.1" class="anchored" data-anchor-id="toy-dataset-5">
-<span class="header-section-number">9.3.3.1</span> Toy Dataset</h4>
+</section></section><section id="duplicate-values" class="level3" data-number="12.3.3"><h3 data-number="12.3.3" class="anchored" data-anchor-id="duplicate-values">
+<span class="header-section-number">12.3.3</span> Duplicate Values</h3>
+<section id="toy-dataset-5" class="level4" data-number="12.3.3.1"><h4 data-number="12.3.3.1" class="anchored" data-anchor-id="toy-dataset-5">
+<span class="header-section-number">12.3.3.1</span> Toy Dataset</h4>
 <p>Notice that NOT each unique value in the <code>id</code> column has a single value for each of the unique values in the <code>M</code> column–B has multiple value for <code>M2</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>ds <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
@@ -851,8 +870,8 @@ Dimensions of New Dataset
 7 C     M2       31</code></pre>
 </div>
 </div>
-</section><section id="widenning-2" class="level4" data-number="9.3.3.2"><h4 data-number="9.3.3.2" class="anchored" data-anchor-id="widenning-2">
-<span class="header-section-number">9.3.3.2</span> Widenning</h4>
+</section><section id="widenning-2" class="level4" data-number="12.3.3.2"><h4 data-number="12.3.3.2" class="anchored" data-anchor-id="widenning-2">
+<span class="header-section-number">12.3.3.2</span> Widenning</h4>
 <p>Notice that the generated values are <code>list-cols</code>–see the warning message for details.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>ds_widen <span class="ot">&lt;-</span> ds <span class="sc">|&gt;</span> </span>
@@ -879,8 +898,8 @@ Dimensions of New Dataset
 3 C     &lt;dbl [1]&gt; &lt;dbl [1]&gt;</code></pre>
 </div>
 </div>
-</section></section></section><section id="reference" class="level2" data-number="9.4"><h2 data-number="9.4" class="anchored" data-anchor-id="reference">
-<span class="header-section-number">9.4</span> Reference</h2>
+</section></section></section><section id="reference" class="level2" data-number="12.4"><h2 data-number="12.4" class="anchored" data-anchor-id="reference">
+<span class="header-section-number">12.4</span> Reference</h2>
 <ul>
 <li>Wickham, H. . (2014). Tidy Data. Journal of Statistical Software, 59(10), 1–23. https://doi.org/10.18637/jss.v059.i10 (<a href="https://www.jstatsoft.org/article/view/v059i10">webpage</a>)
 <ul>
@@ -912,6 +931,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -927,18 +1090,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -970,7 +1122,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -1029,7 +1203,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -1038,6 +1212,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1353,12 +1532,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../../src/r-for-data-science/04-workflow-code-style.html" class="pagination-link" aria-label="Workflow: Code Style">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Workflow: Code Style</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Workflow: Code Style</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../src/r-for-data-science/06-workflow-scripts-and-projects.html" class="pagination-link" aria-label="Workflow: Scripts &amp; Projects">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Workflow: Scripts &amp; Projects</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-title">Workflow: Scripts &amp; Projects</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1784,10 +1963,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb44-460"><a href="#cb44-460"></a></span>
 <span id="cb44-461"><a href="#cb44-461"></a><span class="ss">- </span>Wickham, H. . (2014). Tidy Data. Journal of Statistical Software, 59(10), 1–23. https://doi.org/10.18637/jss.v059.i10 (<span class="co">[</span><span class="ot">webpage</span><span class="co">](https://www.jstatsoft.org/article/view/v059i10)</span>)</span>
 <span id="cb44-462"><a href="#cb44-462"></a><span class="ss">    - </span>details the history and underlying theory behind tidy data</span>
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hashcx/workspace/edit/main/src/r-for-data-science/05-data-tidying.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hashcx/workspace/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
